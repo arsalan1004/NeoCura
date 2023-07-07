@@ -2,7 +2,7 @@ import React from 'react'
 import classes from "./HeroSection.module.css"
 import HeroImage from '../../../assets/images/heroBg.png'
 import RightArrow from '../../../assets/images/right-icon.gif'
-import Wrapper from '../../../shared/Wrapper/Wrapper'
+import Wrapper from '../../shared/Wrapper/Wrapper'
 const HeroSection = () => {
   return (
     <section className={classes.heroBg}>

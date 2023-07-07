@@ -1,7 +1,7 @@
 import React from 'react'
 import {BlogsData} from '../../data/data'
 import { useLocation, useParams } from 'react-router-dom';
-import Wrapper from '../../shared/Wrapper/Wrapper';
+import Wrapper from '../shared/Wrapper/Wrapper';
 import classes from './singleBlog.module.css'
 
 const SingleBlog = () => {
