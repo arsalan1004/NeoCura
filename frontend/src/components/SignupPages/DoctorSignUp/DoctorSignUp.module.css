@@ -1,0 +1,21 @@
+.main{
+    position:relative;
+    background-image: url("../../../assets/images/Signdoc-bg.jpg");
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size:cover;
+    background-position: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Box{
+    height:80%;
+    width:90%;
+    display: grid;
+    border-radius: 10px;
+    grid-template-columns: 300px auto;
+    /* backdrop-filter: blur(40px); */
+}

@@ -9,11 +9,11 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Box, IconButton, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
-  const[email,setEmail]=useState("")
-  const[pass,setPass]=useState("")
-  // const[validEmail,]={isUrlValid(validateUrl.url)}
+  const[email,setEmail]=useState("default")
+  const[pass,setPass]=useState("default")
   const[passVisible,setPassVisible]=useState(false)
   const handlePass=()=>{
     setPassVisible(!passVisible)
@@ -31,11 +31,13 @@ const LoginPage = () => {
     <div className={classes.main}>
       <div className={classes.Box}>
       <div className={classes.userIconBox}>
-        <AccountCircleIcon sx={{fontSize:"100px"}} color="primary" />
+        <AccountCircleIcon sx={{fontSize:"110px"}} color="primary" />
       </div>
         <div className={classes.loginBox}>
           <div className={classes.mainInputBox}>
             <TextField
+            error={email==""}
+            helperText={email === "" ? 'Empty field!' : ' '}
             className={classes.inputField}
             required
             placeholder='abc@gmail.com'
@@ -51,7 +53,8 @@ const LoginPage = () => {
             }}
           />
             <TextField
-            error={false}
+            error={pass==""}
+            helperText={pass === "" ? 'Empty field!' : ' '}
             required
             className={classes.inputField}
             onChange={(e)=>setPass(e.target.value)}
@@ -74,11 +77,11 @@ const LoginPage = () => {
             }}
           />
           <Box sx={{width:"100%",fontSize:"14px"}}>
-              <Typography variant="p"><a href="#">Forgot Password ?</a></Typography>
+              <Typography variant="p"><Link to="/resetPassword">Forgot Password ?</Link></Typography>
           </Box>
-          <Button size='large' sx={{width:"100%",fontSize:"14px",marginTop:"4px",marginBottom:"16px"}} onClick={handleSubmit} variant="contained">Login</Button>
+          <Button size='large' sx={{width:"100%",fontSize:"14px",marginTop:"7px",marginBottom:"16px"}} onClick={handleSubmit} variant="contained">Login</Button>
           <Box sx={{fontSize:"14px"}}>
-              <Typography variant="p">Don't Have an Account ?  <a href="#"> Sign Up</a></Typography>
+              <Typography variant="p">Don't Have an Account ?  <Link to="/signup"> Sign Up</Link></Typography>
           </Box>
           </div>
         </div>

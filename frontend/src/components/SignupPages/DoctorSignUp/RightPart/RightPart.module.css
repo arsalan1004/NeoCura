@@ -1,0 +1,46 @@
+.main{
+    background-color: white;
+    border-top-right-radius:10px ;
+    border-bottom-right-radius:10px ;
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.inputMainBox{
+    display: grid;
+    gap:40px;
+    grid-template-columns: auto auto;
+}
+.main h2{
+    font-size: 32px;
+    font-weight: bold;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 16px;
+}
+.main p{
+    /* font-size: 32px; */
+    /* font-weight: bold; */
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 30px;
+}
+.btnRight{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.btnLeft{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.btnBox{
+    display: flex;
+}
+.ContentBox{
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+}
