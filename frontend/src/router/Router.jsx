@@ -9,6 +9,7 @@ import SignupPage from '../components/SignupPages/SignupPage';
 import ResetPass from '../components/ResetPassword/resetPass';
 import DoctorSignUp from '../components/SignupPages/DoctorSignUp/DoctorSignUp';
 import PatientSignUp from '../components/SignupPages/PatientSignUp/PatientSignUp';
+import IndivDoc from '../components/IndivDoc/IndivDoc';
 
 const Router = () => {
   return (
@@ -20,6 +21,7 @@ const Router = () => {
             <Route path="/signup" element={<SignupPage/>}/>
             <Route path="/signup/doctor" element={<DoctorSignUp/>}/>
             <Route path="/signup/patient" element={<PatientSignUp/>}/>
+            <Route path="/indivDoc" element={<IndivDoc/>}/>
             <Route path="/blogs" element={<AllBlogs/>}/>
             <Route path="/blogs/:id" element={<SingleBlog/>}/>
             <Route path="*" element={<NotFound/>}/>
