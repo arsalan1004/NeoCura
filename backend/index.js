@@ -14,5 +14,6 @@ const res = pool.query(`SELECT * FROM MOCK_DATA WHERE id=1`).then((suc)=>{
     console.log(suc.rows)
     pool.end()
 })
+console.log("hello")
 
 app.listen(PORT,()=>{console.log(`Your server is runing on http://localhost:${PORT}`)})
