@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import IndivDoc from '../../components/IndivDoc/IndivDoc';
 import Aux from '../../hoc/Auxiliary/Auxiliary';
-import Context from '../../Context/context';
+import Context from '../../Context/Context';
 
 const DoctorList = () => {
 
@@ -178,7 +178,6 @@ const DoctorList = () => {
     return (
         
         <Aux>
-
             <Context.Provider value={{docInfo, userReview, locations}}>
                 <IndivDoc />
             </Context.Provider>

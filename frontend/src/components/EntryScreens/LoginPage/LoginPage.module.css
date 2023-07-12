@@ -15,7 +15,7 @@
 }
 .main{
     position:relative;
-    background-image: url("../../assets/images/login-bg.jpeg");
+    background-image: url("../../../assets/images/login-bg.jpeg");
     background-repeat: no-repeat;
     height: 100vh;
     background-size:cover;

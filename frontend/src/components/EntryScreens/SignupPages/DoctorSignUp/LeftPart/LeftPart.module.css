@@ -2,7 +2,9 @@
     background-color: rgba(0, 0, 61, 0.196);
     border-top-left-radius:10px ;
     border-bottom-left-radius:10px ;
-    padding:40px 20px;
+    padding:30px 20px;
+    /* height: 440px; */
+
 }
 .main h2{
     color: white;
@@ -10,9 +12,20 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
 }
-.main p{
+.para{
     color:whitesmoke;
+    min-height: 30px;
     font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+}
+.ItemPara{
+    color:rgb(217, 217, 217,0.7);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+}
+.SelectedItemPara{
+    color:white;
+    font-family:'Courier New', Courier, monospace;
     font-size: 12px;
 }
 .ListItem{
@@ -26,8 +39,7 @@
 }
 
 .Number{
-    /* border:1px solid rgb(217, 217, 217,0.7); */
-    border:1px solid whitesmoke;
+    border:1px solid rgb(217, 217, 217,0.7);
     border-radius: 999px;
     height:17px;
     width:17px;
@@ -36,6 +48,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: whitesmoke;
-    /* color:rgb(217, 217, 217,0.7) */
+    color: rgb(217, 217, 217,0.7);
+}
+.NumberSelected{
+    border:1px solid white;
+    border-radius: 999px;
+    height:17px;
+    width:17px;
+    padding: 3px;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:white
 }

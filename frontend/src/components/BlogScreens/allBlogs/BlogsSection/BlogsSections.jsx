@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import classes from './BlogsSection.module.css'
-import Wrapper from '../../shared/Wrapper/Wrapper'
+import Wrapper from '../../../shared/Wrapper/Wrapper'
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import BlogBox from '../../shared/BlogBox/BlogBox';
-import {BlogsData} from '../../../data/data'
+import BlogBox from '../../../shared/BlogBox/BlogBox';
+import {BlogsData} from '../../../../data/data'
 import { Link } from 'react-router-dom';
 
 

@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import classes from './AccountType.module.css'
 import { Box } from '@mui/material';
 import Button from '@mui/material/Button';
-import Doctor from '../../../assets/images/doctor.png';
-import Patient from '../../../assets/images/patient.png';
+import Doctor from '../../../../assets/images/doctor.png';
+import Patient from '../../../../assets/images/patient.png';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useNavigate } from 'react-router-dom';
 

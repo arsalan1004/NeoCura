@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classes from './Slider.module.css';
-import Wrapper from '../../shared/Wrapper/Wrapper'
+import Wrapper from '../../../shared/Wrapper/Wrapper'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y,Parallax,EffectCoverflow } from 'swiper/modules';
 import 'swiper/css';
@@ -9,8 +9,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/parallax';
 import 'swiper/css/effect-coverflow';
-import BlogBox from '../../shared/BlogBox/BlogBox';
-import {BlogsData} from '../../../data/data'
+import BlogBox from '../../../shared/BlogBox/BlogBox';
+import {BlogsData} from '../../../../data/data'
 
 
 const Slider = () => {
