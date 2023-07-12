@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import EastIcon from "@mui/icons-material/East";
-import WestIcon from '@mui/icons-material/West';
-import axios from 'axios';
+import WestIcon from "@mui/icons-material/West";
+import axios from "axios";
 import classes from "./RightPart.module.css";
 import { Button, MenuItem } from "@mui/material";
 import { personalInfoData } from "../../../../../data/SignUpData/data";
 
 const Preview = ({ setModal, modal, prevSection }) => {
-  const Submit=()=>{
-    axios.post("https://localhost:300",modal).then((res)=>{
-      console.log("succes")
-    }).catch((err)=>{
-      console.log("failed")
-    })
-    console.log({message:"submitted",data:modal})
-  }
-  
+  const Submit = () => {
+    axios
+      .post("http://localhost:5000/doctor/signup", modal)
+      .then((res) => {
+        console.log("succes");
+      })
+      .catch((err) => {
+        console.log("failed");
+      });
+    console.log({ message: "submitted", data: modal });
+  };
+
   return (
     <div className={classes.main}>
       <div className={classes.ContentBox}>
@@ -46,15 +49,29 @@ const Preview = ({ setModal, modal, prevSection }) => {
       </div>
 
       <div className={classes.btnBox}>
-            <div className={classes.btnLeft}>
-                <Button variant="contained" sx={{width:"140px",fontSize:"16px"}} onClick={prevSection} startIcon={<WestIcon/>} >Previous</Button>
-            </div>
-            {/* <div className={classes.btnRight}>
+        <div className={classes.btnLeft}>
+          <Button
+            variant="contained"
+            sx={{ width: "140px", fontSize: "16px" }}
+            onClick={prevSection}
+            startIcon={<WestIcon />}
+          >
+            Previous
+          </Button>
+        </div>
+        {/* <div className={classes.btnRight}>
                 <Button variant="contained" sx={{width:"140px",fontSize:"16px"}} onClick={handleSubmit} endIcon={<EastIcon/>} >Next</Button>
             </div> */}
-            <div className={classes.btnRight}>
-                <Button variant="contained" sx={{ backgroundColor:"green",width:"140px",fontSize:"16px"}} onClick={Submit} endIcon={<EastIcon/>} >SignUP</Button>
-            </div>
+        <div className={classes.btnRight}>
+          <Button
+            variant="contained"
+            sx={{ backgroundColor: "green", width: "140px", fontSize: "16px" }}
+            onClick={Submit}
+            endIcon={<EastIcon />}
+          >
+            SignUP
+          </Button>
+        </div>
       </div>
     </div>
   );
