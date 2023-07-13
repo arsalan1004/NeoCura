@@ -4,6 +4,7 @@ import AllBlogs from '../components/BlogScreens/allBlogs/AllBlogs';
 import SingleBlog from '../components/BlogScreens/SingleBlog/SingleBlog';
 import NotFound from '../components/EntryScreens/NotFound/NotFound';
 import Home from '../components/Home/Home';
+import BookAppointment from '../components/BookAppointment/BookAppointment';
 import LoginPage from '../components/EntryScreens/LoginPage/LoginPage';
 import SignupPage from '../components/EntryScreens/SignupPages/SignupPage';
 import ResetPass from '../components/EntryScreens/ResetPassword/resetPass';
@@ -23,6 +24,7 @@ const Router = () => {
             <Route path="/signup/doctor" element={<DoctorSignUp/>}/>
             <Route path="/signup/patient" element={<PatientSignUp/>}/>
             <Route path="/indivDoc" element={<DoctorList/>}/>
+            <Route path="/booking" element={<BookAppointment/>}/>
             <Route path="/blogs" element={<AllBlogs/>}/>
             <Route path="/blogs/:id" element={<SingleBlog/>}/>
             <Route path="*" element={<NotFound/>}/>

@@ -10,7 +10,7 @@ import { personalInfoData } from "../../../../../data/SignUpData/data";
 const Preview = ({ setModal, modal, prevSection }) => {
   const Submit = () => {
     axios
-      .post("http://localhost:5000/doctor/signup", modal)
+      .post("http://localhost:5000/signup/doctor", modal)
       .then((res) => {
         console.log("succes");
       })
