@@ -1,9 +1,7 @@
 const express = require("express");
-const Router = express.Router();
-const {
-  getDocList,
-} = require("../../controllers/doc_list_controller/index.js");
+const NavbarRouter = express.Router();
+const { getNavData } = require("../../controllers/Navbar_controller/index.js");
 
-Router.get("/", getNavData);
+NavbarRouter.get("/", getNavData);
 
-module.exports = { Router };
+module.exports = { NavbarRouter };

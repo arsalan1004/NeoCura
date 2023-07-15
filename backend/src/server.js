@@ -8,6 +8,7 @@ const cors = require("cors");
 // Require Router
 const { Router } = require("./api/routes/Doc_Route/doc_route.js");
 const { SignUpRouter } = require("./api/routes/SignUp_Route/signup_Route.js");
+const { NavbarRouter } = require("./api/routes/NavBar_Route/navbarRoute.js");
 
 // Require ENV variables
 require("dotenv").config();
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(cors());
 
 // Use Routes
+app.use("/", NavbarRouter);
 app.use("/", Router);
 app.use("/signup", SignUpRouter);
 
