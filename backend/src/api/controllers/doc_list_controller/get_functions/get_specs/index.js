@@ -1,15 +1,12 @@
 const { database } = require("../../../../../config/db_setup.js");
 
-let condIdObj = [];
-
-const getCondIds = (spec_list) => {
+const getSpecId = (Request) => {
   return new Promise((resolve, reject) => {
     database.query(
-      `SELECT "conId" FROM public."HealthConSpec" WHERE "spId" IN (${spec_list})`,
+      `SELECT "spId" FROM public."Speciality" WHERE "specialityName" = '${Request.params.speciality}'`,
       (err, result) => {
         if (!err) {
-          condIdObj = result.rows;
-          resolve(condIdObj);
+          resolve(result.rows[0].spId);
         } else {
           reject(err);
         }
@@ -18,6 +15,4 @@ const getCondIds = (spec_list) => {
   });
 };
 
-module.exports = {
-  getCondIds,
-};
+module.exports = { getSpecId };

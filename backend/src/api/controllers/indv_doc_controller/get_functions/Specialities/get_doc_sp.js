@@ -4,8 +4,8 @@ const { list_convert } = require("../../../../helpers/index.js");
 
 let spec_list = [];
 
-const getDocSpecs = async (request) => {
-  const specIdObj = await getSpecId(request);
+const getDocSpecs = async (id) => {
+  const specIdObj = await getSpecId(id);
   spec_list = list_convert(specIdObj);
 
   return new Promise((resolve, reject) => {

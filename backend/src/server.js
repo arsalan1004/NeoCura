@@ -2,7 +2,6 @@
 const express = require("express");
 const app = express();
 
-
 //Requiring Cors for access-Control-Allow-Origin
 const cors = require("cors");
 
@@ -14,12 +13,12 @@ const { SignUpRouter } = require("./api/routes/SignUp_Route/signup_Route.js");
 require("dotenv").config();
 
 //Body parser midleware
-app.use(express.json()); 
+app.use(express.json());
 
-app.use(cors())
+app.use(cors());
 
 // Use Routes
-app.use("/doctors", Router);
+app.use("/", Router);
 app.use("/signup", SignUpRouter);
 
 // Setting Up Server

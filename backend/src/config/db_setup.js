@@ -8,12 +8,12 @@ const database = new Client({
   database: "DocNextDoor",
 });
 
-// database.connect((err) => {
-//   if (!err) {
-//     console.log("connected");
-//   } else {
-//     console.log(err);
-//   }
-// });
+database.connect((err) => {
+  if (!err) {
+    console.log("connected");
+  } else {
+    console.log(err);
+  }
+});
 
 module.exports = { database };
