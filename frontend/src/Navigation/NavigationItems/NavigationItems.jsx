@@ -9,14 +9,33 @@ const NavigationItems = ()=>{
     const [NavBoxContent, setNavBoxContent] = useState(null);
     const [showNavBar, setShowNavBar] = useState(false);
 
+    const CloseNavBox = ()=>{
+        setNavBoxContent(
+            <NavigationBox 
+                    name={'closing'} 
+                    show={false} 
+                    closeHandler={CloseNavBox} 
+            />
+       );
+        setShowNavBar(true);
+    };
+
+
+
     const NavigationItem = (name) => {
        setNavBoxContent(
-            <NavigationBox name={name} show={true} />
+            <NavigationBox 
+                    name={name} 
+                    show={true} 
+                    closeHandler={CloseNavBox} 
+            />
        );
 
        setShowNavBar(true);
        
     }
+
+    
 
     return(
 
@@ -25,7 +44,7 @@ const NavigationItems = ()=>{
             {showNavBar && NavBoxContent}
 
             <ul className={classes.NavigationItems}>
-                {/* active={true} is same as active as it works like this for bool */}
+
                 <li onClick={()=>NavigationItem('Doctor')}>Doctor</li>
                 <li onClick={()=>NavigationItem('Hospital')}>Hospital</li>
                 <li>Clinic</li>
