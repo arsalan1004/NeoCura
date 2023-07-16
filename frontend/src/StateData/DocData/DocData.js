@@ -2,7 +2,7 @@ const docData = [
 
     {
         'docId': 1,
-        'docImg': 'doc_111.png',
+        'docImg': 'doc111',
         'name': 'Dr. Samra Sadaf',
         gender: 'Female',
         'specialization': ['Dermatologist', 'Cosmetologist', 'Cardiologist', 'Neurologist', 'Urologist'],
@@ -35,7 +35,7 @@ const docData = [
 
     {
         'docId': 2,
-        'docImg': 'doc44.png',
+        'docImg': 'doc44',
         'name': 'Dr. Muhammad Khalid',
         gender: 'Male',
         'specialization': ['Orthopedic Surgeon', 'Sports Medicine Specialist'],
@@ -67,7 +67,7 @@ const docData = [
 
     {
         'docId': 3,
-        'docImg': 'doc33.png',
+        'docImg': 'doc33',
         'name': 'Dr. Noren Umer',
         gender: 'Female',
         'specialization': ['Pediatrician', 'Neonatologist'],
@@ -100,7 +100,7 @@ const docData = [
 
     {
         'docId': 4,
-        'docImg': 'doc44.png',
+        'docImg': 'doc44',
         'name': 'Dr. Fahad Saleem',
         gender: 'Male',
         'specialization': ['Ophthalmologist', 'Retina Specialist'],
@@ -132,7 +132,7 @@ const docData = [
 
     {
         'docId': 5,
-        'docImg': 'doc33.png',
+        'docImg': 'doc33',
         'name': 'Dr. Sofia Aslam',
         gender: 'Female',
         'specialization': ['Psychiatrist', 'Psychotherapist'],
@@ -164,7 +164,7 @@ const docData = [
 
     {
         'docId': 6,
-        'docImg': 'doc44.png',
+        'docImg': 'doc44',
         'name': 'Dr. Dawood Khan',
         gender: 'Male',
         'specialization': ['Dentist', 'Orthodontist'],

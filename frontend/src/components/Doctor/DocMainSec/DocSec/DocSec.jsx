@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from './DocSec.module.css';
 import LocCard from "./LocCard/LocCard";
 import IconButton from '../../../../UI/Buttons/IconButton/IconButton';
-import icon from '../../../../assets/Icons/videoCon2.png'
-
+import icon from '../../../../assets/Icons/videoCon2.png';
+import doc111 from '../../../../assets/images/docImgs/doc_111.png';
+import doc44 from '../../../../assets/images/docImgs/doc44.png';
+import doc33 from '../../../../assets/images/docImgs/doc33.png';
 
 const DocSec = ({docInfo, locData}) => {
 
-
+    console.log(docInfo.docImg)
+    const[pic,setPic]=useState(docInfo.docImg)
     return(
         <div className={classes.DocSec}>
             
             <div className={classes.DocSecInfo} >
                 
                 <div className={classes.Image}>
-                    <img src={require(`../../../../assets/images/docImgs/${docInfo.docImg}`)} alt="Doctor's Image" />
+                    <img src={docInfo.docImg=="doc33"?doc33:docInfo.docImg=="doc44"?doc44:doc111} alt="Doctor's Image" />
                 </div>
                     
                 <div className={classes.Info}>

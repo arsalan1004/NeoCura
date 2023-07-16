@@ -27,8 +27,8 @@ const Router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
      {index: true , element: <Home />} ,
-     {path: '/Doctor/:leftItem/:rightItem/:cityName', element: <Doctor />},
-     {path: '/Doctor', element: <Doctor />},
+     {path: 'Doctor/:leftItem/:rightItem/:cityName', element: <Doctor />},
+    //  {path: '/Doctor', element: <Doctor />},
      {path: '/Hospital/:leftItem/:rightItem', element: <Hospital />},
     {path:"/booking",element:<BookAppointment/>},
     {path:"/patientId/dashboard/*",element:<PatientDashboard />},
