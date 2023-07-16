@@ -31,3 +31,12 @@
 .content ol li{
     margin-left:40px;
 }
+
+.content img{
+    width:490px;
+    display:flex;
+    object-fit: cover;
+    margin:auto;
+    margin-top:20px;
+    margin-bottom:20px;
+}

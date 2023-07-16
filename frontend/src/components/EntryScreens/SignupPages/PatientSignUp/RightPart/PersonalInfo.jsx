@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import EastIcon from "@mui/icons-material/East";
-import classes from "./RightPart.module.css";
+import classes from "../../DoctorSignUp/RightPart/RightPart.module.css";
 import { Button, MenuItem } from "@mui/material";
 import { personalInfoData } from "../../../../../data/SignUpData/data";
 
@@ -114,7 +114,7 @@ const PersonalInfo = ({ setModal, modal, newSection }) => {
     <div className={classes.main}>
       <div className={classes.ContentBox}>
         <h2>Your personal information</h2>
-        <p>Hello Doc! Enter your personal information to get register</p>
+        <p>Hello User! Enter your personal information to get register</p>
         <div className={classes.inputMainBox}>
           {personalInfoData.map((e, i) => (
             <TextField

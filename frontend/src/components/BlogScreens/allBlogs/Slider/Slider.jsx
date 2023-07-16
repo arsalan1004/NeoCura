@@ -10,10 +10,9 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/parallax';
 import 'swiper/css/effect-coverflow';
 import BlogBox from '../../../shared/BlogBox/BlogBox';
-import {BlogsData} from '../../../../data/data'
 
 
-const Slider = () => {
+const Slider = ({data}) => {
   return (
     <section>
     <Wrapper>
@@ -37,12 +36,11 @@ const Slider = () => {
         // scrollbar={{ draggable: true }}  
         onSlideChange={() => console.log('slide change')}
     >
-      {BlogsData.map((e,i)=>{
-        console.log(e.tags)
+      {data.map((e,i)=>{
                     return(
                       <>
-                        {e.tags.includes("latest")&&<div key={i}>
-                        <SwiperSlide><BlogBox linkTo={`/blogs/${e.title}`} key={i} latest={true} data={e.content} title={e.title} date={e.date} author={e.author} read={e.read} img={e.img} slug={e.slug} /></SwiperSlide>
+                        {e.category_names.includes("General Health"||"COVID-19")&&<div key={i}>
+                        <SwiperSlide><BlogBox linkTo={`/blogs/${e.title}`} key={i} latest={true} data={e.content} title={e.title} date={e.publishDate} author={e.blogger_name} read={e.readTime} img={e.img_url} slug={e.blogId} /></SwiperSlide>
                         </div>}
                       </>
                     )

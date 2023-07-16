@@ -42,9 +42,30 @@
 .ContentBox{
     overflow-y:scroll;
     display: flex;
+    padding-right:10px ;
     max-height:70vh;
     flex-direction: column;
     align-items: space-between;
+}
+.ContentBox::-webkit-scrollbar{
+    background-color: transparent;
+    width: 6px; 
+    height: 6px; 
+
+}
+
+.ContentBox::-webkit-scrollbar-track{
+    background-color: transparent;
+
+}
+.ContentBox::-webkit-scrollbar-thumb{
+    background-color: gray;
+    border-radius: 6px;
+    width: 6px; 
+}
+
+.ContentBox::-webkit-scrollbar-thumb:hover{
+    background-color: gray;
 }
 .addRemoveButtonBox{
     margin-top: 20px;
@@ -85,6 +106,7 @@ input{
     font-weight: bold;
     text-decoration:underline;
 }
+
 
 .para2{
     text-align: center;

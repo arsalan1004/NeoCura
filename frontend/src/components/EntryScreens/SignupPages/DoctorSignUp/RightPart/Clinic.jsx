@@ -20,7 +20,7 @@ const Clinic = ({setAllowInfo,allowInfo,modal,setModal,newSection,prevSection}) 
         clinicCity:'',
         clinicContact:'',
         clinicWebsite:'',
-        clinicEmail:'',
+        clinicEmailAddress:'',
         clinicAddress:'',
         clinicTimings:{
             monday: { openingTime: '', closingTime: '' },
@@ -121,7 +121,7 @@ const Clinic = ({setAllowInfo,allowInfo,modal,setModal,newSection,prevSection}) 
                     clinicCity:'',
                     clinicContact:'',
                     clinicWebsite:'',
-                    clinicEmail:'',
+                    clinicEmailAddress:'',
                     clinicAddress:'',
                     clinicTimings:{
                         monday: { openingTime: '', closingTime: '' },

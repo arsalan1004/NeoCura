@@ -6,11 +6,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import BlogBox from '../../../shared/BlogBox/BlogBox';
-import {BlogsData} from '../../../../data/data'
-import { Link } from 'react-router-dom';
 
 
-const BlogsSection = () => {
+const BlogsSection = ({data}) => {
   return (
     <section>
     <Wrapper>
@@ -20,10 +18,10 @@ const BlogsSection = () => {
                 <div className={classes.Line}></div>
             </div>
             <div className={classes.blogContainer}>
-                {BlogsData.map((e,i)=>{
+                {data.map((e,i)=>{
                     return(
                         <div key={i}>
-                        <BlogBox key={i} linkTo={`/blogs/${e.title}`} title={e.title} date={e.date} author={e.author} read={e.read} img={e.img} slug={e.slug} />
+                        <BlogBox key={i} linkTo={`/blogs/${e.title}`} title={e.title} date={e.publishData} author={e.blogger_name} read={e.readTime} img={e.img_url} slug={e.blogId} />
                         </div>
                     )
                 })}

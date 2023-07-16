@@ -2,8 +2,11 @@ const personalInfoData=[
     {label:'First Name',name:'firstName',type:'string',required:true},
     {label:'Last Name',name:'lastName',type:'string',required:true},
     {label:'Gender',name:'gender',type:'string',required:true,select:true,selectList:["Male","Female","Other"]},
+    {label:'Date Of Birth',name:'dob',type:'date',required:true},
+    {label:'Martial Status',name:'martialStatus',type:'string',required:true,select:true,selectList:["Married","Single","Divorced","Widow/widower"]},
     {label:'Phone Number',name:'phoneNumber',type:'number',required:true},
     {label:'Email',name:'email',type:'email',required:true},
+    {label:'Password',name:'password',type:'password',required:true},
     {label:'City',name:'city',type:'email',required:true},
     {label:'Street Address',name:'streetAddress',type:'email',required:true},
     {label:'Postal Code',name:'postalCode',type:'email'},
@@ -31,42 +34,9 @@ const hospitalData=[
     {label:"Hospital Address",name:"hospitalAddress",type:"string",required:true},
 ]
 const Timings=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
-// const Timings=[
-//     {day:"Monday",timings:{
-//         openingTime:{name:"monday",type:"time",required:true,},
-//         closingTime:{name:"monday",type:"time",required:true,},
-//         off:{name:"Off",type:"string"}}
-//     },
-//     {day:"Tuesday",timings:{
-//         openingTime:{name:"tuesday",type:"time",required:true,},
-//         closingTime:{name:"tuesday",type:"time",required:true,},
-//         off:{name:"Off",type:"string"}}
-//     },
-//     {day:"Wednesday",timings:{
-//         openingTime:{name:"wednesday",type:"time",required:true,},
-//         closingTime:{name:"wednesday",type:"time",required:true,},
-//         off:{name:"Off",type:"string"}}
-//     },
-//     {day:"Thursday",timings:{
-//         openingTime:{name:"thursday",type:"time",required:true,},
-//         closingTime:{name:"thursday",type:"time",required:true,},
-//         off:{name:"Off",type:"string"}}
-//     },
-//     {day:"Friday",timings:{
-//         openingTime:{name:"friday",type:"time",required:true,},
-//         closingTime:{name:"friday",type:"time",required:true,},
-//         off:{name:"Off",type:"string"}}
-//     },
-//     {day:"Saturday",timings:{
-//         openingTime:{name:"saturday",type:"time",required:true,},
-//         closingTime:{name:"saturday",type:"time",required:true,},
-//         off:{name:"Off",type:"string"}}
-//     },
-//     {day:"Sunday",timings:{
-//         openingTime:{name:"sunday",type:"time",required:true,},
-//         closingTime:{name:"sunday",type:"time",required:true,},
-//         off:{name:"Off",type:"string"}}
-//     }
-// ]
+const ProffessionData=[
+    {label:"Platinium Membership",name:"platMember",type:"string",required:true ,select:true,selectList:["Yes","No"]},
+    {label:"Online Consultation Fees",name:"platConsultFees",type:"number",required:true},
+]
 
-export {personalInfoData,educationData, clinicData,hospitalData,Timings};
+export {personalInfoData,educationData, clinicData,hospitalData,Timings,ProffessionData};
