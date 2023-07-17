@@ -51,7 +51,7 @@ const getDoctors = async (id) => {
       experience: docName[0].experience,
       waitTime: docName[0].waitTime,
       isPlatinum: docName[0].isPlatinum,
-      docEdu,
+      education: docEdu,
       specialization: docSpecs,
       languagesSpoken: docLangs,
       conditionsTreated: docConds,

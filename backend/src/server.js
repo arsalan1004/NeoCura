@@ -20,35 +20,9 @@ app.use(express.json());
 app.use(cors());
 
 // Use Routes
-<<<<<<< HEAD
-app.use("/", NavbarRouter);
 app.use("/", Router);
-=======
-app.use("/doctors", Router);
 app.use("/blogs", BlogRouter);
->>>>>>> 2040ed6f338eb8fb04ac7a0b264927bff2ff70d2
 app.use("/signup", SignUpRouter);
-
-// database.query(
-//   `SELECT hb."blogId", hb.title, hb.content, hb."publishData", hb."lastUpdated", hb."readTime",
-//   b.name AS blogger_name, b.bio AS blogger_bio, b.email AS blogger_email, b.specialty AS blogger_specialty,
-//   c.name AS category_name, c.description AS category_description,
-// m.path AS img_url , m.description AS img_description
-// FROM public."HealthBlog" hb
-// JOIN public."Blogger" b ON hb."bloggerId" = b."bloggerId"
-// JOIN public."BlogCategory" bc ON hb."blogId" = bc."blogId"
-// JOIN public."Category" c ON bc."catId" = c."catId"
-// JOIN public."Media" m ON hb."blogId" = m."blogId";
-// `,
-//   (error, result) => {
-//     if (!error) {
-//       console.log(result.rows);
-//     } else {
-//       console.log(error);
-//     }
-//   }
-// );
-
 
 // Setting Up Server
 const port = process.env.port;
