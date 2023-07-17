@@ -9,11 +9,7 @@ const cors = require("cors");
 const { Router } = require("./api/routes/Doc_Route/doc_route.js");
 const { BlogRouter } = require("./api/routes/Blog_Route/blog_route.js");
 const { SignUpRouter } = require("./api/routes/SignUp_Route/signup_Route.js");
-<<<<<<< HEAD
-const { NavbarRouter } = require("./api/routes/NavBar_Route/navbarRoute.js");
-=======
 const { database } = require("./config/db_setup.js");
->>>>>>> 2040ed6f338eb8fb04ac7a0b264927bff2ff70d2
 
 // Require ENV variables
 require("dotenv").config();
