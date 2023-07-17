@@ -6,7 +6,7 @@ const {
 const getSpecs = async () => {
   return new Promise((resolve, reject) => {
     database.query(
-      'SELECT "specialityName" FROM public."Speciality"',
+      'SELECT "specialityName" FROM public."Speciality" LIMIT 10',
       (err, result) => {
         if (err) reject(err);
         resolve(list_convert(result.rows));

@@ -8,7 +8,7 @@ const getOnline = async () => {
   const spIds = await getSpIds();
   return new Promise((resolve, reject) => {
     database.query(
-      `SELECT 'Online ' || "specialityName" FROM public."Speciality" WHERE "spId" IN (${spIds})`,
+      `SELECT 'Online ' || "specialityName" FROM public."Speciality" WHERE "spId" IN (${spIds}) LIMIT 10`,
       (err, res) => {
         if (err) reject(err);
         resolve(list_convert(res.rows));

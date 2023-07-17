@@ -6,7 +6,7 @@ const {
 const getConds = async () => {
   return new Promise((resolve, reject) => {
     database.query(
-      `SELECT "conditionName" FROM public."HealthCondition"`,
+      `SELECT "conditionName" FROM public."HealthCondition" LIMIT 10`,
       (err, res) => {
         if (!err) {
           resolve(list_convert(res.rows));

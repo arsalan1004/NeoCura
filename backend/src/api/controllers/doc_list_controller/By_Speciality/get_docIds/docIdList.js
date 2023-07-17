@@ -2,14 +2,12 @@ const { database } = require("../../../../../config/db_setup.js");
 const {
   list_convert,
 } = require("../../../../helpers/List_Converter/to_list.js");
-const { getDocIds } = require("./docIdList.js");
 
-const finalList = async (Request) => {
-  const docIds = await getDocIds(Request);
-
+const getDocIds = async (spec) => {
   return new Promise((resolve, reject) => {
     database.query(
-      `SELECT "docId" FROM public."Doctor" WHERE "docId" IN (${docIds}) AND "city" = '${Request.params.city}'`,
+      `SELECT ds."docId" FROM public."DocSpeciality" ds JOIN public."Speciality" s
+      ON ds."spId" = s."spId" WHERE s."specialityName" = '${spec}'`,
       (error, result) => {
         if (!error) {
           resolve(list_convert(result.rows));
@@ -21,4 +19,4 @@ const finalList = async (Request) => {
   });
 };
 
-module.exports = { finalList };
+module.exports = { getDocIds };

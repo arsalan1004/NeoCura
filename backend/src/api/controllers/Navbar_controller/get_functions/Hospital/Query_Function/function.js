@@ -7,7 +7,7 @@ const hosQuery = async (hosCity) => {
   return new Promise((resolve, reject) => {
     database.query(
       `SELECT DISTINCT h."name" FROM public."Hospital" h JOIN public."HospitalBranch" hb
-        ON h."hospitalId" = hb."hospitalId" WHERE hb."city" = '${hosCity}' `,
+        ON h."hospitalId" = hb."hospitalId" WHERE hb."city" = '${hosCity}'`,
       (error, result) => {
         if (!error) {
           resolve(list_convert(result.rows));
