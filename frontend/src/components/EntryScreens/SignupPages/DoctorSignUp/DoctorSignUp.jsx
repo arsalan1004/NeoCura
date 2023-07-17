@@ -7,10 +7,12 @@ import Clinic from './RightPart/Clinic'
 import Hospital from './RightPart/Hospital'
 import UploadPic from './RightPart/UploadPic'
 import Preview from './RightPart/Preview'
+import Profession from './RightPart/Profession'
 
 
 const DoctorSignUp = () => {
   const [allowInfo,setAllowInfo]=useState(false);
+  const [allowInfoHosp,setAllowInfoHosp]=useState(false);
   const[Modal,setModal]=useState({
     personalInfo:{},
     educationInfo:{
@@ -27,7 +29,7 @@ const DoctorSignUp = () => {
       clinicName:'',
       clinicCity:'',
       clinicWebsite:'',
-      clinincEmail:'',
+      clinicEmailAddress:'',
       clinicContact:'',
       clinicAddress:'',
       clinicTimings:{
@@ -45,7 +47,7 @@ const DoctorSignUp = () => {
       hospitalName:'',
       hospitalCity:'',
       hospitalWebsite:'',
-      clinincEmail:'',
+      hospitalEmailAddress:'',
       hospitalContact:'',
       hospitalAddress:'',
       hospitalTimings:{
@@ -58,7 +60,13 @@ const DoctorSignUp = () => {
           sunday: { openingTime: '', closingTime: '' },
       }
   }],
-    otherInfo:{},
+  professionInfo:{
+    speciality: [''],
+    platMember:"" ,
+    platConsultFees: "",
+    languages: [''],
+
+  },
     profilePic:{},
   })
   
@@ -77,10 +85,11 @@ const DoctorSignUp = () => {
       <LeftPart dataNo={dataNo}/>
       {dataNo==0&&<PersonalInfo modal={Modal} setModal={setModal} newSection={newSection} />}
       {dataNo==1&&<Education modal={Modal} setModal={setModal} newSection={newSection} prevSection={prevSection}/>}
-      {dataNo==2&&<Clinic allowInfo={allowInfo} setAllowInfo={setAllowInfo} modal={Modal} setModal={setModal} newSection={newSection} prevSection={prevSection}/>}
-      {dataNo==3&&<Hospital allowInfo={allowInfo} setAllowInfo={setAllowInfo} modal={Modal} setModal={setModal} newSection={newSection} prevSection={prevSection}/>}
-      {dataNo==4&&<UploadPic modal={Modal} setModal={setModal} prevSection={prevSection} newSection={newSection}/>}
-      {dataNo==5&&<Preview modal={Modal} prevSection={prevSection}  />}
+      {dataNo==2&&<Profession modal={Modal} setModal={setModal} newSection={newSection} prevSection={prevSection}/>}
+      {dataNo==3&&<Clinic allowInfo={allowInfo} setAllowInfo={setAllowInfo} modal={Modal} setModal={setModal} newSection={newSection} prevSection={prevSection}/>}
+      {dataNo==4&&<Hospital allowInfoHosp={allowInfoHosp} setAllowInfoHosp={setAllowInfoHosp} modal={Modal} setModal={setModal} newSection={newSection} prevSection={prevSection}/>}
+      {dataNo==5&&<UploadPic modal={Modal} setModal={setModal} prevSection={prevSection} newSection={newSection}/>}
+      {dataNo==6&&<Preview modal={Modal} prevSection={prevSection}  />}
       </div>
     </div>
   )

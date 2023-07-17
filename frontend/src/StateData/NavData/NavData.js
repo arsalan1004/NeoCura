@@ -14,7 +14,7 @@ const Doctor =
             "Eye Specialist"
         ]},
 
-        {'Health Conditions': [
+        {'Condition': [
             "Hypertension (High blood pressure)",
             "Diabetes",
             "Obesity",
@@ -25,12 +25,30 @@ const Doctor =
             "Asthma",
             "Cancer",
             "Chronic obstructive pulmonary disease (COPD)"
+        ]},
+
+        {'Treatment' : [
+            'Chemotherapy',
+            'Radiation therapy',
+            'Dialysis',
+            'Psychotherapy',
+            'Radiation therapy'
+        ]},
+
+        {'Online' : [
+            'Online Cardiologist',
+            'Online Pulmonologist',
+            'Online Cancer Specialist',
+            "Online Cosmetologist",
+            "Online Endourologist"
         ]}
+
+
     ];
 
-const Hospital =
-    {
-        'Karachi': [
+const HospitalData =
+    [
+        {'Karachi': [
             "Aga Khan University Hospital",
             "Liaquat National Hospital & Medical College",
             "Indus Hospital",
@@ -41,9 +59,11 @@ const Hospital =
             "Karachi Institute of Heart Diseases",
             "National Institute of Cardiovascular Diseases (NICVD)",
             "Dow University Hospital"
-        ], 
+        ]
 
-        'Lahore': [
+    }, 
+
+        {'Lahore': [
             "Shaukat Khanum Memorial Cancer Hospital & Research Centre",
             "Jinnah Hospital",
             "Allama Iqbal Medical College/Jinnah Hospital",
@@ -52,9 +72,10 @@ const Hospital =
             "Fatima Memorial Hospital",
             "Services Hospital",
             "Punjab Institute of Cardiology"
-        ],
+        ]
+    },
 
-        'Islamabad': [
+        {'Islamabad': [
             "Shifa International Hospital",
             "Pakistan Institute of Medical Sciences (PIMS)",
             "Federal Government Services Hospital",
@@ -63,9 +84,9 @@ const Hospital =
             "Ali Medical Centre",
             "Kulsum International Hospital",
             "Capital Hospital"
-        ],
+        ]},
 
-        'Quetta': [
+        {'Quetta': [
             "Civil Hospital Quetta",
             "Bolan Medical College/Bolan Hospital",
             "Sandeman Provincial Hospital",
@@ -74,9 +95,9 @@ const Hospital =
             "Al-Sheikh Children's and General Hospital",
             "Fatima Dental Hospital",
             "Children's Hospital Quetta"
-        ],
+        ]},
 
-        'Peshawar': [
+        {'Peshawar': [
             "Lady Reading Hospital",
             "Khyber Teaching Hospital",
             "Hayatabad Medical Complex",
@@ -85,19 +106,17 @@ const Hospital =
             "Rehman Medical Institute",
             "Shaukat Khanum Memorial Cancer Hospital & Research Centre",
             "Peshawar Institute of Medical Sciences"
-        ],
-
-        'Gilgit': [
-            "District Headquarter Hospital Gilgit",
-            "Aga Khan Health Service Pakistan",
-            "Combined Military Hospital (CMH) Gilgit",
-            "Civil Hospital Gilgit",
-            "DHQ Hospital Skardu",
-            "Al-Shifa Trust Eye Hospital",
-            "Baltistan Regional Hospital Skardu",
-            "Karishma Welfare Trust Hospital"
-        ]
-    };
+        ]}
+    ];
 
 
-export {Doctor, Hospital};
+const cities = [
+    'Karachi',
+    'Lahore',
+    'Islamabad',
+    'Quetta',
+    'Peshawar'
+]
+
+
+export {Doctor, HospitalData, cities};

@@ -3,8 +3,8 @@ import classes from './LeftPart.module.css'
 
 
 const LeftPart = ({dataNo}) => {
-  const para=["Enter your personal information to get register","Enter your education to get register","Enter your Clinic Details","Enter your Hospital Details","Enter your picture to get register"]
-  const SignUpListItem=["Personal Information","Eduaction","Clinic","Hospiatl","User Photo","Preview"]
+  const para=["Enter your personal information to get register","Enter your education to get register","Enter your required information for registartion","Enter your Clinic Details","Enter your Hospital Details","Enter your picture to get register","Review your information"]
+  const SignUpListItem=["Personal Information","Eduaction","Professional Info","Clinic","Hospiatl","User Photo","Preview"]
   return (
     <div className={classes.main}>
       <h2>Step {dataNo+1}</h2>

@@ -13,17 +13,23 @@ const PersonalInfo = ({ setModal, modal, newSection }) => {
     phoneNumber: "",
     email: "",
     city: "",
+    martialStatus:"",
+    password:"",
     streetAddress: "",
     postalCode: "",
+    dob:"",
   });
 
   const [formErrors, setFormErrors] = useState({
     firstName: "",
     lastName: "",
+    martialStatus:"",
     gender: "",
     phoneNumber: "",
     email: "",
+    password:"",
     city: "",
+    dob:"",
     streetAddress: "",
     postalCode: "",
   });
@@ -35,6 +41,10 @@ const PersonalInfo = ({ setModal, modal, newSection }) => {
       error = "First Name is required";
     } else if (name === "lastName" && value.trim() === "") {
       error = "Last Name is required";
+    }else if (name === "martialStatus" && value.trim() === "") {
+      error = "It is required";
+    }else if (name === "dob" && value.trim() === "") {
+      error = "Date Of Birth is required";
     } else if (name === "gender" && value.trim() === "") {
       error = "Gender is required";
     } else if (name === "phoneNumber" && value.trim() === "") {
@@ -47,6 +57,8 @@ const PersonalInfo = ({ setModal, modal, newSection }) => {
       error = "City is required";
     } else if (name === "streetAddress" && value.trim() === "") {
       error = "Address is required";
+    } else if (name === "password" && value.trim() === "") {
+      error = "Password is required";
     }
     setFormErrors((prevErrors) => ({
       ...prevErrors,
@@ -68,9 +80,15 @@ const PersonalInfo = ({ setModal, modal, newSection }) => {
   const move = () => {
     if (
       !formErrors.firstName &&
+      !formErrors.password &&
       !formErrors.lastName &&
+      !formErrors.martialStatus &&
+      !formErrors.dob &&
       !formErrors.email &&
       PersonalInfo.firstName &&
+      PersonalInfo.martialStatus &&
+      PersonalInfo.dob &&
+      PersonalInfo.password &&
       PersonalInfo.lastName &&
       PersonalInfo.email &&
       !formErrors.gender &&
@@ -96,7 +114,7 @@ const PersonalInfo = ({ setModal, modal, newSection }) => {
     <div className={classes.main}>
       <div className={classes.ContentBox}>
         <h2>Your personal information</h2>
-        <p>Enter your personal information to get register</p>
+        <p>Hello Doc! Enter your personal information to get register</p>
         <div className={classes.inputMainBox}>
           {personalInfoData.map((e, i) => (
             <TextField

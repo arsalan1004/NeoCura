@@ -10,7 +10,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 
 
-const Hospital = ({setAllowInfo,allowInfo,modal,setModal,newSection,prevSection}) => {
+const Hospital = ({setAllowInfoHosp,allowInfoHosp,modal,setModal,newSection,prevSection}) => {
     const [selected,setSelected]=useState("no")
     const[DisplayNo,setDisplayNo]=useState(1)
     const [HospitalInfo,setHospitalInfo]=useState([
@@ -83,7 +83,7 @@ const Hospital = ({setAllowInfo,allowInfo,modal,setModal,newSection,prevSection}
     }
 
     const Submit=()=>{
-        if(allowInfo){let isFilled = true;
+        if(allowInfoHosp){let isFilled = true;
         for (let i = 0; i < HospitalInfo.length; i++) {
             const { hospitalName, hospitalCity, hospitalAddress,hospitalContact } = HospitalInfo[i];
             if (!hospitalName || !hospitalCity || !hospitalAddress ||!hospitalContact) {
@@ -155,10 +155,10 @@ const Hospital = ({setAllowInfo,allowInfo,modal,setModal,newSection,prevSection}
             <p>Enter your Hospital Details (if you have or work in any Hospital)</p>
             <div className={classes.WorkInClinicBtnBox}>
                 <p className={classes.para2}>Do you work in any Hospital?</p>
-                <Box className={selected==="no"?classes.WorkInClinicBtn:classes.WorkInClinicBtn2} onClick={()=>{setAllowInfo(true);setSelected("yes")}}>
+                <Box className={selected==="no"?classes.WorkInClinicBtn:classes.WorkInClinicBtn2} onClick={()=>{setAllowInfoHosp(true);setSelected("yes")}}>
                     <p>Yes</p>
                 </Box>
-                <Box className={selected==="yes"?classes.WorkInClinicBtn:classes.WorkInClinicBtn2} onClick={()=>{setAllowInfo(false);setSelected("no")}}>
+                <Box className={selected==="yes"?classes.WorkInClinicBtn:classes.WorkInClinicBtn2} onClick={()=>{setAllowInfoHosp(false);setSelected("no")}}>
                     <p>No</p>
                 </Box>
             </div>
@@ -166,7 +166,7 @@ const Hospital = ({setAllowInfo,allowInfo,modal,setModal,newSection,prevSection}
             <div>
             <div className={classes.inputMainBox}>
                 {
-                    hospitalData.map((e,i)=><TextField sx={{maxHeight:"60px"}} disabled={!allowInfo} error={!!formErrors[index]?.[e.name]} helperText={formErrors[index]?.[e.name] || ''} onChange={(e)=>{handleChange(e,index)}} required={e.required} value={HospitalInfo[index]?.[e.name] || ''} type={e.type} name={e.name} label={[e.label," ",HospitalInfo[index].hospitalId+1]} />
+                    hospitalData.map((e,i)=><TextField sx={{maxHeight:"60px"}} disabled={!allowInfoHosp} error={!!formErrors[index]?.[e.name]} helperText={formErrors[index]?.[e.name] || ''} onChange={(e)=>{handleChange(e,index)}} required={e.required} value={HospitalInfo[index]?.[e.name] || ''} type={e.type} name={e.name} label={[e.label," ",HospitalInfo[index].hospitalId+1]} />
                     )}
             </div>
             <div>
@@ -177,12 +177,12 @@ const Hospital = ({setAllowInfo,allowInfo,modal,setModal,newSection,prevSection}
                         <div className={classes.timeBox}>
                             <p>{day}</p>
                             <div>
-                            <TextField disabled={!allowInfo} value={HospitalInfo[index]?.hospitalTimings[day.toLowerCase()]?.openingTime??''} onChange={(a)=>{handleTimings(a,index,day)}} size="small" name="openingTime" label="Opening Time" type="time"  />
-                            <TextField disabled={!allowInfo} value={HospitalInfo[index]?.hospitalTimings[day.toLowerCase()]?.closingTime??''} onChange={(a)=>{handleTimings(a,index,day)}} size="small" sx={{marginLeft:"16px"}} name="closingTime" label="Closing Time" type="time"  />
+                            <TextField disabled={!allowInfoHosp} value={HospitalInfo[index]?.hospitalTimings[day.toLowerCase()]?.openingTime??''} onChange={(a)=>{handleTimings(a,index,day)}} size="small" name="openingTime" label="Opening Time" type="time"  />
+                            <TextField disabled={!allowInfoHosp} value={HospitalInfo[index]?.hospitalTimings[day.toLowerCase()]?.closingTime??''} onChange={(a)=>{handleTimings(a,index,day)}} size="small" sx={{marginLeft:"16px"}} name="closingTime" label="Closing Time" type="time"  />
                             </div>
                             {/* <div className={classes.closeBox}>
                             <label htmlFor="checkBox">Off</label>
-                            <input disabled={!allowInfo} name="checkBox" height="40px" type="checkbox"/>
+                            <input disabled={!allowInfoHosp} name="checkBox" height="40px" type="checkbox"/>
                             </div> */}
                         </div>
                         )
@@ -190,8 +190,8 @@ const Hospital = ({setAllowInfo,allowInfo,modal,setModal,newSection,prevSection}
             </div>
             </div>))}
             <div className={classes.addRemoveButtonBox}>
-            <Button variant="contained" color="success" disabled={!allowInfo||DisplayNo>4} sx={{width:"100px",fontSize:"12px"}} onClick={add}endIcon={<AddIcon/>} >Add</Button>
-        <Button   variant="contained" color="error" disabled={!allowInfo||DisplayNo<2} sx={{width:"100px",fontSize:"12px"}} onClick={remove} endIcon={<RemoveIcon/>} >Delete</Button>            </div>
+            <Button variant="contained" color="success" disabled={!allowInfoHosp||DisplayNo>4} sx={{width:"100px",fontSize:"12px"}} onClick={add}endIcon={<AddIcon/>} >Add</Button>
+        <Button   variant="contained" color="error" disabled={!allowInfoHosp||DisplayNo<2} sx={{width:"100px",fontSize:"12px"}} onClick={remove} endIcon={<RemoveIcon/>} >Delete</Button>            </div>
         </div>
 
         <div className={classes.btnBox}>

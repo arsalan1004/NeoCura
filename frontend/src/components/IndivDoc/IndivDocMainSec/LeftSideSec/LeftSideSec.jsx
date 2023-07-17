@@ -10,6 +10,7 @@ const LeftSideSec = () => {
     
     const {docInfo, userReview} = useContext(context);
     const sectionList = ['services', 'conditionsTreated', 'surgeriesPerformed','specialization','professionalMemberships', 'languagesSpoken']
+     
     return(
         <div className={classes.LeftSideSec}>
 
