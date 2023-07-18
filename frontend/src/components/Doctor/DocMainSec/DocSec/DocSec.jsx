@@ -33,12 +33,12 @@ const DocSec = ({ docInfo, locData }) => {
           <div>
             <h1>{docInfo.name}</h1>
             <h3>
-              {docInfo.specialization.map((sp, i) =>
+              {docInfo.specialization&&docInfo.specialization.map((sp, i) =>
                 i != docInfo.specialization.length - 1 ? sp + ", " : sp
               )}
             </h3>
             <h3>
-              {docInfo.education.map((edu, i) =>
+              {docInfo.education&&docInfo.education.map((edu, i) =>
                 i != docInfo.education.length - 1
                   ? edu.eduDegree + ", "
                   : edu.eduDegree
@@ -75,7 +75,7 @@ const DocSec = ({ docInfo, locData }) => {
           .slice(1, 4)
           .map((obj, ki) => {
             {console.log(locData[obj])}
-            return locData[obj].map((sObj, i) => (
+            return locData[obj]?.map((sObj, i) => (
               <LocCard key={sObj + i} ImgIndex={ki} locData={sObj} />
             ));
           })}

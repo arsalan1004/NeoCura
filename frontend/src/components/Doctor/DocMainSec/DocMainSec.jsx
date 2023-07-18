@@ -6,8 +6,8 @@ import classes from "./DocMainSec.module.css";
 // import DetailInfoSec from "./DetailInfoSec/DetailInfoSec";
 
 const DocMainSec = ({ docData, locData, handler }) => {
-  console.log(docData);
-  console.log(locData);
+  console.log("recieved",docData);
+  console.log("recieved",locData);
   return (
     <div className={classes.DocMainSec}>
       {/* <div>
@@ -19,7 +19,7 @@ const DocMainSec = ({ docData, locData, handler }) => {
                 <button onClick={()=>handler('fees')}>Lowest Fees</button>
                 <button onClick={()=>handler('clinic')}>Clinic Doctor</button>
             </div> */}
-      {docData.map((item, index) => {
+      {docData&&docData.map((item, index) => {
         {
           console.log("In docmainSec: ", item);
           console.log('In docmain sec: ' , locData[index] )

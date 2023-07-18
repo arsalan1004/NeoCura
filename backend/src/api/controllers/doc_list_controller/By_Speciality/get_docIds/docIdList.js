@@ -10,8 +10,11 @@ const getDocIds = async (spec) => {
       ON ds."spId" = s."spId" WHERE s."specialityName" = '${spec}'`,
       (error, result) => {
         if (!error) {
+          
           resolve(list_convert(result.rows));
+
         } else {
+          console.log('in error');
           reject(error);
         }
       }

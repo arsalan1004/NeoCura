@@ -27,7 +27,11 @@ const Router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
      {index: true , element: <Home />} ,
-     {path: 'Doctor/:leftItem/:rightItem/:cityName', element: <Doctor />, loader: DocLoader},
+     {
+      path: 'Doctor/:leftItem/:rightItem/:cityName', 
+             element: <Doctor />, 
+             loader: DocLoader
+     },
      {path: 'Hospital/:leftItem/:rightItem', element: <Hospital />},
      {path: 'CompleteList/:toolBarName/:leftItem', element: <CompleteList /> },
      {path:"/booking",element:<BookAppointment/>},

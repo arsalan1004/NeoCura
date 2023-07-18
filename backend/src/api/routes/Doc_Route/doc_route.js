@@ -13,6 +13,7 @@ const {
   getOnlineDocs,
 } = require("../../controllers/doc_list_controller/Online/index.js");
 
+
 // Get by Speciality
 Router.get("/Doctor/Speciality/:speciality/:city", getSpecDocs);
 

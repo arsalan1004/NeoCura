@@ -7,15 +7,18 @@ import {
   FAQData,
   detailInfoQA,
 } from "../../StateData/DocData/DocData";
-import { useLoaderData, useLocation } from "react-router-dom";
+import { useLoaderData, useLocation , useParams} from "react-router-dom";
 import FilterSec from "../../UI/FilterSec/FilterSec";
 import FAQSection from '../../UI/FAQSection/FAQSection';
 import DetailInfoSec from "./DocMainSec/DetailInfoSec/DetailInfoSec";
 
+
 const Doctor = () => {
 
   const doctorDataDatabase = useLoaderData();
-  const locationLink =  useLocation();
+  const params = useParams();
+
+//   const locationLink =  useLocation();
   //   doctorDataDatabase.forEach((dr) => {
   //     console.log(dr.doctorInfo);
   //   });
@@ -23,13 +26,13 @@ const Doctor = () => {
   console.log(doctorDataDatabase);
   
 
-  let doctorDb = doctorDataDatabase.map((dr) => dr.doctorInfo);
+  let doctorDb = doctorDataDatabase?.map((dr) => dr.doctorInfo);
   console.log('DOCTOR DB: ', doctorDb);
-  console.log(docData)
+//   console.log(docData)
 
-  let doctorLocDb = doctorDataDatabase.map((dr) => dr.locInfo);
+  let doctorLocDb = doctorDataDatabase?.map((dr) => dr.locInfo);
   console.log(doctorLocDb);
-  console.log(locData)
+//   console.log(locData)
 
   const [docDetail, setDocDetail] = useState(docData);
   const [locDetail, setLocDetail] = useState(locData);
@@ -173,9 +176,10 @@ const Doctor = () => {
 
 export default Doctor;
 
-export async function loader() {
-
-  const response = await fetch(locationLink.pathname);
+export async function loader({params}) {
+  
+  console.log(params.leftItem, params.rightItem, params.cityName);
+  const response = await fetch("http://localhost:5000/Doctor" +  "/" + params.leftItem + "/" + params.rightItem + "/" + params.cityName);
 
   console.log(response);
   return response;
