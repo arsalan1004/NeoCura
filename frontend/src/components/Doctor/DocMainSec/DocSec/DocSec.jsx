@@ -6,6 +6,7 @@ import icon from "../../../../assets/Icons/videoCon2.png";
 import doc111 from "../../../../assets/images/docImgs/doc_111.png";
 import doc44 from "../../../../assets/images/docImgs/doc44.png";
 import doc33 from "../../../../assets/images/docImgs/doc33.png";
+import { Link } from "react-router-dom";
 
 const DocSec = ({ docInfo, locData }) => {
   console.log(docInfo);
@@ -31,7 +32,13 @@ const DocSec = ({ docInfo, locData }) => {
 
         <div className={classes.Info}>
           <div>
-            <h1>{docInfo.name}</h1>
+            <h1>
+                <Link>
+                    {docInfo.name}
+                </Link>
+                
+            </h1>
+            
             <h3>
               {docInfo.specialization&&docInfo.specialization.map((sp, i) =>
                 i != docInfo.specialization.length - 1 ? sp + ", " : sp

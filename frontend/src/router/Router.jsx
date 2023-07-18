@@ -31,7 +31,13 @@ const Router = createBrowserRouter([
      {
       path: 'Doctor/:leftItem/:rightItem/:cityName', 
              element: <Doctor />, 
-             loader: DocLoader
+             loader: DocLoader,
+             children: [
+              {
+                path: ':docId',
+                element: <IndivDoc />
+              }
+             ]
      },
      {
       path: 'Hospital/:leftItem/:rightItem', 

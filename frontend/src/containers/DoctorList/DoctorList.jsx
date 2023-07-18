@@ -189,3 +189,13 @@ const DoctorList = () => {
 };
 
 export default DoctorList;
+
+export async function loader({params}) {
+  
+  console.log(params.docId);
+
+  const response = await fetch(docId);
+
+  console.log(response);
+  return response;
+}
