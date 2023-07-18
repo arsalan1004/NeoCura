@@ -11,10 +11,10 @@ const Preview = ({ setModal, modal, prevSection }) => {
     axios
       .post("http://localhost:5000/signup/doctor", modal)
       .then((res) => {
-        console.log("succes");
+        console.log("succes",res);
       })
       .catch((err) => {
-        console.log("failed");
+        console.log("failed",err);
       });
     console.log({ message: "submitted", data: modal });
   };

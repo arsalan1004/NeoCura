@@ -1,5 +1,99 @@
+
 .Home {
     text-align: center;
+<<<<<<< HEAD
+    width:100%;
+    height:100%;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+}
+.SerachBarContainer>h1{
+    color:white;
+}
+.CardBox{
+    display: flex;
+    height:260px;
+    /* width:200px; */
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.IconMainContainer{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap:40px
+}
+.Video{
+    height:100vh;
+    min-width:100vw;
+    z-index: -1;
+    position: absolute;
+    top:0;
+    left:0;
+    object-fit: cover;
+    box-shadow: 0px 12px 20px 1px rgba(0,0,0,0.74);
+
+}
+
+.LocBar{
+    width:200px;
+    border-radius: 20px;
+    /* border-top-right-radius: 20px; */
+    background-color: rgba(243, 243, 243, 0.802);
+    border-bottom: 2px solid rgba(0,77,255,1);
+
+    box-shadow: 0px 13px 43px -6px rgba(0,77,255,1);
+}.SearchBar{
+    box-shadow: 0px 13px 43px -6px rgba(0,77,255,1);
+    border-bottom: 2px solid rgba(0,77,255,1);
+    width:500px;
+    border-radius: 20px;
+    background-color: rgba(243, 243, 243, 0.802);
+
+
+    /* border-top-right-radius: 20px; */
+    /* position: absolute; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items:center; */
+    /* margin:auto; */
+    /* z-index:10; */
+}
+.SerachBarContainer{
+    display: flex;
+    gap:60px;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    width: 100%;
+}
+.Lowersection{
+    margin-top: 40px;
+  }
+
+.searchField{
+    outline: none !important;
+    border:none !important;
+    /* border-radius:20px; */
+}
+.MuiOutlinedInput-notchedOutline {
+    border: none !important;
+  }
+.searchField:focus{
+    /* border-radius:20px; */
+    border: none  !important;
+    outline: none !important;
+}
+
+
+
+/* Blog section */
+.mainBlogBox{
+    width:100%;
+    height:400px;
+    background-color:black ;
+=======
     width:100vw;
     height:100vh;
     overflow-x: hidden;
@@ -15,4 +109,5 @@
     top:0;
     left:0;
     object-fit: cover;
+>>>>>>> 4f098213e63799d12458cd1b31dc315632048890
 }
