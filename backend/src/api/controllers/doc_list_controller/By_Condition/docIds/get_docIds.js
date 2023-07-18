@@ -6,7 +6,6 @@ const { getCondId } = require("../condId/get_condId.js");
 
 const getDocIds = async (Request) => {
   const condId = await getCondId(Request.params.condition);
-  console.log(condId);
 
   return new Promise((resolve, reject) => {
     database.query(
