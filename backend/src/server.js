@@ -26,6 +26,7 @@ app.use("/blogs", BlogRouter);
 app.use("/signup", SignUpRouter);
 app.use("/", indvRouter);
 app.use("/", SpecRouter);
+
 // Setting Up Server
 const port = process.env.port;
 app.listen(port, () => {
