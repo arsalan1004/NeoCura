@@ -3,11 +3,12 @@ import IndivDoc from '../../components/IndivDoc/IndivDoc';
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 import Context from '../../Context/Context';
 import { useLoaderData , useParams} from "react-router-dom";
+import axios from 'axios';
 
 const DoctorList = () => {
 
   const docInfo2 = useLoaderData();
-  console.log(docInfo2);
+  console.log('DOCINFO2: ', docInfo2);
 
     const [docInfo, setDocInfo] = useState(
         {
@@ -165,10 +166,19 @@ export default DoctorList;
 
 export async function loader({params}) {
   
+  // console.log(params.docId);
+
+  // const response = await fetch("http://localhost:5000/Doctor" +  "/" + params.leftItem + "/" + params.rightItem + "/" + params.cityName + "/" + params.docId);
+
+  // console.log(response);
+
+  // return response;
+
   console.log(params.docId);
 
-  const response = await fetch("http://localhost:5000/Doctor" +  "/" + params.leftItem + "/" + params.rightItem + "/" + params.cityName + "/" + params.docId);
-
+  const response = await axios.get("http://localhost:5000/Doctor" +  "/" + params.leftItem + "/" + params.rightItem + "/" + params.cityName + "/" + params.docId).then(res => res.data);
   console.log(response);
+
   return response;
+
 }

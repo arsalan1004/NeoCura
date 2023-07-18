@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import classes from "./DocSec.module.css";
-import classes from "./DocSec.module.css";
 import LocCard from "./LocCard/LocCard";
 import IconButton from "../../../../UI/Buttons/IconButton/IconButton";
 import icon from "../../../../assets/Icons/videoCon2.png";
@@ -57,7 +56,7 @@ const DocSec = ({ docInfo, locData }) => {
           <div className={classes.ExtraInfo}>
             <div>
               <h3>Waiting Time</h3>
-              <p>{docInfo.waitTime + " mins"}</p>
+              <p>{docInfo.waitTime }</p>
             </div>
             <div>
               <h3>Experience</h3>
@@ -66,7 +65,7 @@ const DocSec = ({ docInfo, locData }) => {
             <div>
               <h3>Satisfied Patients</h3>
               <p>
-                {docInfo.satisfiedPatients * 100 +
+                {docInfo.satisfiedPatients +
                   "% " +
                   `(${docInfo.noOfReviews})`}
               </p>
