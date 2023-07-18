@@ -48,6 +48,7 @@ const getDoctors = async (id) => {
     let docDetails = {
       docId: docName[0].docId,
       name: docName[0].name,
+      gender: docName[0].gender,
       experience: docName[0].experience,
       waitTime: docName[0].waitTime,
       isPlatinum: docName[0].isPlatinum,
@@ -59,6 +60,7 @@ const getDoctors = async (id) => {
     };
 
     let locationDetails = {
+      docId: id,
       hospital: hospitalInfo,
       clinic: clinicInfo,
       onlineConsultation: onConsult,
