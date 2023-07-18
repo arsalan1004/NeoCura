@@ -1,11 +1,12 @@
-
-import AllBlogs from './components/allBlogs/AllBlogs'
 import Router from './router/Router'
+import {createBrowserRouter, RouterProvider} from 'react-router-dom'; 
+
 function App() {
 
   return (
     <>
-      <Router/>
+      {/* <Router/> */}
+      <RouterProvider router={Router}/>
     </>
   )
 }

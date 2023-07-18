@@ -41,7 +41,7 @@
     font-size: 16px;
 }
 .saveIcon{
-    background-image: url("../../assets/images/save-icon.png");
+    background-image: url("../../../assets/images/save-icon.png");
     width:30px;
     height: 30px;
     background-size: cover;
@@ -49,7 +49,7 @@
     background-repeat: no-repeat;
   }
 .unSaveIcon{
-    background-image: url("../../assets/images/unsave-icon.png");
+    background-image: url("../../../assets/images/unsave-icon.png");
     width:30px;
     height: 30px;
     background-size: cover;

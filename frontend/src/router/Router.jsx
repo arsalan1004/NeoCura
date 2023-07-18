@@ -1,30 +1,76 @@
 import React from 'react'
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-import AllBlogs from '../components/allBlogs/AllBlogs';
-import SingleBlog from '../components/SingleBlog/SingleBlog';
-import NotFound from '../components/NotFound/NotFound';
+// import { Route, Routes, BrowserRouter } from "react-router-dom";
+import AllBlogs from '../components/BlogScreens/allBlogs/AllBlogs';
+import SingleBlog from '../components/BlogScreens/SingleBlog/SingleBlog';
 import Home from '../components/Home/Home';
-import LoginPage from '../components/LoginPage/LoginPage';
-import SignupPage from '../components/SignupPages/SignupPage';
-import ResetPass from '../components/ResetPassword/resetPass';
-import DoctorSignUp from '../components/SignupPages/DoctorSignUp/DoctorSignUp';
-import PatientSignUp from '../components/SignupPages/PatientSignUp/PatientSignUp';
+import BookAppointment from '../components/BookAppointment/BookAppointment';
+import LoginPage from '../components/EntryScreens/LoginPage/LoginPage';
+import SignupPage from '../components/EntryScreens/SignupPages/SignupPage';
+import ResetPass from '../components/EntryScreens/ResetPassword/resetPass';
+import DoctorSignUp from '../components/EntryScreens/SignupPages/DoctorSignUp/DoctorSignUp';
+import PatientSignUp from '../components/EntryScreens/SignupPages/PatientSignUp/PatientSignUp';
+// import DoctorList from "../containers/DoctorList/DoctorList";
+import VideoConsultation from '../components/VideoConsultaion/VideoConsultation';
+import PatientDashboard from '../components/Dashboards/Patient/Patient';
+import DoctorDashboard from '../components/Dashboards/Doctor/Doctor';
+import {createBrowserRouter} from 'react-router-dom'; 
+import Hospital from '../components/Hospital/Hospital';
+import Doctor, {loader as DocLoader} from '../components/Doctor/Doctor';
+import ErrorPage from '../UI/ErrorPage/ErrorPage';
+import Layout from '../hoc/Layout/Layout';
+import CompleteList from '../components/CompleteList/CompleteList';
 
-const Router = () => {
-  return (
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/login" element={<LoginPage/>}/>
-            <Route path="/resetPassword" element={<ResetPass/>}/>
-            <Route path="/signup" element={<SignupPage/>}/>
-            <Route path="/signup/doctor" element={<DoctorSignUp/>}/>
-            <Route path="/signup/patient" element={<PatientSignUp/>}/>
-            <Route path="/blogs" element={<AllBlogs/>}/>
-            <Route path="/blogs/:id" element={<SingleBlog/>}/>
-            <Route path="*" element={<NotFound/>}/>
-        </Routes>
-    </BrowserRouter>
-  )
-}
+const Router = createBrowserRouter([
+
+  {
+    path: '/',
+    element: <Layout />,
+    errorElement: <ErrorPage />,
+    children: [
+     {index: true , element: <Home />} ,
+     {path: 'Doctor/:leftItem/:rightItem/:cityName', element: <Doctor />, loader: DocLoader},
+     {path: 'Hospital/:leftItem/:rightItem', element: <Hospital />},
+     {path: 'CompleteList/:toolBarName/:leftItem', element: <CompleteList /> },
+     {path:"/booking",element:<BookAppointment/>},
+     {path:"/patientId/dashboard/*",element:<PatientDashboard />},
+     {path:"/doctorId/dashboard/*",element:<DoctorDashboard />},
+     {path:"/videoConsultation",element:<VideoConsultation />},
+     {path:"/blogs",element:<AllBlogs />},
+     {path:"/blogs/:id",element:<SingleBlog />},
+    ],  
+},
+
+{path:"/signup",element:<SignupPage/>},
+{path:"/login",element:<LoginPage/>},
+{path:"/resetPassword",element:<ResetPass/>},
+{path:"/signup/doctor",element:<DoctorSignUp/>},
+{path:"/signup/patient",element:<PatientSignUp/>},
+]);
+
+// const Router = () => {
+//   return (
+//     <BrowserRouter>
+//         <Routes>
+//             <Route path="/" element={<Home/>}/>
+//             <Route path="/login" element={<LoginPage/>}/>
+//             <Route path="/resetPassword" element={<ResetPass/>}/>
+//             <Route path="/signup" element={<SignupPage/>}/>
+//             <Route path="/signup/doctor" element={<DoctorSignUp/>}/>
+//             <Route path="/signup/patient" element={<PatientSignUp/>}/>
+//             <Route path="patientId/dashboard/*" element={<PatientDashboard/>}/>
+//             <Route path="doctorId/dashboard/*" element={<DoctorDashboard/>}/>
+//             <Route path="/indivDoc" element={<DoctorList/>}/>
+//             <Route path="/booking" element={<BookAppointment/>}/>
+//             <Route path="/videoConsultation" element={<VideoConsultation/>}/>
+//             <Route path="/blogs" element={<AllBlogs/>}/>
+//             <Route path= '/Doctor' element= {<Doctor />}/>
+//             {/* <Route path= '/Doctor/:leftItem/:rightItem/:cityName' element= {<Doctor />}/> */}
+//             <Route path="/blogs/:id" element={<SingleBlog/>}/>
+//             <Route path='Hospital/:leftItem/:rightItem' element= {<Hospital />}/>
+//             <Route path="*" element={<ErrorPage/>}/>
+            
+//         </Routes>
+//     </BrowserRouter>
+//   )
+// }
 export default Router;

@@ -19,7 +19,7 @@ const BlogBox = ({ img, title, slug,linkTo, author, date, data,read,latest }) =>
         <img onClick={()=>{move()}} src={img} alt="Blog Image" className={!latest?classes.BlogImage:classes.BlogImage2} />
         <div className={!latest?classes.textContainer:classes.textContainer2}>
           <div onClick={()=>{move()}}>
-            <h2 className={classes.title}>{title}</h2>
+            <h2 className={classes.title}>{title.length>30?title.slice(0,30)+" ...":title}</h2>
             <p className={classes.author}>
               By : <strong>{author}</strong>
             </p>
@@ -30,9 +30,9 @@ const BlogBox = ({ img, title, slug,linkTo, author, date, data,read,latest }) =>
           }
           <div className={classes.bottomPart}>
             <div className={!latest?classes.dateRead:classes.dateRead2}>
-              <p>{date}</p>
+              <p>{new Date(date).toLocaleDateString("en-US",{year: "numeric",month: "long",day: "numeric"})}</p>
               <p>
-                <li>{read} read</li>
+                <li>{read} min read</li>
               </p>
             </div>
             {!latest&&<button
