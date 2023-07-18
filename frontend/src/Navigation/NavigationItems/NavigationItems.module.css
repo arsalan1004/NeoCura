@@ -11,6 +11,7 @@
     width:100%;
     text-align: center;
     margin-top: 20px;
+    color:white;
 }
 
 .NavigationItems > li{
@@ -21,6 +22,7 @@
     font-weight:600;
     position: relative;
     padding-bottom: 10px;
+    font-family: 'Lumanosimo', cursive;
 }
 
 .NavigationItems > li:hover{
@@ -36,7 +38,11 @@ li::after {
     bottom: 0;
     width: 0;
     height: 2px;
+<<<<<<< HEAD
     background-color: #a7acb7;
+=======
+    background-color: #b1b6be;
+>>>>>>> 4f098213e63799d12458cd1b31dc315632048890
     transition: width 0.4s ease-in-out, transform 0.4s ease-in-out;
     transform: translateX(-50%);
   }

@@ -6,7 +6,10 @@ import {Outlet} from 'react-router-dom';
 const Layout = () => {
     return (
             <>
-                <Toolbar />
+                <div className={classes.Toolbar}>
+                    <Toolbar />
+                </div>
+               
                 <div className={classes.Outlet}>
                     <Outlet /> 
                 </div>
