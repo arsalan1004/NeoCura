@@ -9,7 +9,7 @@ const DocCard = () => {
     return(
         <div className={classes.DocCard}>
             
-        <div className={classes.Image}><img src={require(`../../../assets/images/docImgs/${docInfo.docImg}`)} alt="Doctor's Image" /></div>
+        <div className={classes.Image}><img src={require(`../../../images/docImgs/${docInfo.docImg}`)} alt="Doctor's Image" /></div>
             {console.log(docInfo.docImg)}
             
         <div className={classes.Info}>

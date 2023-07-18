@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(cors())
 
 // Use Routes
-app.use("/doctors", Router);
+app.use("/", Router);
 app.use("/blogs", BlogRouter);
 app.use("/signup", SignUpRouter);
 

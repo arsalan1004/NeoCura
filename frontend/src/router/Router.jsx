@@ -13,11 +13,12 @@ import PatientSignUp from '../components/EntryScreens/SignupPages/PatientSignUp/
 import VideoConsultation from '../components/VideoConsultaion/VideoConsultation';
 import PatientDashboard from '../components/Dashboards/Patient/Patient';
 import DoctorDashboard from '../components/Dashboards/Doctor/Doctor';
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'; 
+import {createBrowserRouter} from 'react-router-dom'; 
 import Hospital from '../components/Hospital/Hospital';
-import Doctor from '../components/Doctor/Doctor';
+import Doctor, {loader as DocLoader} from '../components/Doctor/Doctor';
 import ErrorPage from '../UI/ErrorPage/ErrorPage';
 import Layout from '../hoc/Layout/Layout';
+import CompleteList from '../components/CompleteList/CompleteList';
 
 const Router = createBrowserRouter([
 
@@ -27,17 +28,18 @@ const Router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
      {index: true , element: <Home />} ,
-     {path: 'Doctor/:leftItem/:rightItem/:cityName', element: <Doctor />},
-    //  {path: '/Doctor', element: <Doctor />},
-     {path: '/Hospital/:leftItem/:rightItem', element: <Hospital />},
-    {path:"/booking",element:<BookAppointment/>},
-    {path:"/patientId/dashboard/*",element:<PatientDashboard />},
-    {path:"/doctorId/dashboard/*",element:<DoctorDashboard />},
-    {path:"/videoConsultation",element:<VideoConsultation />},
-    {path:"/blogs",element:<AllBlogs />},
-    {path:"/blogs/:id",element:<SingleBlog />},
+     {path: 'Doctor/:leftItem/:rightItem/:cityName', element: <Doctor />, loader: DocLoader},
+     {path: 'Hospital/:leftItem/:rightItem', element: <Hospital />},
+     {path: 'CompleteList/:toolBarName/:leftItem', element: <CompleteList /> },
+     {path:"/booking",element:<BookAppointment/>},
+     {path:"/patientId/dashboard/*",element:<PatientDashboard />},
+     {path:"/doctorId/dashboard/*",element:<DoctorDashboard />},
+     {path:"/videoConsultation",element:<VideoConsultation />},
+     {path:"/blogs",element:<AllBlogs />},
+     {path:"/blogs/:id",element:<SingleBlog />},
     ],  
 },
+
 {path:"/signup",element:<SignupPage/>},
 {path:"/login",element:<LoginPage/>},
 {path:"/resetPassword",element:<ResetPass/>},

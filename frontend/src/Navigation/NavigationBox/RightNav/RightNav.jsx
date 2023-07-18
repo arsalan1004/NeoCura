@@ -3,7 +3,7 @@ import classes from './RightNav.module.css';
 import { Doctor, HospitalData } from "../../../StateData/NavData/NavData";
 import NavigationItem from "../../NavigationItems/NavigationItem/NavigationItem";
 import context from "../../../Context/Context";
-
+import {Link} from 'react-router-dom';
 
 const RightNav = (props) => {
 
@@ -97,8 +97,20 @@ const RightNav = (props) => {
 
                         </ul>
                     </div>
+                
                 }
-
+                
+                { output &&
+                    <div className={classes.ViewAll}>
+                <Link to={`/CompleteList/${props.name}/${Object.keys(output)[0]}`} onClick={props.closeHandler} >
+                    <button data-text="Awesome" className={classes.Button}>
+                        <span className={classes.ActualText}>&nbsp;View All&nbsp;</span>
+                        <span className={classes.HoverText} aria-hidden="true">&nbsp;View&nbsp;All&nbsp;</span>
+                    </button>
+                </Link>
+                
+                </div>
+                }
         </div>
     );
 }
