@@ -5,7 +5,7 @@ const getTimetable = async (consultId, docId) => {
   const ttId = await getTtId(consultId, docId);
   return new Promise((reslove, reject) => {
     database.query(
-      `SELECT "mon","tue","wed","thurs","fri","sat","sun" FROM public."Timetable" WHERE "ttId" = '${ttId[0]}'`,
+      `SELECT "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday" FROM public."Timetable" WHERE "ttId" = '${ttId[0]}'`,
       (error, result) => {
         if (!error) {
           reslove(result.rows);

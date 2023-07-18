@@ -9,7 +9,7 @@ const DocCard = () => {
     return(
         <div className={classes.DocCard}>
             
-        <div className={classes.Image}><img src={require(`../../../assets/images/docImgs/${docInfo.docImg}`)} alt="Doctor's Image" /></div>
+        <div className={classes.Image}><img src={require(`../../../images/docImgs/${docInfo.docImg}`)} alt="Doctor's Image" /></div>
             {console.log(docInfo.docImg)}
             
         <div className={classes.Info}>
@@ -21,13 +21,13 @@ const DocCard = () => {
                 </h3>
                 <h3>{docInfo.education
                     .map(
-                        (edu, i) => i!= docInfo.education.length - 1 ? edu.degree + ', ' : edu.degree)}
+                        (edu, i) => i!= docInfo.education.length - 1 ? edu.eduDegree + ', ' : edu.eduDegree)}
                 </h3>
             </div>
             <div className={classes.ExtraInfo}>
                 <div>
                     <h3>Waiting Time</h3>
-                    <p>{docInfo.waitTime + ' mins'}</p>
+                    <p>{docInfo.waitTime}</p>
                 </div>
                 <div>
                     <h3>Experience</h3>

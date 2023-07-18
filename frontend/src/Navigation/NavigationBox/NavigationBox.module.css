@@ -3,12 +3,13 @@
     width:100vw;
     height: 0vh;
     display: flex;
-    z-index: 99999;
+    z-index: 500;
     position: fixed;
     bottom:0;
     left: 0;
     overflow: hidden;
 }
+
 
 .Open{
   animation: navigationAnimationOpen 0.6s ease-in-out forwards;

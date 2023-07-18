@@ -3,10 +3,10 @@ import React from "react";
 
 import DocSec from "./DocSec/DocSec";
 import classes from "./DocMainSec.module.css";
+import classes from "./DocMainSec.module.css";
 // import DetailInfoSec from "./DetailInfoSec/DetailInfoSec";
 
 const DocMainSec = ({ docData, locData, handler }) => {
-  console.log(docData);
   return (
     <div className={classes.DocMainSec}>
       {/* <div>
@@ -21,6 +21,7 @@ const DocMainSec = ({ docData, locData, handler }) => {
       {docData.map((item, index) => {
         {
           console.log("In docmainSec: ", item);
+          console.log("In docmain sec: ", locData[index]);
         }
         return <DocSec key={index} docInfo={item} locData={locData[index]} />;
       })}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classes from "./DocSec.module.css";
+import classes from "./DocSec.module.css";
 import LocCard from "./LocCard/LocCard";
 import IconButton from "../../../../UI/Buttons/IconButton/IconButton";
 import icon from "../../../../assets/Icons/videoCon2.png";
@@ -9,9 +10,8 @@ import doc33 from "../../../../assets/images/docImgs/doc33.png";
 
 const DocSec = ({ docInfo, locData }) => {
   console.log(docInfo);
-  console.log(docInfo.docImg);
+  console.log(locData);
 
-  const [pic, setPic] = useState(docInfo.docImg);
   return (
     <div className={classes.DocSec}>
       <div className={classes.DocSecInfo}>
@@ -31,18 +31,18 @@ const DocSec = ({ docInfo, locData }) => {
         <div className={classes.Info}>
           <div>
             <h1>{docInfo.name}</h1>
-            {/* <h3>
+            <h3>
               {docInfo.specialization.map((sp, i) =>
                 i != docInfo.specialization.length - 1 ? sp + ", " : sp
               )}
-            </h3> */}
-            {/* <h3>
+            </h3>
+            <h3>
               {docInfo.education.map((edu, i) =>
                 i != docInfo.education.length - 1
-                  ? edu.degree + ", "
-                  : edu.degree
+                  ? edu.eduDegree + ", "
+                  : edu.eduDegree
               )}
-            </h3> */}
+            </h3>
           </div>
 
           <div className={classes.ExtraInfo}>
