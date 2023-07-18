@@ -15,43 +15,41 @@ const {
 const {
   getOnlineConsultation,
 } = require("./get_functions/Location_Info/OnlineConsultation/index.js");
+const {
+  getSatisfaction,
+} = require("./get_functions/Doctor_Details/get_satisfaction.js");
 
 const getDoctors = async (id) => {
   try {
     // Get Doctor Details
     const docName = await getDocDetails(id);
-    //console.log(docName);
+
+    // Get Doctor Satisfaction
+    const docSatisfaction = await getSatisfaction(id);
 
     // Get Doctor Education
 
     const docEdu = await getDocEdu(id);
-    //console.log(docEdu);
 
     // Get Doctor Specialization
 
     const docSpecs = await getDocSpecs(id);
-    //console.log(docSpecs);
 
     // Get Doctor Languages
 
     const docLangs = await getDocLangs(id);
-    //console.log(docLangs);
 
     // Get Health Condtions which doctor treats
     const docConds = await getDocConditions(id);
-    //console.log(docConds);
 
     // Get Doctor Reviews
     const docReviews = await getReviews(id);
-    //console.log(docReviews);
 
     // Get Hospital Info
     const hospitalInfo = await getHosInfo(id);
-    console.log("in eror", hospitalInfo);
 
     // Get Clinic Info
     const clinicInfo = await getClinInfo(id);
-    console.log(clinicInfo);
 
     // GET Online Consultation
     const onConsult = await getOnlineConsultation(id);
@@ -69,6 +67,7 @@ const getDoctors = async (id) => {
       specialization: docSpecs,
       languagesSpoken: docLangs,
       conditionsTreated: docConds,
+      satisfiedPatients: docSatisfaction,
       reviews: docReviews,
     };
 
