@@ -3,7 +3,6 @@ import React from "react";
 
 import DocSec from "./DocSec/DocSec";
 import classes from "./DocMainSec.module.css";
-import classes from "./DocMainSec.module.css";
 // import DetailInfoSec from "./DetailInfoSec/DetailInfoSec";
 
 const DocMainSec = ({ docData, locData, handler }) => {
