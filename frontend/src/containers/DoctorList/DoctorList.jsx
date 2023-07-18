@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import IndivDoc from '../../components/IndivDoc/IndivDoc';
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 import Context from '../../Context/Context';
+import { useLoaderData , useParams} from "react-router-dom";
 
 const DoctorList = () => {
+
+  const docInfo2 = useLoaderData();
+  console.log(docInfo2);
 
     const [docInfo, setDocInfo] = useState(
         {
@@ -141,37 +145,6 @@ const DoctorList = () => {
     );
 
 
-    // useEffect(() => {
-    //     const eduObjArr = Object.values(docInfo.education);
-    //     const eduStringArr = eduObjArr.map((eduObj) => Object.values(eduObj).join(", "));
-
-    //     setDocInfo((prevDocInfo) => ({
-    //     ...prevDocInfo,
-    //     education: eduStringArr
-    //     }));
-    // }, []);
-
-
-
-    // const viewTimetableHandler = () => {
-    //   console.log('handler called');
-    //   setlocations(
-    //     (prevLocations)=> ({
-    //       ...prevLocations,
-    //       viewingTimetable: true
-    //     })
-    //   );
-    // }
-
-    // const hideTimetableHandler = () => {
-      
-    //   setlocations(
-    //     (prevLocations)=> ({
-    //       ...prevLocations,
-    //       viewingTimetable: false
-    //     })
-    //   );
-    // }
 
     
 
@@ -194,7 +167,7 @@ export async function loader({params}) {
   
   console.log(params.docId);
 
-  const response = await fetch(docId);
+  const response = await fetch("http://localhost:5000/Doctor" +  "/" + params.leftItem + "/" + params.rightItem + "/" + params.cityName + "/" + params.docId);
 
   console.log(response);
   return response;

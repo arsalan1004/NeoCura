@@ -10,16 +10,16 @@ import ResetPass from "../components/EntryScreens/ResetPassword/resetPass";
 import DoctorSignUp from "../components/EntryScreens/SignupPages/DoctorSignUp/DoctorSignUp";
 import PatientSignUp from "../components/EntryScreens/SignupPages/PatientSignUp/PatientSignUp";
 // import DoctorList from "../containers/DoctorList/DoctorList";
-import VideoConsultation from "../components/VideoConsultaion/VideoConsultation";
-import PatientDashboard from "../components/Dashboards/Patient/Patient";
-import DoctorDashboard from "../components/Dashboards/Doctor/Doctor";
-import { createBrowserRouter } from "react-router-dom";
-import Hospital from "../components/Hospital/Hospital";
-import IndivDoc from "../components/IndivDoc/IndivDoc";
-import Doctor, { loader as DocLoader } from "../components/Doctor/Doctor";
-import ErrorPage from "../UI/ErrorPage/ErrorPage";
-import Layout from "../hoc/Layout/Layout";
-import CompleteList from "../components/CompleteList/CompleteList";
+import VideoConsultation from '../components/VideoConsultaion/VideoConsultation';
+import PatientDashboard from '../components/Dashboards/Patient/Patient';
+import DoctorDashboard from '../components/Dashboards/Doctor/Doctor';
+import {createBrowserRouter} from 'react-router-dom'; 
+import Hospital from '../components/Hospital/Hospital';
+import DoctorList, {loader as indivDocLoader} from "../containers/DoctorList/DoctorList";
+import Doctor, {loader as DocLoader} from '../components/Doctor/Doctor';
+import ErrorPage from '../UI/ErrorPage/ErrorPage';
+import Layout from '../hoc/Layout/Layout';
+import CompleteList from '../components/CompleteList/CompleteList';
 
 const Router = createBrowserRouter([
   {
@@ -28,34 +28,33 @@ const Router = createBrowserRouter([
     element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <Home /> },
-      {
-        path: "Doctor/:leftItem/:rightItem/:cityName",
-        element: <Doctor />,
-        loader: DocLoader,
-        children: [
-          {
-            path: ":docId",
-            element: <IndivDoc />,
-          },
-        ],
-      },
-      {
-        path: "Hospital/:leftItem/:rightItem",
-        element: <Hospital />,
-      },
-      {
-        path: "CompleteList/:toolBarName/:leftItem",
-        element: <CompleteList />,
-      },
-      { path: "/booking", element: <BookAppointment /> },
-      { path: "/patientId/dashboard/*", element: <PatientDashboard /> },
-      { path: "/doctorId/dashboard/*", element: <DoctorDashboard /> },
-      { path: "/videoConsultation", element: <VideoConsultation /> },
-      { path: "/blogs", element: <AllBlogs /> },
-      { path: "/blogs/:id", element: <SingleBlog /> },
-    ],
-  },
+     {index: true , element: <Home />} ,
+     {
+      path: 'Doctor/:leftItem/:rightItem/:cityName', 
+             element: <Doctor />, 
+             loader: DocLoader,
+             children: [
+              {
+                path: ':docId',
+                element: <DoctorList />,
+                loader: indivDocLoader
+
+              }
+             ]
+     },
+     {
+      path: 'Hospital/:leftItem/:rightItem', 
+            element: <Hospital />
+     },
+     {path: 'CompleteList/:toolBarName/:leftItem', element: <CompleteList /> },
+     {path:"/booking",element:<BookAppointment/>},
+     {path:"/patientId/dashboard/*",element:<PatientDashboard />},
+     {path:"/doctorId/dashboard/*",element:<DoctorDashboard />},
+     {path:"/videoConsultation",element:<VideoConsultation />},
+     {path:"/blogs",element:<AllBlogs />},
+     {path:"/blogs/:id",element:<SingleBlog />},
+    ],  
+},
 
   { path: "/signup", element: <SignupPage /> },
   { path: "/login", element: <LoginPage /> },
