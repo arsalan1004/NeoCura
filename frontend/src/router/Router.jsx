@@ -15,6 +15,7 @@ import PatientDashboard from "../components/Dashboards/Patient/Patient";
 import DoctorDashboard from "../components/Dashboards/Doctor/Doctor";
 import { createBrowserRouter } from "react-router-dom";
 import Hospital from "../components/Hospital/Hospital";
+import IndivDoc from "../components/IndivDoc/IndivDoc";
 import Doctor, { loader as DocLoader } from "../components/Doctor/Doctor";
 import ErrorPage from "../UI/ErrorPage/ErrorPage";
 import Layout from "../hoc/Layout/Layout";
@@ -32,8 +33,17 @@ const Router = createBrowserRouter([
         path: "Doctor/:leftItem/:rightItem/:cityName",
         element: <Doctor />,
         loader: DocLoader,
+        children: [
+          {
+            path: ":docId",
+            element: <IndivDoc />,
+          },
+        ],
       },
-      { path: "Hospital/:leftItem/:rightItem", element: <Hospital /> },
+      {
+        path: "Hospital/:leftItem/:rightItem",
+        element: <Hospital />,
+      },
       {
         path: "CompleteList/:toolBarName/:leftItem",
         element: <CompleteList />,

@@ -6,7 +6,6 @@ const getDocDetails = (id) => {
       `SELECT "docId", "name", "gender", "docImg", "experience", "waitTime", "isPlatinum" FROM public."Doctor" WHERE "docId" = '${id}'`,
       (error, result) => {
         if (!error) {
-          console.log(result.rows);
           resolve(result.rows);
         } else {
           reject(error);
