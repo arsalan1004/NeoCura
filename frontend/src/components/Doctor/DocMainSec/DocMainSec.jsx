@@ -3,11 +3,12 @@ import React from "react";
 
 import DocSec from "./DocSec/DocSec";
 import classes from "./DocMainSec.module.css";
+import classes from "./DocMainSec.module.css";
 // import DetailInfoSec from "./DetailInfoSec/DetailInfoSec";
 
 const DocMainSec = ({ docData, locData, handler }) => {
-  console.log("recieved",docData);
-  console.log("recieved",locData);
+  console.log("recieved", docData);
+  console.log("recieved", locData);
   return (
     <div className={classes.DocMainSec}>
       {/* <div>
@@ -19,13 +20,14 @@ const DocMainSec = ({ docData, locData, handler }) => {
                 <button onClick={()=>handler('fees')}>Lowest Fees</button>
                 <button onClick={()=>handler('clinic')}>Clinic Doctor</button>
             </div> */}
-      {docData&&docData.map((item, index) => {
-        {
-          console.log("In docmainSec: ", item);
-          console.log('In docmain sec: ' , locData[index] )
-        }
-        return <DocSec key={index} docInfo={item} locData={locData[index]} />;
-      })}
+      {docData &&
+        docData.map((item, index) => {
+          {
+            console.log("In docmainSec: ", item);
+            console.log("In docmain sec: ", locData[index]);
+          }
+          return <DocSec key={index} docInfo={item} locData={locData[index]} />;
+        })}
     </div>
   );
 };

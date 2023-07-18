@@ -24,6 +24,7 @@ import CompleteList from '../components/CompleteList/CompleteList';
 const Router = createBrowserRouter([
   {
     path: "/",
+    path: "/",
     element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
@@ -55,11 +56,11 @@ const Router = createBrowserRouter([
     ],  
 },
 
-{path:"/signup",element:<SignupPage/>},
-{path:"/login",element:<LoginPage/>},
-{path:"/resetPassword",element:<ResetPass/>},
-{path:"/signup/doctor",element:<DoctorSignUp/>},
-{path:"/signup/patient",element:<PatientSignUp/>},
+  { path: "/signup", element: <SignupPage /> },
+  { path: "/login", element: <LoginPage /> },
+  { path: "/resetPassword", element: <ResetPass /> },
+  { path: "/signup/doctor", element: <DoctorSignUp /> },
+  { path: "/signup/patient", element: <PatientSignUp /> },
 ]);
 
 // const Router = () => {

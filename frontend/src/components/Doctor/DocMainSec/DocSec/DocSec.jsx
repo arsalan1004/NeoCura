@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import classes from "./DocSec.module.css";
+import classes from "./DocSec.module.css";
 import LocCard from "./LocCard/LocCard";
 import IconButton from "../../../../UI/Buttons/IconButton/IconButton";
 import icon from "../../../../assets/Icons/videoCon2.png";
@@ -14,9 +15,7 @@ const DocSec = ({ docInfo, locData }) => {
 
   return (
     <div className={classes.DocSec}>
-      
       <div className={classes.DocSecInfo}>
-        
         <div className={classes.Image}>
           <img
             src={
@@ -38,25 +37,27 @@ const DocSec = ({ docInfo, locData }) => {
                 </Link>
                 
             </h1>
-            
+
             <h3>
-              {docInfo.specialization&&docInfo.specialization.map((sp, i) =>
-                i != docInfo.specialization.length - 1 ? sp + ", " : sp
-              )}
+              {docInfo.specialization &&
+                docInfo.specialization.map((sp, i) =>
+                  i != docInfo.specialization.length - 1 ? sp + ", " : sp
+                )}
             </h3>
             <h3>
-              {docInfo.education&&docInfo.education.map((edu, i) =>
-                i != docInfo.education.length - 1
-                  ? edu.eduDegree + ", "
-                  : edu.eduDegree
-              )}
+              {docInfo.education &&
+                docInfo.education.map((edu, i) =>
+                  i != docInfo.education.length - 1
+                    ? edu.eduDegree + ", "
+                    : edu.eduDegree
+                )}
             </h3>
           </div>
 
           <div className={classes.ExtraInfo}>
             <div>
               <h3>Waiting Time</h3>
-              <p>{docInfo.waitTime }</p>
+              <p>{docInfo.waitTime + " mins"}</p>
             </div>
             <div>
               <h3>Experience</h3>
@@ -75,13 +76,14 @@ const DocSec = ({ docInfo, locData }) => {
       </div>
       {/* {console.log(docInfo.name)}; */}
 
-      {console.log(Object.keys(locData).slice(1,4))};
-
       <div className={classes.LocCardSec}>
+        {/* {console.log(Object.keys(locData))} */}
         {Object.keys(locData)
           .slice(1, 4)
           .map((obj, ki) => {
-            {console.log(locData[obj])}
+            {
+              console.log(locData[obj]);
+            }
             return locData[obj]?.map((sObj, i) => (
               <LocCard key={sObj + i} ImgIndex={ki} locData={sObj} />
             ));
