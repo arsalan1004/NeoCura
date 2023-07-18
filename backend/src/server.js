@@ -6,9 +6,10 @@ const app = express();
 const cors = require("cors");
 
 // Require Router
-const { Router } = require("./api/routes/Doc_Route/doc_route.js");
+const { Router } = require("./api/routes/DocList_Route/doc_route.js");
 const { BlogRouter } = require("./api/routes/Blog_Route/blog_route.js");
 const { SignUpRouter } = require("./api/routes/SignUp_Route/signup_Route.js");
+const { indvRouter } = require("./api/routes/IndvDoc_Route/indvDocRoute.js");
 const { database } = require("./config/db_setup.js");
 
 // Require ENV variables
@@ -23,6 +24,7 @@ app.use(cors());
 app.use("/", Router);
 app.use("/blogs", BlogRouter);
 app.use("/signup", SignUpRouter);
+app.use("/", indvRouter);
 
 // Setting Up Server
 const port = process.env.port;
