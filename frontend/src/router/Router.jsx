@@ -15,7 +15,7 @@ import PatientDashboard from '../components/Dashboards/Patient/Patient';
 import DoctorDashboard from '../components/Dashboards/Doctor/Doctor';
 import {createBrowserRouter} from 'react-router-dom'; 
 import Hospital from '../components/Hospital/Hospital';
-import IndivDoc  from '../components/IndivDoc/IndivDoc';
+import DoctorList, {loader as indivDocLoader} from "../containers/DoctorList/DoctorList";
 import Doctor, {loader as DocLoader} from '../components/Doctor/Doctor';
 import ErrorPage from '../UI/ErrorPage/ErrorPage';
 import Layout from '../hoc/Layout/Layout';
@@ -35,7 +35,9 @@ const Router = createBrowserRouter([
              children: [
               {
                 path: ':docId',
-                element: <IndivDoc />
+                element: <DoctorList />,
+                loader: indivDocLoader
+
               }
              ]
      },

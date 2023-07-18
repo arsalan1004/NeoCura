@@ -33,7 +33,7 @@ const DocSec = ({ docInfo, locData }) => {
         <div className={classes.Info}>
           <div>
             <h1>
-                <Link>
+                <Link to={docInfo.docId}>
                     {docInfo.name}
                 </Link>
                 
