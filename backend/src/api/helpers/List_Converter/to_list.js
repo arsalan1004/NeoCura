@@ -1,5 +1,5 @@
 const list_convert = (obj) => {
-  let list = obj.map((item) => item[Object.keys(item)[0]]);
+  let list = obj.map((item, i) => item[Object.keys(item)[0]]);
   return list;
 };
 

@@ -1,9 +1,9 @@
 const { database } = require("../../../../../config/db_setup.js");
 
-const getDocEdu = (request) => {
+const getDocEdu = (id) => {
   return new Promise((resolve, reject) => {
     database.query(
-      `SELECT "eduDegree", "eduUniversity", "eduCity", "yearOfQualification" FROM public."Education" WHERE "docId" = '${request.params.id}'`,
+      `SELECT "eduDegree", "eduUniversity", "eduCity", "yearOfQualification" FROM public."Education" WHERE "docId" = '${id}'`,
       (error, result) => {
         if (!error) {
           resolve(result.rows);

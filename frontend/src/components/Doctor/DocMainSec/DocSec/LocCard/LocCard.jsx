@@ -6,7 +6,7 @@ import clinicIcon from '../../../../../assets/Icons/clinicIcon.png';
 
 const LocCard = ({locData, ImgIndex}) => {
 
-    // console.log(locData);
+    console.log(locData);
     const [isAvailableNow, setIsAvailableNow] = useState(false);
     const [nextAvailableDay, setNextAvailableDay] = useState('');
     const [nextAvailableTime, setNextAvailableTime] = useState('');
@@ -110,11 +110,11 @@ const LocCard = ({locData, ImgIndex}) => {
 
             
             
-            <div className={classes.Timing}>
+            { <div className={classes.Timing}>
              { 
                 !isAvailableNow ? (<p style={{fontSize: '12px', marginLeft: '18px'}}>{nextAvailableTime}</p>) : null
              }
-            </div>
+            </div> }
             
         </div>
 

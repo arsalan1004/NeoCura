@@ -2,10 +2,10 @@ const { database } = require("../../../../../config/db_setup.js");
 
 let specIdObj = [];
 
-const getSpecId = (request) => {
+const getSpecId = (id) => {
   return new Promise((resolve, reject) => {
     database.query(
-      `SELECT "spId" FROM public."DocSpeciality" WHERE "docId" = '${request.params.id}'`,
+      `SELECT "spId" FROM public."DocSpeciality" WHERE "docId" = '${id}'`,
       (error, result) => {
         if (!error) {
           specIdObj = result.rows;

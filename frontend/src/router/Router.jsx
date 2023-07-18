@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 // import { Route, Routes, BrowserRouter } from "react-router-dom";
-import AllBlogs from '../components/BlogScreens/allBlogs/AllBlogs';
-import SingleBlog from '../components/BlogScreens/SingleBlog/SingleBlog';
-import Home from '../components/Home/Home';
-import BookAppointment from '../components/BookAppointment/BookAppointment';
-import LoginPage from '../components/EntryScreens/LoginPage/LoginPage';
-import SignupPage from '../components/EntryScreens/SignupPages/SignupPage';
-import ResetPass from '../components/EntryScreens/ResetPassword/resetPass';
-import DoctorSignUp from '../components/EntryScreens/SignupPages/DoctorSignUp/DoctorSignUp';
-import PatientSignUp from '../components/EntryScreens/SignupPages/PatientSignUp/PatientSignUp';
+import AllBlogs from "../components/BlogScreens/allBlogs/AllBlogs";
+import SingleBlog from "../components/BlogScreens/SingleBlog/SingleBlog";
+import Home from "../components/Home/Home";
+import BookAppointment from "../components/BookAppointment/BookAppointment";
+import LoginPage from "../components/EntryScreens/LoginPage/LoginPage";
+import SignupPage from "../components/EntryScreens/SignupPages/SignupPage";
+import ResetPass from "../components/EntryScreens/ResetPassword/resetPass";
+import DoctorSignUp from "../components/EntryScreens/SignupPages/DoctorSignUp/DoctorSignUp";
+import PatientSignUp from "../components/EntryScreens/SignupPages/PatientSignUp/PatientSignUp";
 // import DoctorList from "../containers/DoctorList/DoctorList";
 import VideoConsultation from '../components/VideoConsultaion/VideoConsultation';
 import PatientDashboard from '../components/Dashboards/Patient/Patient';
@@ -21,9 +21,8 @@ import Layout from '../hoc/Layout/Layout';
 import CompleteList from '../components/CompleteList/CompleteList';
 
 const Router = createBrowserRouter([
-
   {
-    path: '/',
+    path: "/",
     element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
@@ -68,7 +67,7 @@ const Router = createBrowserRouter([
 //             <Route path="/blogs/:id" element={<SingleBlog/>}/>
 //             <Route path='Hospital/:leftItem/:rightItem' element= {<Hospital />}/>
 //             <Route path="*" element={<ErrorPage/>}/>
-            
+
 //         </Routes>
 //     </BrowserRouter>
 //   )

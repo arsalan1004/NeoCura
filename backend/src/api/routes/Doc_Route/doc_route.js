@@ -1,9 +1,28 @@
 const express = require("express");
 const Router = express.Router();
 const {
-  getDoctors,
-} = require("../../controllers/indv_doc_controller/index.js");
+  getSpecDocs,
+} = require("../../controllers/doc_list_controller/By_Speciality/index.js");
+const {
+  getCondDocs,
+} = require("../../controllers/doc_list_controller/By_Condition/index.js");
+const {
+  getTreatDocs,
+} = require("../../controllers/doc_list_controller/By_Treatments/index.js");
+const {
+  getOnlineDocs,
+} = require("../../controllers/doc_list_controller/Online/index.js");
 
-Router.get("/:id", getDoctors);
+// Get by Speciality
+Router.get("/Doctor/Speciality/:speciality/:city", getSpecDocs);
+
+// Get by Condition
+Router.get("/Doctor/Condition/:condition/:city", getCondDocs);
+
+// Get by Treatments (Services)
+Router.get("/Doctor/Treatment/:treatment/:city", getTreatDocs);
+
+// Get Online
+Router.get("/Doctor/Online/:city", getOnlineDocs);
 
 module.exports = { Router };

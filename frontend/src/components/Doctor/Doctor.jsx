@@ -7,22 +7,29 @@ import {
   FAQData,
   detailInfoQA,
 } from "../../StateData/DocData/DocData";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation } from "react-router-dom";
 import FilterSec from "../../UI/FilterSec/FilterSec";
-import FAQSection from "../../UI/FAQSection/FAQSection";
+import FAQSection from '../../UI/FAQSection/FAQSection';
 import DetailInfoSec from "./DocMainSec/DetailInfoSec/DetailInfoSec";
 
 const Doctor = () => {
+
   const doctorDataDatabase = useLoaderData();
+  const locationLink =  useLocation();
   //   doctorDataDatabase.forEach((dr) => {
   //     console.log(dr.doctorInfo);
   //   });
 
+  console.log(doctorDataDatabase);
+  
+
   let doctorDb = doctorDataDatabase.map((dr) => dr.doctorInfo);
-  console.log(doctorDb);
+  console.log('DOCTOR DB: ', doctorDb);
+  console.log(docData)
 
   let doctorLocDb = doctorDataDatabase.map((dr) => dr.locInfo);
   console.log(doctorLocDb);
+  console.log(locData)
 
   const [docDetail, setDocDetail] = useState(docData);
   const [locDetail, setLocDetail] = useState(locData);
@@ -168,12 +175,8 @@ export default Doctor;
 
 export async function loader() {
 
-  const response = await fetch(
-    "http://localhost:5000/Doctor/Speciality/Cardiologist/Islamabad"
-  );
+  const response = await fetch(locationLink.pathname);
 
-
-    console.log(response);
-
+  console.log(response);
   return response;
 }

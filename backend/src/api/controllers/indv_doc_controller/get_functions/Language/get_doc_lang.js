@@ -2,8 +2,8 @@ const { database } = require("../../../../../config/db_setup.js");
 const { getLangIds } = require("./join_query.js");
 const { list_convert } = require("../../../../helpers/index.js");
 
-const getDocLangs = async (request) => {
-  const langIdObj = await getLangIds(request);
+const getDocLangs = async (id) => {
+  const langIdObj = await getLangIds(id);
   const lang_list = list_convert(langIdObj);
 
   return new Promise((resolve, reject) => {
