@@ -1,7 +1,6 @@
 const { getDocDetails } = require("./get_functions/Doctor_Details/get_doc.js");
 const { getDocEdu } = require("./get_functions/Education/get_doc_edu.js");
 const { getDocSpecs } = require("./get_functions/Specialities/get_doc_sp.js");
-const { getDocSpecs } = require("./get_functions/Specialities/get_doc_sp.js");
 const { getDocLangs } = require("./get_functions/Language/get_doc_lang.js");
 const {
   getDocConditions,
@@ -16,34 +15,21 @@ const {
 const {
   getOnlineConsultation,
 } = require("./get_functions/Location_Info/OnlineConsultation/index.js");
-const {
-  getHosInfo,
-} = require("./get_functions/Location_Info/Hospital/index.js");
-const { getReviews } = require("./get_functions/Reviews/get_reviews.js");
-const {
-  getClinInfo,
-} = require("./get_functions/Location_Info/Clinic/index.js");
-const {
-  getOnlineConsultation,
-} = require("./get_functions/Location_Info/OnlineConsultation/index.js");
 
-const getDoctors = async (id) => {
 const getDoctors = async (id) => {
   try {
     // Get Doctor Details
     const docName = await getDocDetails(id);
-    const docName = await getDocDetails(id);
-
     // Get Doctor Education
-    const docEdu = await getDocEdu(id);
+
     const docEdu = await getDocEdu(id);
 
     // Get Doctor Specialization
-    const docSpecs = await getDocSpecs(id);
+
     const docSpecs = await getDocSpecs(id);
 
     // Get Doctor Languages
-    const docLangs = await getDocLangs(id);
+
     const docLangs = await getDocLangs(id);
 
     // Get Health Condtions which doctor treats
@@ -60,21 +46,7 @@ const getDoctors = async (id) => {
 
     // GET Online Consultation
     const onConsult = await getOnlineConsultation(id);
-    const docConds = await getDocConditions(id);
 
-    // Get Doctor Reviews
-    const docReviews = await getReviews(id);
-
-    // Get Hospital Info
-    const hospitalInfo = await getHosInfo(id);
-
-    // Get Clinic Info
-    const clinicInfo = await getClinInfo(id);
-
-    // GET Online Consultation
-    const onConsult = await getOnlineConsultation(id);
-
-    let docDetails = {
     let docDetails = {
       docId: docName[0].docId,
       name: docName[0].name,
@@ -96,7 +68,6 @@ const getDoctors = async (id) => {
       onlineConsultation: onConsult,
       hospital: hospitalInfo,
       clinic: clinicInfo,
-      
     };
 
     let responseData = {
@@ -104,20 +75,6 @@ const getDoctors = async (id) => {
       locInfo: locationDetails,
       reviews: docReviews,
     };
-
-    let locationDetails = {
-      docId: id,
-      hospital: hospitalInfo,
-      clinic: clinicInfo,
-      onlineConsultation: onConsult,
-    };
-
-    let responseData = {
-      doctorInfo: docDetails,
-      locInfo: locationDetails,
-    };
-
-    return responseData;
     return responseData;
   } catch (error) {
     console.log(error);
