@@ -21,7 +21,7 @@ const getReviews = async (id) => {
 
   const result = {
     overview: overview,
-    review: review
+    reviews: review
   }
 
   return result;

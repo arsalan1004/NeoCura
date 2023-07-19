@@ -80,7 +80,7 @@ const getDoctors = async (id) => {
     let responseData = {
       doctorInfo: docDetails,
       locInfo: locationDetails,
-      reviews: docReviews,
+      userReviews: docReviews,
     };
     return responseData;
   } catch (error) {
