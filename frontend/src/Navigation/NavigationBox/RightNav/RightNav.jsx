@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from "react";
 import classes from './RightNav.module.css';
-import { Doctor, HospitalData } from "../../../StateData/NavData/NavData";
+import { Doctor, HospitalData, ClinicData, LabData } from "../../../StateData/NavData/NavData";
 import NavigationItem from "../../NavigationItems/NavigationItem/NavigationItem";
 import context from "../../../Context/Context";
 import {Link} from 'react-router-dom';
@@ -38,7 +38,12 @@ const RightNav = (props) => {
             setOutput(Doctor[itemIndex]);
         } else if (props.name === 'Hospital') {
             setOutput(HospitalData[itemIndex]);
-          
+        }
+        else if (props.name === 'Clinic') {
+            setOutput(ClinicData[itemIndex]);
+        }
+        else if (props.name === 'Laboratory') {
+            setOutput(LabData[itemIndex]);
         }
 
     }, [props.name, itemIndex, output, docImgArr, hosImgArr]);
@@ -50,21 +55,16 @@ const RightNav = (props) => {
     return(
 
         <div className={classes.RightNav} style={
-            props.name === 'Hospital' ? index ? {
-            // backgroundImage: `url(${require(docImgArr[index]&&`../../../assets/images/NavImages/${docImgArr[index]}.jpg`).default})`
+            props.name === 'Hospital' || props.name === 'Clinic' || props.name === 'Laboratory'  ? index ? {
             backgroundImage: `url(${docImgArr[index]})`
           } : {
-            // backgroundImage: `url(${require(docImgArr[0]&&`../../../assets/images/NavImages/${docImgArr[0]}.jpg`).default})`
             backgroundImage: `url(${docImgArr[0]})`
 
           }
         
           : props.name === 'Doctor' && index ? {
             backgroundImage: `url(${hosImgArr[index]})`
-
-            // backgroundImage: `url(${require(hosImgArr[index]&&`../../../assets/images/NavImages/${hosImgArr[index]}.jpg`).default})`
           } : {
-            // backgroundImage: `url(${hosImgArr[0]&&require(`../../../assets/images/NavImages/${hosImgArr[0]}`)})`}
             backgroundImage: `url(${hosImgArr[0]})`}
 
         }>
@@ -87,7 +87,7 @@ const RightNav = (props) => {
                                             isRight = {true}
                                             itemIndex={itemIndex}
                                             toolbarName = {props.name}
-                                            icon={props.name !== 'Hospital' }
+                                            icon={props.name == 'Doctor' }
                                             closeHandler= {props.closeHandler}
                                     >
                                             {item}

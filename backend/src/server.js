@@ -30,7 +30,7 @@ app.use(cors());
 app.use("/", NavbarRouter);
 app.use("/", Router);
 app.use("/", NavbarRouter);
-app.use("/doclist", DocRouter);
+app.use("/", DocRouter);
 app.use("/blogs", BlogRouter);
 app.use('/searchBarApi',SearchBarRouter)
 app.use("/", Router);

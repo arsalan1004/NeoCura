@@ -40,7 +40,7 @@ const LeftSideSec = () => {
 
 
 
-            <Review name={docInfo.name} noOfReviews={docInfo.noOfReviews}/>
+            <Review name={docInfo.name} noOfReviews={5}/>
            
         </div>
         

@@ -9,10 +9,11 @@ const getName = async(revId)=>{
                 reject(error);
             }
             else{
-                resolve(result.rows[0].name);
+                
+                console.log('in error',result.rows);
+                resolve(result.rows[0].name)}
             }
-        })
-    })
+    )})
 };
 
 module.exports = {getName};

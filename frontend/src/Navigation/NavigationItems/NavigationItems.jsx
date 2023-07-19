@@ -3,6 +3,7 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 import classes from './NavigationItems.module.css';
 import NavigationBox from "../NavigationBox/NavigationBox";
 import Aux from "../../hoc/Auxiliary/Auxiliary";
+import { Link } from "react-router-dom";
 
 const NavigationItems = ()=>{
     
@@ -49,7 +50,7 @@ const NavigationItems = ()=>{
                 <li onClick={()=>NavigationItem('Hospital')}>Hospital</li>
                 <li onClick={()=>NavigationItem('Clinic')} >Clinic</li>
                 <li onClick={()=>NavigationItem('Laboratory')} >Laboratory</li>
-                <li>Health Blog</li>
+                <li><Link to={"/blogs"}>Health Blog</Link></li>
             </ul>
         </Aux>
     );
