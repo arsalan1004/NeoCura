@@ -6,7 +6,6 @@ const { getSpeciality } = require("./get_functions/Speciality_Details/get_specia
 
 const getSearchBarData = async (request, response) => {
   try {
-    console.log('in search bar');
       //  Get Doctors
       const docData = await getDoctors(request);
     //   Get Specialities
@@ -27,7 +26,6 @@ const getSearchBarData = async (request, response) => {
     let responseData = [
         ...specData,...condData,...docData,...servData,...hospData
     ];
-    console.log(responseData);
 
     response.status(200).json(responseData);
   } catch (error) {
