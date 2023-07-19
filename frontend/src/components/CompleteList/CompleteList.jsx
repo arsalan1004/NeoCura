@@ -2,13 +2,15 @@ import React, {useState} from 'react';
 import classes from './CompleteList.module.css';
 import ListCard from './ListCard/ListCard';
 import { cities } from '../../StateData/NavData/NavData';
-import {Link, useLocation} from 'react-router-dom';
+import {Link, useLocation, useLoaderData} from 'react-router-dom';
 
 const CompleteList = () => {
 
     const [selectedName, setSelectedName] = useState('');
     const location = useLocation();
     
+    const specialities = useLoaderData();
+    console.log(specialities);
 
     const scrollToCities = (selectionName) => {
         const citiesSec = document.getElementById('cities');
@@ -16,30 +18,30 @@ const CompleteList = () => {
         setSelectedName(selectionName);
     }
 
-    const [specialities, setSpecialities] = useState(
-       [
-            { name: 'Cardiologist', noOfDr: 30 },
-            { name: 'Dermatologist', noOfDr: 25 },
-            { name: 'Pediatrician', noOfDr: 40 },
-            { name: 'Orthopedic Surgeon', noOfDr: 15 },
-            { name: 'Gastroenterologist', noOfDr: 20 },
-            { name: 'Ophthalmologist', noOfDr: 18 },
-            { name: 'Psychiatrist', noOfDr: 35 },
-            { name: 'Neurologist', noOfDr: 28 },
-            { name: 'ENT Specialist', noOfDr: 22 },
-            { name: 'Endocrinologist', noOfDr: 12 },
-            { name: 'Urologist', noOfDr: 10 },
-            { name: 'Pulmonologist', noOfDr: 19 },
-            { name: 'Oncologist', noOfDr: 16 },
-            { name: 'Radiologist', noOfDr: 24 },
-            { name: 'General Surgeon', noOfDr: 32 },
-            { name: 'Family Physician', noOfDr: 45 },
-            { name: 'Nephrologist', noOfDr: 14 },
-            { name: 'Rheumatologist', noOfDr: 11 },
-            { name: 'Dentist', noOfDr: 50 },
-            { name: 'Allergist', noOfDr: 9 },
-       ]
-    );
+    // const [specialities, setSpecialities] = useState(
+    //    [
+    //         { name: 'Cardiologist', noofdr: 30 },
+    //         { name: 'Dermatologist', noofdr: 25 },
+    //         { name: 'Pediatrician', noofdr: 40 },
+    //         { name: 'Orthopedic Surgeon', noofdr: 15 },
+    //         { name: 'Gastroenterologist', noofdr: 20 },
+    //         { name: 'Ophthalmologist', noofdr: 18 },
+    //         { name: 'Psychiatrist', noofdr: 35 },
+    //         { name: 'Neurologist', noofdr: 28 },
+    //         { name: 'ENT Specialist', noofdr: 22 },
+    //         { name: 'Endocrinologist', noofdr: 12 },
+    //         { name: 'Urologist', noofdr: 10 },
+    //         { name: 'Pulmonologist', noofdr: 19 },
+    //         { name: 'Oncologist', noofdr: 16 },
+    //         { name: 'Radiologist', noofdr: 24 },
+    //         { name: 'General Surgeon', noofdr: 32 },
+    //         { name: 'Family Physician', noofdr: 45 },
+    //         { name: 'Nephrologist', noofdr: 14 },
+    //         { name: 'Rheumatologist', noofdr: 11 },
+    //         { name: 'Dentist', noofdr: 50 },
+    //         { name: 'Allergist', noofdr: 9 },
+    //    ]
+    // );
 
 
     return(
@@ -52,7 +54,7 @@ const CompleteList = () => {
                             <ListCard 
                                     key={index} 
                                     heading={speciality.name} 
-                                    para={speciality.noOfDr} 
+                                    para={speciality.noofdr} 
                                     scroll = {scrollToCities}
                                     
                             />
@@ -90,3 +92,15 @@ const CompleteList = () => {
 };
 
 export default CompleteList;  
+
+
+export async function loader({params}) {
+    
+    const response = await fetch("http://localhost:5000/CompleteList/" + params.toolBarName + "/" + params.leftItem);
+  
+    console.log(response);
+                                                                        
+    return response;
+  
+}
+

@@ -4,10 +4,13 @@ const {
 } = require("../../../../helpers/List_Converter/to_list.js");
 
 const getDocIds = async (spec) => {
+
+  const spec1 = spec.split('-').join(' ');
+
   return new Promise((resolve, reject) => {
     database.query(
       `SELECT ds."docId" FROM public."DocSpeciality" ds JOIN public."Speciality" s
-      ON ds."spId" = s."spId" WHERE s."specialityName" = '${spec}'`,
+      ON ds."spId" = s."spId" WHERE s."specialityName" = '${spec1}'`,
       (error, result) => {
         if (!error) {
           

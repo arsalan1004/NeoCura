@@ -9,10 +9,13 @@ const getName = async(revId)=>{
                 reject(error);
             }
             else{
-                
-                console.log('in error',result.rows);
-                resolve(result.rows[0].name)}
+                if (result.rows[0] == undefined) {
+                    resolve("Abdullah");
+                  } else {
+                    resolve(result.rows[0].name);
+                  }
             }
+        }
     )})
 };
 

@@ -22,7 +22,6 @@
 .DocSec:hover {
     border: 2px solid #2e4b86;
     animation: pulse-border 2s infinite;
-
 }
 
 @keyframes pulse-border {
@@ -153,4 +152,9 @@
 .Button2>button{
     color:white !important;
     background-color: #000066 !important;
+}
+
+.ProfileButton>button:hover{
+    color: #000066 !important;
+    background-color: white !important;
 }

@@ -9,8 +9,16 @@ const calcDiagnosis = async(docId)=>{
         INNER JOIN public."DoctorReviews" dr ON d."docId" = dr."docId"
         WHERE d."docId" = '${docId}'
         GROUP BY d."docId"`, (err, result)=>{
-            if(err) reject(err);
-            resolve(result.rows[0].diagnosis);
+            if(err) {
+                reject(err);
+            }else{
+                if (result.rows[0] == undefined) {
+                    resolve("0");
+                  } else {
+                    resolve(result.rows[0].diagnosis);
+                  }
+            }
+            
         })
     })
 };

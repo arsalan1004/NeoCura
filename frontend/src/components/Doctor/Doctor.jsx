@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import DocMainSec from "./DocMainSec/DocMainSec";
 import classes from "./Doctor.module.css";
 import {
-  docData,
-  locData,
+
   FAQData,
   docDetailInfoQ,
   docDetailInfoA
@@ -19,16 +18,18 @@ const Doctor = () => {
   const doctorDataDatabase = useLoaderData();
   const params = useParams();
 
-  let doctorDb = doctorDataDatabase?.map((dr) => dr.doctorInfo);
+  const doctorDb = doctorDataDatabase?.map((dr) => dr.doctorInfo);
   console.log("DOCTOR DB: ", doctorDb);
   //   console.log(docData)
 
-  let doctorLocDb = doctorDataDatabase?.map((dr) => dr.locInfo);
+  const doctorLocDb = doctorDataDatabase?.map((dr) => dr.locInfo);
   console.log(doctorLocDb);
   //   console.log(locData)
 
   const [docDetail, setDocDetail] = useState(doctorDb);
   const [locDetail, setLocDetail] = useState(doctorLocDb);
+  const [prevDocDetail, setPrevDocDetail] = useState(doctorDb);
+  const [prevLocDetail, setPrevLocDetail] = useState(doctorLocDb);
   const [count, setCount] = useState(0);
 
 
@@ -65,49 +66,56 @@ const Doctor = () => {
 const calcExpAvg = () => {
   let totalExp = 0;
 
-    docData.forEach((doc) => {
+  doctorDb.forEach((doc) => {
       totalExp += parseInt(doc.experience.split(" ")[0]);
     });
-    console.log(totalExp / docData.length);
-    return totalExp / docData.length;
+    console.log(totalExp / doctorDb.length);
+    return totalExp / doctorDb.length;
   };
 
 
 const isClinic = (id) => {
   let isClinic = false;
 
-  let matchedObj = locData.find((obj) => obj.docId === id);
+  let matchedObj = doctorLocDb.find((obj) => obj.docId === id);
 
   return (matchedObj.clinic.length > 0);
 };
 
 const filterData = (name, fside) => {
+  
   let filteredData;
   console.log(fside);
   console.log(name);
 
   if (!fside) {
     setCount(count + 1);
+    setPrevDocDetail(docDetail);
+    setPrevLocDetail(locDetail);
 
     console.log("entering if");
 
     if (name === docFilterNames[2]) {
-      filteredData = docDetail.filter((doc) => doc.satisfiedPatients >= 0.95);
-    } else if (name === docFilterNames[3]) {
+      filteredData = docDetail.filter((doc) => parseFloat(doc.satisfiedPatients) >= 0.95);
+    }
+     else if (name === docFilterNames[3]) {
       let expAvg = calcExpAvg();
       filteredData = docDetail.filter(
         (doc) => parseInt(doc.experience.split(" ")[0]) >= expAvg
       );
 
       console.log(filteredData);
-    } else if (name === docFilterNames[4]) {
+    } 
+    else if (name === docFilterNames[4]) {
       filteredData = docDetail.filter((doc) => doc.isPlatinumDoctor);
-    } else if (name === docFilterNames[6]) {
+    } 
+    else if (name === docFilterNames[6]) {
       filteredData = docDetail.filter((doc) => isClinic(doc.docId));
-    } else if (name === docFilterNames[5]) {
+    }
+     else if (name === docFilterNames[5]) {
       let avgFeesList = [];
 
-      locData.forEach((doc) =>
+      doctorLocDb.forEach((doc) =>
         avgFeesList.push({
           doc_Id: doc.docId,
           avg_Fees: AvgFees(doc),
@@ -132,9 +140,11 @@ const filterData = (name, fside) => {
 
       // filteredData = docData.filter(doc => doc.satisfiedPatients >= 0.95);
     } else if (name === docFilterNames[0] || name === docFilterNames[1]) {
+      console.log('Entering gender filter');
       filteredData = docDetail.filter(
         (doc) => doc.gender === name.split(" ")[0]
       );
+      console.log(filteredData);
     }
 
     const idArr = filteredData.map((doc) => doc.docId);
@@ -142,32 +152,43 @@ const filterData = (name, fside) => {
     const filteredLocData = locDetail.filter((item) =>
       idArr.includes(item.docId)
     );
-    // console.log('in doc, filteredLocData: ', filteredLocData);
+    console.log('in doc, filteredLocData: ', filteredLocData);
+
     setDocDetail(filteredData);
     setLocDetail(filteredLocData);
-  } else {
+
+
+  }
+  
+  else {
     console.log("entering else");
+
     if (count != 0) {
       console.log("entering else if");
       setCount(count - 1);
-    } else {
+
+    } else  {
       console.log("entering else else");
-      setDocDetail(docData);
-      setLocDetail(locData);
     }
+
+    setDocDetail(prevDocDetail); 
+    setLocDetail(prevLocDetail);
+
   }
 
 };
 
   return (
     <div className={classes.Doctor}>
+
       <FilterSec filterNames={docFilterNames} handler={filterData} />
   
-      <DocMainSec docData={doctorDb} locData={doctorLocDb} />
+      <DocMainSec docData={docDetail} locData={locDetail} />
   
       <DetailInfoSec Q={docDetailInfoQ} A={docDetailInfoA} />
   
       <FAQSection FAQData={FAQData} />
+
     </div>
   );
 
@@ -179,6 +200,7 @@ export default Doctor;
 export async function loader({ params }) {
 
     const response = await fetch(
+
     "http://localhost:5000/Doctor" +
       "/" +
       params.leftItem +

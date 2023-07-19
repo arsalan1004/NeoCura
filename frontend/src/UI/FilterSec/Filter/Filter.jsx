@@ -23,6 +23,7 @@ const Filter = ({index, name, handler}) => {
 
 
     const handleClick = () => {
+        console.log('handleClick', frontside);
         flip();
         handler(name, frontside);
     }
