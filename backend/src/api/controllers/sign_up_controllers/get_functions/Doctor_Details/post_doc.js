@@ -3,17 +3,18 @@ const { database } = require("../../../../../config/db_setup.js");
 const postDocDetails = (request) => {
   return new Promise((resolve, reject) => {
     database.query(
-      `INSERT INTO public."Doctor" (name, gender, "phoneNumber", email, city, street, "postalCode", "isPMCCertified", "isPlatinum")
+      `INSERT INTO public."Doctor" (name, gender, "phoneNumber", email, password, city, street, "postalCode", "isPMCCertified", "isPlatinum")
       VALUES (
         '${request.personalInfo.firstName} ${request.personalInfo.lastName}',
         '${request.personalInfo.gender}',
         '${request.personalInfo.phoneNumber}',
         '${request.personalInfo.email}',
+        '${request.personalInfo.password}',
         '${request.personalInfo.city}',
         '${request.personalInfo.streetAddress}',
         '${request.personalInfo.postalCode}',
-        ${request.educationInfo.pmcNo ? 'true' : 'false'},
-        ${request.professionInfo.platMember === 'YES' ? 'true' : 'false'}
+        ${request.educationInfo.pmcNo ? "true" : "false"},
+        ${request.professionInfo.platMember === "YES" ? "true" : "false"}
       )
       RETURNING "docId";
       `,
