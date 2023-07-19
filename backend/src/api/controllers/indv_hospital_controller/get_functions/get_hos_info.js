@@ -9,15 +9,15 @@ const getHosInfo = async(hosName, city)=>{
 
     const hosBranch = await getBranches(hosName, city);
 
-    hosSpecificInfo = await Promise.all(hosBranch.map(async(hosbranch)=>{
-        const info = await getInfo(hosbranch);
+    hosSpecificInfo = await Promise.all(hosBranch.map(async(br)=>{
+        const info = await getInfo(br);
         return {
             name: info.name,
             location: info.location,
             postalCode: info.postalCode,
             email: info.email,
-            fees: await getFees(hosBranch),
-            timetable: await getTimetable(hosBranch),
+            fees: await getFees(br),
+            timetable: await getTimetable(br),
         }
     }))
     

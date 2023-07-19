@@ -15,6 +15,8 @@ const {
 const {hosRouter} = require('./api/routes/HospitalList_Route/hosRoute.js');
 const { clinRouter } = require("./api/routes/indvClinic_Route/clinicRoute.js");
 const { DocRouter } = require("./api/routes/Indv_Route/indvDocRoute.js");
+const { NavbarRouter } = require("./api/routes/NavBar_Route/navbarRoute.js");
+const { getNavData } = require("./api/controllers/Navbar_controller/index.js");
 
 // Require ENV variables
 require("dotenv").config();
@@ -26,7 +28,8 @@ app.use(cors());
 
 // Use Routes
 app.use("/", Router);
-app.use("/", DocRouter)
+app.use("/", NavbarRouter);
+app.use("/doclist", DocRouter);
 app.use("/blogs", BlogRouter);
 app.use("/signup", SignUpRouter);
 app.use("/", SearchBarRouter);
