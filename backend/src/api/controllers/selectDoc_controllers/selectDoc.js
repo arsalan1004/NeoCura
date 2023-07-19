@@ -3,7 +3,6 @@ const { getDoctors } = require("../indv_doc_controller/index.js");
 const selectDoc = async (Request, Response) => {
   console.log(Request.params.id);
   const response = await getDoctors(Request.params.id);
-  console.log(response);
   Response.status(200).json(response);
 };
 

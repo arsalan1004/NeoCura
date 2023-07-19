@@ -1,53 +1,45 @@
-  @import url('https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap");
 
 .NavigationItems {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    width:100%;
-    text-align: center;
-    margin-top: 20px;
-    color:white;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  color: white;
 }
 
-.NavigationItems > li{
-    margin-right:4%;
-    display: block; 
-    width:100%;
-    font-family: Lugrasimo;
-    font-weight:600;
-    position: relative;
-    padding-bottom: 10px;
-    font-family: 'Lumanosimo', cursive;
+.NavigationItems > li {
+  margin-right: 4%;
+  display: block;
+  width: 100%;
+  font-family: Lugrasimo;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 10px;
+  font-family: "Lumanosimo", cursive;
 }
 
-.NavigationItems > li:hover{
-    cursor: pointer;
-
+.NavigationItems > li:hover {
+  cursor: pointer;
 }
-
 
 li::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-<<<<<<< HEAD
-    background-color: #a7acb7;
-=======
-    background-color: #b1b6be;
->>>>>>> 4f098213e63799d12458cd1b31dc315632048890
-    transition: width 0.4s ease-in-out, transform 0.4s ease-in-out;
-    transform: translateX(-50%);
-  }
-  
-  li:hover::after {
-    width: 35%;
-    transform: translateX(-50%) scaleX(2);
-  }
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #a7acb7;
+  transition: width 0.4s ease-in-out, transform 0.4s ease-in-out;
+  transform: translateX(-50%);
+}
+
+li:hover::after {
+  width: 35%;
+  transform: translateX(-50%) scaleX(2);
+}

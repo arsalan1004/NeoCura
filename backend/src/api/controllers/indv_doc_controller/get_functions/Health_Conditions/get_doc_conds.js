@@ -12,7 +12,7 @@ const getDocConditions = async (id) => {
 
   return new Promise((resolve, reject) => {
     database.query(
-      `SELECT "conditionName" FROM public."HealthCondition" WHERE "conId " IN (${condId_list})`,
+      `SELECT "conditionName" FROM public."HealthCondition" WHERE "conId" IN (${condId_list})`,
       (error, result) => {
         if (!error) {
           let list = result.rows.map((cond) => cond.conditionName);

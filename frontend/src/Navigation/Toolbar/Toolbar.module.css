@@ -1,55 +1,43 @@
-.Toolbar{
-    height: 56px;
-    width:100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-<<<<<<< HEAD
-    color:white;
-    background-color: transparent;
-    background-color: rgba(0, 0, 0, 0.409);
-=======
-    background-color:transparent;
->>>>>>> 4f098213e63799d12458cd1b31dc315632048890
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* padding: 0 20px;
+.Toolbar {
+  height: 56px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: white;
+  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.409);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 0 20px;
     box-sizing: border-box; */
-<<<<<<< HEAD
-    z-index: 100;
-=======
-    z-index: 90;
-    background-color: rgba(0, 0, 0, 0.288);
->>>>>>> 4f098213e63799d12458cd1b31dc315632048890
+  z-index: 100;
 }
 
 .Toolbar {
-    display: flex;
-    justify-content: flex-start;
+  display: flex;
+  justify-content: flex-start;
 }
 
-.Toolbar h1{
-    margin: 0% 4% 0% 2%;
-    width:15%; 
+.Toolbar h1 {
+  margin: 0% 4% 0% 2%;
+  width: 15%;
 }
 
-
-
-.Toolbar nav{
-    height: 100%;
-    width: 60%;
-
+.Toolbar nav {
+  height: 100%;
+  width: 60%;
 }
 
-.Logo{
-    height: 100%;
-    width:25%;
-    margin-right: 10%;
+.Logo {
+  height: 100%;
+  width: 25%;
+  margin-right: 10%;
 }
 
-.Logo h1{
-    margin:0;
-    padding:0;
-    margin-right:0;
+.Logo h1 {
+  margin: 0;
+  padding: 0;
+  margin-right: 0;
 }
