@@ -2,12 +2,15 @@ import React from "react";
 import DetailInfo from "./DetailInfo/DetailInfo";
 import classes from './DetailInfoSec.module.css';
 
-const DetailInfoSec = ({detailInfoQA}) => {
+const DetailInfoSec = ({Q, A}) => {
+    console.log(Q, A);
+
     return(
         <div className={classes.DetailInfoSec}>
         {
-            detailInfoQA.map((item, index) => {
-                return <DetailInfo key={index} detailInfo = {item} index={index}/>
+            Q.map((que, index) => {
+                {console.log('QUE' ,  que, A[index])};
+                return <DetailInfo key={index} question = {que} answer={A[index]} index={index}/>
             })
         }
         </div>

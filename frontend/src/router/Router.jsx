@@ -15,7 +15,7 @@ import PatientDashboard from '../components/Dashboards/Patient/Patient';
 import DoctorDashboard from '../components/Dashboards/Doctor/Doctor';
 import {createBrowserRouter} from 'react-router-dom'; 
 import Hospital from '../components/Hospital/Hospital';
-import DoctorList, {loader as indivDocLoader} from "../containers/DoctorList/DoctorList";
+import DoctorList, {loader as IndivDocLoader} from "../containers/DoctorList/DoctorList";
 import Doctor, {loader as DocLoader} from '../components/Doctor/Doctor';
 import ErrorPage from '../UI/ErrorPage/ErrorPage';
 import Layout from '../hoc/Layout/Layout';
@@ -33,20 +33,19 @@ const Router = createBrowserRouter([
       path: 'Doctor/:leftItem/:rightItem/:cityName', 
              element: <Doctor />, 
              loader: DocLoader,
-             children: [
-              {
-                path: ':docId',
-                element: <DoctorList />,
-                loader: indivDocLoader
-
-              }
-             ]
+     },
+     {
+      path: 'Doctor/:leftItem/:rightItem/:cityName/:docId', 
+             element: <DoctorList />, 
+             loader: IndivDocLoader,
      },
      {
       path: 'Hospital/:leftItem/:rightItem', 
-            element: <Hospital />
+            element: <Hospital />,
+            
      },
-     {path: 'CompleteList/:toolBarName/:leftItem', element: <CompleteList /> },
+     {
+      path: 'CompleteList/:toolBarName/:leftItem', element: <CompleteList /> },
      {path:"/booking",element:<BookAppointment/>},
      {path:"/patientId/dashboard/*",element:<PatientDashboard />},
      {path:"/doctorId/dashboard/*",element:<DoctorDashboard />},

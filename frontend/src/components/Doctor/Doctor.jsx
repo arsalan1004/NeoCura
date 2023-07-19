@@ -5,7 +5,9 @@ import {
   docData,
   locData,
   FAQData,
-  detailInfoQA,
+  docDetailInfoQ,
+  docDetailInfoA
+
 } from "../../StateData/DocData/DocData";
 import { useLoaderData, useLocation, useParams } from "react-router-dom";
 import FilterSec from "../../UI/FilterSec/FilterSec";
@@ -180,7 +182,7 @@ const Doctor = () => {
   
       <DocMainSec docData={doctorDb} locData={doctorLocDb} />
   
-      <DetailInfoSec detailInfoQA={detailInfoQA} />
+      <DetailInfoSec Q={docDetailInfoQ} A={docDetailInfoA} />
   
       <FAQSection FAQData={FAQData} />
     </div>
