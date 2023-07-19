@@ -2,6 +2,7 @@ const { getConds } = require("./Condition/index.js");
 const { getSpecs } = require("./Speciality/index.js");
 const { getOnline } = require("./Online/index.js");
 const { getTreats } = require("./Treatment/index.js");
+const { getTreats } = require("./Treatment/index.js");
 
 const getDoctor = async () => {
   const doctor = [

@@ -12,7 +12,7 @@ const { SignUpRouter } = require("./api/routes/SignUp_Route/signup_Route.js");
 const {
   SearchBarRouter,
 } = require("./api/routes/SearchBar_Route/search_bar_route.js");
-const {hosRouter} = require('./api/routes/HospitalList_Route/hosRoute.js');
+const { hosRouter } = require("./api/routes/HospitalList_Route/hosRoute.js");
 const { clinRouter } = require("./api/routes/indvClinic_Route/clinicRoute.js");
 const { DocRouter } = require("./api/routes/Indv_Route/indvDocRoute.js");
 const { NavbarRouter } = require("./api/routes/NavBar_Route/navbarRoute.js");
@@ -27,6 +27,7 @@ app.use(express.json());
 app.use(cors());
 
 // Use Routes
+app.use("/", NavbarRouter);
 app.use("/", Router);
 app.use("/", NavbarRouter);
 app.use("/doclist", DocRouter);
@@ -38,7 +39,6 @@ app.use("/signup", SignUpRouter);
 app.use("/", SearchBarRouter);
 app.use("/", hosRouter);
 app.use("/", clinRouter);
-
 
 // Setting Up Server
 const port = process.env.port;
