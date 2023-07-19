@@ -16,6 +16,7 @@ const getSatisfaction = async (docId) => {
         d."docId"`,
       (error, result) => {
         if (!error) {
+<<<<<<< HEAD
           if (result.rows[0] == undefined) {
             console.log("in error");
             resolve("0");
@@ -23,6 +24,10 @@ const getSatisfaction = async (docId) => {
             //console.log(result.rows[0]);
             resolve(result.rows[0].satisfaction_percentage);
           }
+=======
+          console.log(result.rows);
+          resolve(result.rows[0].satisfaction_percentage);
+>>>>>>> 294a1700a409ea8873252b7906d5a15e40ec6bb6
         } else {
           reject(error);
         }

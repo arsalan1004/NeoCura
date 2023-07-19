@@ -15,9 +15,7 @@ const DocCard = () => {
             src={
               docInfo.docImg == "doc33"
                 ? doc33
-                : docInfo.docImg == "doc44"
-                ? doc44
-                : doc111
+                : doc44
             }
             alt="Doctor's Image"
           />

@@ -20,7 +20,6 @@ import Doctor, {loader as DocLoader} from '../components/Doctor/Doctor';
 import ErrorPage from '../UI/ErrorPage/ErrorPage';
 import Layout from '../hoc/Layout/Layout';
 import CompleteList from '../components/CompleteList/CompleteList';
-import { NavData, loader as NavDataLoader } from "../StateData/NavData/NavData";
 
 
 const Router = createBrowserRouter([
@@ -30,9 +29,7 @@ const Router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
      {index: true , element: <Home />} ,
-     {
-      path: '/' , element: <NavData />, loader: NavDataLoader
-     },
+  
      {
       path: 'Doctor/:leftItem/:rightItem/:cityName', 
              element: <Doctor />, 

@@ -9,26 +9,15 @@ import {
   docDetailInfoA
 
 } from "../../StateData/DocData/DocData";
-import { useLoaderData, useLocation, useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import FilterSec from "../../UI/FilterSec/FilterSec";
 import FAQSection from "../../UI/FAQSection/FAQSection";
 import DetailInfoSec from "./DocMainSec/DetailInfoSec/DetailInfoSec";
 
 const Doctor = () => {
-  //const doctorDataDatabase = useLoaderData();
-  //   doctorDataDatabase.forEach((dr) => {
-  //     console.log(dr.doctorInfo);
-  //   });
 
   const doctorDataDatabase = useLoaderData();
   const params = useParams();
-
-  //   const locationLink =  useLocation();
-  //   doctorDataDatabase.forEach((dr) => {
-  //     console.log(dr.doctorInfo);
-  //   });
-
-  console.log(doctorDataDatabase);
 
   let doctorDb = doctorDataDatabase?.map((dr) => dr.doctorInfo);
   console.log("DOCTOR DB: ", doctorDb);
@@ -38,12 +27,10 @@ const Doctor = () => {
   console.log(doctorLocDb);
   //   console.log(locData)
 
-//   const [docDetail, setDocDetail] = useState(docData);
-//   const [locDetail, setLocDetail] = useState(locData);
-//   const [count, setCount] = useState(0);
-//   const [docDetail, setDocDetail] = useState(docData);
-//   const [locDetail, setLocDetail] = useState(locData);
-//   const [count, setCount] = useState(0);
+  const [docDetail, setDocDetail] = useState(doctorDb);
+  const [locDetail, setLocDetail] = useState(doctorLocDb);
+  const [count, setCount] = useState(0);
+
 
   const docFilterNames = [
     "Male Doctors",
@@ -55,130 +42,126 @@ const Doctor = () => {
     "Clinic Doctors",
   ];
 
-//   const AvgFees = (doc) => {
-//     let totalFees = 0;
-//     let count = 0;
-//     Object.keys(doc)
-//       .slice(1, 4)
-//       .forEach((locs) =>
-//         doc[locs].forEach((loc) => {
-//           count++;
-//           totalFees += loc.fees;
-//         })
-//       );
-//     console.log(totalFees);
-//     console.log(count);
-//     console.log(totalFees / count);
+  const AvgFees = (doc) => {
+    let totalFees = 0;
+    let count = 0;
+    Object.keys(doc)
+      .slice(1, 4)
+      .forEach((locs) =>
+        doc[locs].forEach((loc) => {
+          count++;
+          totalFees += loc.fees;
+        })
+      );
+    console.log(totalFees);
+    console.log(count);
+    console.log(totalFees / count);
 
-//     return totalFees / count;
-//   };
-//   return totalFees / count;
-// };
+    return totalFees / count;
+  };
+  
 
-// const calcExpAvg = () => {
-//   let totalExp = 0;
-//   const calcExpAvg = () => {
-//     let totalExp = 0;
 
-//     docData.forEach((doc) => {
-//       totalExp += parseInt(doc.experience.split(" ")[0]);
-//     });
-//     console.log(totalExp / docData.length);
-//     return totalExp / docData.length;
-//   };
-//   docData.forEach((doc) => {
-//     totalExp += parseInt(doc.experience.split(" ")[0]);
-//   });
-//   console.log(totalExp / docData.length);
-//   return totalExp / docData.length;
-// };
+const calcExpAvg = () => {
+  let totalExp = 0;
 
-// const isClinic = (id) => {
-//   let isClinic = false;
+    docData.forEach((doc) => {
+      totalExp += parseInt(doc.experience.split(" ")[0]);
+    });
+    console.log(totalExp / docData.length);
+    return totalExp / docData.length;
+  };
 
-//   let matchedObj = locData.find((obj) => obj.docId === id);
 
-//   return matchedObj.clinic.length > 0;
-// };
+const isClinic = (id) => {
+  let isClinic = false;
 
-// const filterData = (name, fside) => {
-//   let filteredData;
-//   console.log(fside);
-//   console.log(name);
+  let matchedObj = locData.find((obj) => obj.docId === id);
 
-//   if (!fside) {
-//     setCount(count + 1);
+  return (matchedObj.clinic.length > 0);
+};
 
-//     console.log("entering if");
-//     if (name === docFilterNames[2]) {
-//       filteredData = docDetail.filter((doc) => doc.satisfiedPatients >= 0.95);
-//     } else if (name === docFilterNames[3]) {
-//       let expAvg = calcExpAvg();
-//       filteredData = docDetail.filter(
-//         (doc) => parseInt(doc.experience.split(" ")[0]) >= expAvg
-//       );
+const filterData = (name, fside) => {
+  let filteredData;
+  console.log(fside);
+  console.log(name);
 
-//       console.log(filteredData);
-//     } else if (name === docFilterNames[4]) {
-//       filteredData = docDetail.filter((doc) => doc.isPlatinumDoctor);
-//     } else if (name === docFilterNames[6]) {
-//       filteredData = docDetail.filter((doc) => isClinic(doc.docId));
-//     } else if (name === docFilterNames[5]) {
-//       let avgFeesList = [];
+  if (!fside) {
+    setCount(count + 1);
 
-//       locData.forEach((doc) =>
-//         avgFeesList.push({
-//           doc_Id: doc.docId,
-//           avg_Fees: AvgFees(doc),
-//         })
-//       );
+    console.log("entering if");
 
-//       console.log(avgFeesList);
-//       let sum = avgFeesList
-//         .map((ob) => ob.avg_Fees)
-//         .reduce((sum, currentValue) => sum + currentValue, 0);
+    if (name === docFilterNames[2]) {
+      filteredData = docDetail.filter((doc) => doc.satisfiedPatients >= 0.95);
+    } else if (name === docFilterNames[3]) {
+      let expAvg = calcExpAvg();
+      filteredData = docDetail.filter(
+        (doc) => parseInt(doc.experience.split(" ")[0]) >= expAvg
+      );
 
-//       let mean = sum / avgFeesList.length;
-//       console.log(sum, mean);
+      console.log(filteredData);
+    } else if (name === docFilterNames[4]) {
+      filteredData = docDetail.filter((doc) => doc.isPlatinumDoctor);
+    } else if (name === docFilterNames[6]) {
+      filteredData = docDetail.filter((doc) => isClinic(doc.docId));
+    } else if (name === docFilterNames[5]) {
+      let avgFeesList = [];
 
-//       let cheaperdocIdList = avgFeesList.filter((ob) => ob.avg_Fees <= mean);
+      locData.forEach((doc) =>
+        avgFeesList.push({
+          doc_Id: doc.docId,
+          avg_Fees: AvgFees(doc),
+        })
+      );
 
-//       console.log(cheaperdocIdList);
+      console.log(avgFeesList);
+      let sum = avgFeesList
+        .map((ob) => ob.avg_Fees)
+        .reduce((sum, currentValue) => sum + currentValue, 0);
 
-//       filteredData = docDetail.filter((doc) =>
-//         cheaperdocIdList.map((ob) => ob.doc_Id).includes(doc.docId)
-//       );
+      let mean = sum / avgFeesList.length;
+      console.log(sum, mean);
 
-//       // filteredData = docData.filter(doc => doc.satisfiedPatients >= 0.95);
-//     } else if (name === docFilterNames[0] || name === docFilterNames[1]) {
-//       filteredData = docDetail.filter(
-//         (doc) => doc.gender === name.split(" ")[0]
-//       );
-//     }
+      let cheaperdocIdList = avgFeesList.filter((ob) => ob.avg_Fees <= mean);
 
-//     const idArr = filteredData.map((doc) => doc.docId);
-//     // console.log('in doc, idArr: ', idArr);
-//     const filteredLocData = locDetail.filter((item) =>
-//       idArr.includes(item.docId)
-//     );
-//     // console.log('in doc, filteredLocData: ', filteredLocData);
-//     setDocDetail(filteredData);
-//     setLocDetail(filteredLocData);
-//   } else {
-//     console.log("entering else");
-//     if (count != 0) {
-//       console.log("entering else if");
-//       setCount(count - 1);
-//     } else {
-//       console.log("entering else else");
-//       setDocDetail(docData);
-//       setLocDetail(locData);
-//     }
-//   }
+      console.log(cheaperdocIdList);
+
+      filteredData = docDetail.filter((doc) =>
+        cheaperdocIdList.map((ob) => ob.doc_Id).includes(doc.docId)
+      );
+
+      // filteredData = docData.filter(doc => doc.satisfiedPatients >= 0.95);
+    } else if (name === docFilterNames[0] || name === docFilterNames[1]) {
+      filteredData = docDetail.filter(
+        (doc) => doc.gender === name.split(" ")[0]
+      );
+    }
+
+    const idArr = filteredData.map((doc) => doc.docId);
+    // console.log('in doc, idArr: ', idArr);
+    const filteredLocData = locDetail.filter((item) =>
+      idArr.includes(item.docId)
+    );
+    // console.log('in doc, filteredLocData: ', filteredLocData);
+    setDocDetail(filteredData);
+    setLocDetail(filteredLocData);
+  } else {
+    console.log("entering else");
+    if (count != 0) {
+      console.log("entering else if");
+      setCount(count - 1);
+    } else {
+      console.log("entering else else");
+      setDocDetail(docData);
+      setLocDetail(locData);
+    }
+  }
+
+};
 
   return (
     <div className={classes.Doctor}>
-      {/* <FilterSec filterNames={docFilterNames} handler={filterData} /> */}
+      <FilterSec filterNames={docFilterNames} handler={filterData} />
   
       <DocMainSec docData={doctorDb} locData={doctorLocDb} />
   
@@ -189,7 +172,6 @@ const Doctor = () => {
   );
 
 };
-
 
 
 export default Doctor;
