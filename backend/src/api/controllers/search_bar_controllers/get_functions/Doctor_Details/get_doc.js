@@ -1,9 +1,9 @@
 const { database } = require("../../../../../config/db_setup.js");
 
-const getDoctors = (request) => {
+const getDoctors = () => {
   return new Promise((resolve, reject) => {
     database.query(
-      `SELECT "name" as docname FROM public."Doctor"`,
+      `SELECT "name" as docname FROM public."Doctor" `,
       (error, result) => {
         if (!error) {
           const docs=result.rows.map((e,i)=>({

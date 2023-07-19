@@ -1,26 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap");
 
 .NavigationItems {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  text-align: center;
-  margin-top: 20px;
-  color: white;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap:20px;
+    /* justify-content: center; */
+    width:100%;
+    text-align: center;
+    margin-top: 20px;
+    color:white;
 }
 
-.NavigationItems > li {
-  margin-right: 4%;
-  display: block;
-  width: 100%;
-  font-family: Lugrasimo;
-  font-weight: 600;
-  position: relative;
-  padding-bottom: 10px;
-  font-family: "Lumanosimo", cursive;
+.NavigationItems > li{
+    margin-right:4%;
+    display: block; 
+    /* width:12%; */
+    font-family: Lugrasimo;
+    font-weight:600;
+    position: relative;
+    padding-bottom: 10px;
+    font-family: 'Lumanosimo', cursive;
 }
 
 .NavigationItems > li:hover {

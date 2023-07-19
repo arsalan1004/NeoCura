@@ -1,11 +1,23 @@
 import React from 'react'
-
+import classes from './Home.module.css'
+import ScrollAnimation from "react-animate-on-scroll";
+import "animate.css/animate.compat.css";
 const Symtoms = () => {
   return (
     <div>
         <div  class="col-md-12 symptoms-container-carousel carousel d-flex horizontal-scroll smart-bar">
-            <p style={{textAlign:"left",fontSize:"24px",marginBottom:"20px",fontWeight:"600"}}>Symtoms</p>
+        <ScrollAnimation
+            animateIn={"fadeInDown"}
+            // delay={300}
+          >
+            <p style={{textAlign:"left",fontSize:"24px",marginBottom:"20px",fontWeight:"600"}} className={classes.head}>Symtoms</p>
+            </ScrollAnimation>
+
                 <div style={{display:"flex",justifyContent:"space-between",width:"100%"}} class="symptoms-sections">
+                <ScrollAnimation
+            animateIn={"fadeInDown"}
+            delay={100}
+          >
                     <div class="not-selected symptom-home cursor-pointer" data-symptom-id="1" data-symptom-name="Fever" data-speciality-slug="general-physician">
                         <div class="symptom-holders">
                             <div class="symptom-image">
@@ -67,6 +79,11 @@ const Symtoms = () => {
                             </div>
                         </div>
                     </div>
+                    </ScrollAnimation>
+                    <ScrollAnimation
+            animateIn={"fadeInDown"}
+            delay={200}
+          >
                     <div class="symptom-home cursor-pointer" data-symptom-id="65" data-symptom-name="Heart attack" data-speciality-slug="cardiologist">
                         <div class="symptom-holders">
                             <div class="symptom-image">
@@ -121,6 +138,11 @@ const Symtoms = () => {
                             </div>
                         </div>
                     </div>
+                    </ScrollAnimation>
+                    <ScrollAnimation
+            animateIn={"fadeInDown"}
+            delay={400}
+          >
                     <div class="symptom-home cursor-pointer" data-symptom-id="26" data-symptom-name="Pregnancy" data-speciality-slug="gynecologist">
                         <div class="symptom-holders">
                             <div class="symptom-image">
@@ -159,7 +181,13 @@ const Symtoms = () => {
                                 <p class="text-marham  text-base font-weight-medium font-sm-base">Pregnancy</p>
                             </div>
                         </div>
+                    
                     </div>
+                    </ScrollAnimation>
+                    <ScrollAnimation
+            animateIn={"fadeInDown"}
+            delay={600}
+          >
                     <div data-symptom-id="12" data-symptom-name="High blood pressure" data-speciality-slug="cardiologist" class="symptom-home cursor-pointer">
                         <div class="symptom-holders">
                             <div class="symptom-image">
@@ -218,6 +246,11 @@ const Symtoms = () => {
                             </div>
                         </div>
                     </div>
+                    </ScrollAnimation>
+                    <ScrollAnimation
+            animateIn={"fadeInDown"}
+            delay={800}
+          >
                     <div data-symptom-id="101" data-symptom-name="Breathlessness" data-speciality-slug="pulmonologist" class="symptom-home cursor-pointer">
                         <div class="symptom-holders">
                             <div class="symptom-image">
@@ -274,6 +307,11 @@ const Symtoms = () => {
                             </div>
                         </div>
                     </div>
+                    </ScrollAnimation>
+                    <ScrollAnimation
+            animateIn={"fadeInDown"}
+            delay={1000}
+          >
                     <div data-symptom-id="16" data-symptom-name="Diarrhea" data-speciality-slug="gastroenterologist" class="symptom-home cursor-pointer">
                         <div class="symptom-holders">
                             <div class="symptom-image">
@@ -344,6 +382,11 @@ const Symtoms = () => {
                             </div>
                         </div>
                     </div>
+                    </ScrollAnimation>
+                    <ScrollAnimation
+            animateIn={"fadeInDown"}
+            delay={1200}
+          >
                     <div data-symptom-id="23" data-symptom-name="Hairfall" data-speciality-slug="dermatologist" class="symptom-home cursor-pointer">
                         <div class="symptom-holders">
                             <div class="symptom-image">
@@ -397,6 +440,12 @@ const Symtoms = () => {
                             </div>
                         </div>
                     </div>
+                    </ScrollAnimation>
+                    <ScrollAnimation
+            animateIn={"fadeInDown"}
+            delay={1400}
+          >
+            
                     <div data-symptom-id="114" data-symptom-name="Anxiety/Depression" data-speciality-slug="psychiatrist" class="symptom-home cursor-pointer">
                         <div class="symptom-holders">
                             <div class="symptom-image">
@@ -455,6 +504,8 @@ const Symtoms = () => {
                             </div>
                         </div>
                     </div>
+                    </ScrollAnimation>
+
                 </div>
             </div>
     </div>

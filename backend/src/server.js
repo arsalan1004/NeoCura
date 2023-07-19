@@ -31,6 +31,9 @@ app.use("/", Router);
 app.use("/", NavbarRouter);
 app.use("/doclist", DocRouter);
 app.use("/blogs", BlogRouter);
+app.use('/searchBarApi',SearchBarRouter)
+app.use("/", Router);
+
 app.use("/signup", SignUpRouter);
 app.use("/", SearchBarRouter);
 app.use("/", hosRouter);
