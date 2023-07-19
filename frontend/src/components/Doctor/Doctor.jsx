@@ -14,9 +14,9 @@ import DetailInfoSec from "./DocMainSec/DetailInfoSec/DetailInfoSec";
 
 const Doctor = () => {
   const doctorDataDatabase = useLoaderData();
-  //   doctorDataDatabase.forEach((dr) => {
-  //     console.log(dr.doctorInfo);
-  //   });
+    doctorDataDatabase.forEach((dr) => {
+      console.log(dr.doctorInfo);
+    });
 
   let doctorDb = doctorDataDatabase.map((dr) => dr.doctorInfo);
   console.log(doctorDb);

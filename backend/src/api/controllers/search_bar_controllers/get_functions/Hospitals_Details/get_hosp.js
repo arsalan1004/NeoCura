@@ -3,7 +3,7 @@ const { database } = require("../../../../../config/db_setup.js");
 const getHospital = (request) => {
   return new Promise((resolve, reject) => {
     database.query(
-      `SELECT "name" as name FROM public."Hospital"`,
+      `SELECT "name" as name FROM public."Hospital" LIMIT 10`,
       (error, result) => {
         if (!error) {
           const hosp =result.rows.map((e,i)=>({

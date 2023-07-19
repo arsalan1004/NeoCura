@@ -1,32 +1,25 @@
 .Toolbar{
-    height: 56px;
+    height: 64px;
     width:100%;
     position: fixed;
     top: 0;
     left: 0;
-<<<<<<< HEAD
-    color:white;
-    background-color: transparent;
-    background-color: rgba(0, 0, 0, 0.409);
-=======
     background-color:transparent;
->>>>>>> 4f098213e63799d12458cd1b31dc315632048890
     display: flex;
     align-items: center;
     justify-content: center;
     /* padding: 0 20px;
     box-sizing: border-box; */
-<<<<<<< HEAD
-    z-index: 100;
-=======
     z-index: 90;
-    background-color: rgba(0, 0, 0, 0.288);
->>>>>>> 4f098213e63799d12458cd1b31dc315632048890
+    /* position: fixed; */
+    /* opacity: 0.8; */
+    /* backdrop-filter:blur(2px); */
+    /* background-color: #042343ff; */
 }
 
 .Toolbar {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
 }
 
 .Toolbar h1{
@@ -35,17 +28,18 @@
 }
 
 
-
 .Toolbar nav{
+    /* position: absolute;  */
+    z-index: 9999;
     height: 100%;
-    width: 60%;
+    width: 50%;
 
 }
 
-.Logo{
+.logo{
     height: 100%;
-    width:25%;
-    margin-right: 10%;
+    width:80%;
+    /* margin-right: 10%; */
 }
 
 .Logo h1{

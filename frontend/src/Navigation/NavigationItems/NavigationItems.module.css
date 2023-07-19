@@ -7,7 +7,8 @@
     padding: 0;
     list-style: none;
     display: flex;
-    justify-content: center;
+    gap:20px;
+    /* justify-content: center; */
     width:100%;
     text-align: center;
     margin-top: 20px;
@@ -17,7 +18,7 @@
 .NavigationItems > li{
     margin-right:4%;
     display: block; 
-    width:100%;
+    /* width:12%; */
     font-family: Lugrasimo;
     font-weight:600;
     position: relative;
@@ -38,11 +39,7 @@ li::after {
     bottom: 0;
     width: 0;
     height: 2px;
-<<<<<<< HEAD
-    background-color: #a7acb7;
-=======
     background-color: #b1b6be;
->>>>>>> 4f098213e63799d12458cd1b31dc315632048890
     transition: width 0.4s ease-in-out, transform 0.4s ease-in-out;
     transform: translateX(-50%);
   }

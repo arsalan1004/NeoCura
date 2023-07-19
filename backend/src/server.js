@@ -12,6 +12,8 @@ const { BlogRouter } = require("./api/routes/Blog_Route/blog_route.js");
 const { SignUpRouter } = require("./api/routes/SignUp_Route/signup_Route.js");
 const { database } = require("./config/db_setup.js");
 const { SearchBarRouter } = require("./api/routes/SearchBar_Route/search_bar_route.js");
+const { getAllBlogs } = require("./api/controllers/blog_controllers/get_functions/All_Blogs/get_all_blogs.js");
+const { getDoctors } = require("./api/controllers/search_bar_controllers/get_functions/Doctor_Details/get_doc.js");
 
 // Require ENV variables
 require("dotenv").config();
@@ -20,12 +22,35 @@ require("dotenv").config();
 app.use(express.json()); 
 
 app.use(cors())
+// app.use('/blogs',async (request,response) => {
+//   try {
+//     // Get all blogs Details
+//     const blogs = await getAllBlogs(request);
+//     // let responseData = {
+//     //   docId: docName[0].docId,
+//     //   name: docName[0].name,
+//     //   experience: docName[0].experience,
+//     //   waitTime: docName[0].waitTime,
+//     //   isPlatinum: docName[0].isPlatinum,
+//     //   docEdu,
+//     //   specialization: docSpecs,
+//     //   languagesSpoken: docLangs,
+//     //   conditionsTreated: docConds,
+//     // };
 
-// Use Routes
-app.use("/", Router);
+//     response.status(200).json(blogs);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// })
 app.use("/blogs", BlogRouter);
+app.use('/searchBarApi',SearchBarRouter)
+app.use("/", Router);
+
 app.use("/signup", SignUpRouter);
-app.use("/searchBarApi",SearchBarRouter)
+
+
+
 
 // database.query(
 //   `SELECT hb."blogId", hb.title, hb.content, hb."publishData", hb."lastUpdated", hb."readTime",

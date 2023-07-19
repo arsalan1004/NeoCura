@@ -24,6 +24,7 @@ const Search=(e)=>{
     useEffect(() => {
       axios.get("http://localhost:5000/searchBarApi")
         .then((response) => {
+          console.log(response)
           const uniqueData = response.data.map((option, index) => ({
             ...option,
             key: `option-${index}`,
@@ -73,7 +74,7 @@ const Search=(e)=>{
             ...params.InputProps,
             endAdornment: (
               <InputAdornment position="end">
-                <SearchIcon sx={{ color: "rgba(0,77,255,1)",fontSize:"30px", marginLeft: 4 }} onClick={(e)=>Search(params.inputProps.value)}/>
+                <SearchIcon sx={{ color: "#042343ff",fontSize:"32px", marginLeft: 4 }} onClick={(e)=>Search(params.inputProps.value)}/>
               </InputAdornment>
             ),
           }}
