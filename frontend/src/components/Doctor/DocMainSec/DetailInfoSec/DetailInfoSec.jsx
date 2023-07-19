@@ -3,7 +3,6 @@ import DetailInfo from "./DetailInfo/DetailInfo";
 import classes from './DetailInfoSec.module.css';
 
 const DetailInfoSec = ({Q, A}) => {
-    console.log(Q, A);
 
     return(
         <div className={classes.DetailInfoSec}>

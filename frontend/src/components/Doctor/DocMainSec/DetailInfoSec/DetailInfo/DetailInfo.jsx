@@ -4,8 +4,8 @@ import classes from './DetailInfo.module.css';
 
 const DetailInfo = ({question, answer, index}) => {
     
-    console.log(question);
-    console.log(answer);
+    // console.log(question);
+    // console.log(answer);
     // console.log(Object.entries(detailInfo));
 
 
