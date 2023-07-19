@@ -68,7 +68,6 @@ const getDoctors = async (id) => {
       languagesSpoken: docLangs,
       conditionsTreated: docConds,
       satisfiedPatients: docSatisfaction,
-      reviews: docReviews,
     };
 
     let locationDetails = {
