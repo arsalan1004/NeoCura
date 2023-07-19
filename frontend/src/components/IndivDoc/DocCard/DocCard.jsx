@@ -1,7 +1,8 @@
 import React, {useContext} from "react";
 import classes from './DocCard.module.css';
 import context from "../../../Context/Context";
-
+import doc44 from '../../../assets/images/docImgs/doc44.png';
+import doc33 from '../../../assets/images/docImgs/doc33.png';
 const DocCard = () => {
     
     const {docInfo} = useContext(context);
@@ -9,9 +10,19 @@ const DocCard = () => {
     return(
         <div className={classes.DocCard}>
             
-        <div className={classes.Image}><img src={require(`../../../images/docImgs/${docInfo.docImg}`)} alt="Doctor's Image" /></div>
-            {console.log(docInfo.docImg)}
-            
+            <div className={classes.Image}>
+          <img
+            src={
+              docInfo.docImg == "doc33"
+                ? doc33
+                : docInfo.docImg == "doc44"
+                ? doc44
+                : doc111
+            }
+            alt="Doctor's Image"
+          />
+        </div>
+
         <div className={classes.Info}>
             <div>
                 <h1>{docInfo.name}</h1>
@@ -35,7 +46,7 @@ const DocCard = () => {
                 </div>
                 <div>
                     <h3>Satisfied Patients</h3>
-                    <p>{((docInfo.satisfiedPatients)*100)+ '% ' + `(${docInfo.noOfReviews})`}</p>
+                    <p>{(docInfo.satisfiedPatients)+ '%  ( 3 ) ' }</p>
                 </div>
             </div>
                 
