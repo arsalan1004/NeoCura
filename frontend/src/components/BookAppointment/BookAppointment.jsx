@@ -122,7 +122,38 @@ const BookAppointment = () => {
               <h3>Select Clinic/Hospital</h3>
               <div className={classes.LocBoxContainer}>
                 {places.map((e, i) => (
-                  <div key={i} onClick={() => { setSelectedLocation(e) }} className={selectedLocation === e ? classes.SelectedLocBox : classes.LocBox}><p>{e}</p></div>
+                  <div className={classes.LocCard}>
+                  <p className={classes.Heading}>
+                      <img src={ImgIndex == 0 ? videoConIcon : ImgIndex == 1 ? hospitalIcon : clinicIcon } />
+                      {locData.name}
+                  </p>
+                  
+                  <div>
+                      <div className={classes.Info}>
+                          <span className={classes.CircleIcon}> </span>
+                          {
+                          isAvailableNow? (<p>Available Now</p>) 
+                          : (
+                              <p>
+                                  <span>Available {nextAvailableDay === currentDay ? 'Today' : ' on ' + nextAvailableDay}</span>
+                              </p>
+                          )
+                          }
+                          <p>Rs. {locData.fees}</p>
+                      </div>
+          
+                      
+                      
+                      <div className={classes.Timing}>
+                       { 
+                          !isAvailableNow ? (<p style={{fontSize: '12px', marginLeft: '18px'}}>{nextAvailableTime}</p>) : null
+                       }
+                      </div>
+                      
+                  </div>
+          
+                  </div>
+                  // <div key={i} onClick={() => { setSelectedLocation(e) }} className={selectedLocation === e ? classes.SelectedLocBox : classes.LocBox}><p>{e}</p></div>
                 ))}
               </div>
             </div>
