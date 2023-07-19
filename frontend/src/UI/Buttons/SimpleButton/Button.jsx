@@ -3,8 +3,10 @@ import classes from './Button.module.css';
 
 const Button = (props) => {
   
+    const classNames = [classes.Button, props.class1].join(' ');
+
     return(
-        <div className={classes.Button} style={props.styling}>
+        <div className={classNames} style={props.styling}>
             <button onClick={props.clicked} >{props.text}</button>
         </div>
     );

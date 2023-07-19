@@ -47,8 +47,8 @@ const NavigationItems = ()=>{
 
                 <li onClick={()=>NavigationItem('Doctor')}>Doctor</li>
                 <li onClick={()=>NavigationItem('Hospital')}>Hospital</li>
-                <li>Clinic</li>
-                <li>Laboratory</li>
+                <li onClick={()=>NavigationItem('Clinic')} >Clinic</li>
+                <li onClick={()=>NavigationItem('Laboratory')} >Laboratory</li>
                 <li>Health Blog</li>
             </ul>
         </Aux>

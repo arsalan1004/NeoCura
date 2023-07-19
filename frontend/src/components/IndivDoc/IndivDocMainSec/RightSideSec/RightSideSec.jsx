@@ -7,6 +7,7 @@ import Modal from "../../../../UI/Modal/Modal";
 
 const RightSideSec = () => {
   const { locations } = useContext(context);
+  console.log('LOCATIONS: ', locations);
   const locKeys = Object.keys(locations);
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
@@ -28,7 +29,7 @@ const RightSideSec = () => {
 
   useEffect(() => {
     if (viewingTimetable && selectedLocation) {
-      locKeys.forEach((key) => {
+      locKeys.slice(1,4).forEach((key) => {
         locations[key].forEach((loc) => {
           if (loc.name === selectedLocation) {
             const tableRows = Object.entries(loc.timetable).map(([day, time]) => (
@@ -69,7 +70,7 @@ const RightSideSec = () => {
 
       <div className={classes.RightSideWrapper}>
         <div className={classes.RightSideSec}>
-          {locKeys.map((key) => {
+          {locKeys.slice(1,4).map((key) => {
             return locations[key].map((loc) => {
               return (
                   <LocationSec

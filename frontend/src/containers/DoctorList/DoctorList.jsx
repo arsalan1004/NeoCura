@@ -9,12 +9,27 @@ const DoctorList = () => {
   const docInfo2 = useLoaderData();
   console.log('DOCINFO2: ', docInfo2);
   const docInfoArr = Object.keys(docInfo2);
-  const docInfo = docInfo2[docInfoArr[0]];
+  let docInfo = docInfo2[docInfoArr[0]];
   const locations = docInfo2[docInfoArr[1]];
   const userReview = docInfo2[docInfoArr[2]];
   console.log(docInfo);
   console.log(locations);
   console.log(userReview);
+
+
+  docInfo = {
+    ...docInfo,
+    'services': ['Echo-Cardiography', 'Holter Monitoring', 'Angioplasty', 'Pacemaker Implantation', 'Coronary Artery Bypass Surgery' ],
+    'professionalMemberships': ['Pakistan Medical Commission (PMC) '],
+    'surgeriesPerformed': [],
+    'noOfReviews': 5
+  }
+
+
+
+  console.log('AFTER ASSIGNMENT', docInfo);
+
+
 
   // const [docDetail2 , setDocDetail2 ] = useState ();
   // const params = useParams();
@@ -201,12 +216,5 @@ export async function loader({params}) {
   console.log(response);
                                                                       
   return response;
-
-  // console.log(params.docId);
-
-  // const response = await axios.get("http://localhost:5000/Doctor" +  "/" + params.leftItem + "/" + params.rightItem + "/" + params.cityName + "/" + params.docId).then(res => res.data);
-  // console.log(response);
-
-  // return response;
 
 }

@@ -46,7 +46,7 @@ const DocCard = () => {
                 </div>
                 <div>
                     <h3>Satisfied Patients</h3>
-                    <p>{(docInfo.satisfiedPatients)+ '% ' + `(${docInfo.noOfReviews})`}</p>
+                    <p>{(docInfo.satisfiedPatients)+ '%  ( 3 ) ' }</p>
                 </div>
             </div>
                 

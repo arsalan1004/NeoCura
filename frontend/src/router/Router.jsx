@@ -14,21 +14,25 @@ import VideoConsultation from '../components/VideoConsultaion/VideoConsultation'
 import PatientDashboard from '../components/Dashboards/Patient/Patient';
 import DoctorDashboard from '../components/Dashboards/Doctor/Doctor';
 import {createBrowserRouter} from 'react-router-dom'; 
-import Hospital from '../components/Hospital/Hospital';
+import Hospital, {loader as HospitalLoader} from '../components/Hospital/Hospital';
 import DoctorList, {loader as IndivDocLoader} from "../containers/DoctorList/DoctorList";
 import Doctor, {loader as DocLoader} from '../components/Doctor/Doctor';
 import ErrorPage from '../UI/ErrorPage/ErrorPage';
 import Layout from '../hoc/Layout/Layout';
 import CompleteList from '../components/CompleteList/CompleteList';
+import { NavData, loader as NavDataLoader } from "../StateData/NavData/NavData";
+
 
 const Router = createBrowserRouter([
   {
-    path: "/",
     path: "/",
     element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
      {index: true , element: <Home />} ,
+     {
+      path: '/' , element: <NavData />, loader: NavDataLoader
+     },
      {
       path: 'Doctor/:leftItem/:rightItem/:cityName', 
              element: <Doctor />, 
@@ -42,6 +46,7 @@ const Router = createBrowserRouter([
      {
       path: 'Hospital/:leftItem/:rightItem', 
             element: <Hospital />,
+            loader:HospitalLoader
             
      },
      {

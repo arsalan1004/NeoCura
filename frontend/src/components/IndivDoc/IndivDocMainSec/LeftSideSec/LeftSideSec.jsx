@@ -4,14 +4,18 @@ import SectionCard from "./SectionCard/SectionCard";
 import context from "../../../../Context/Context";
 import Review from "../../Review/Review";
 import ReviewOverview from "../../Review/ReviewOverview/ReviewOverview";
-import starAnimated from '../../../../assets/Icons/star-animated2 (1).gif';
+import starAnimated from '../../../../assets/Icons/animatedStar2.gif';
 
 const LeftSideSec = () => {
     
     const {docInfo, userReview} = useContext(context);
-    const sectionList = ['services', 'conditionsTreated', 'surgeriesPerformed','specialization','professionalMemberships', 'languagesSpoken']
+    const sectionList = ['services', 'conditionsTreated', 'surgeriesPerformed','specialization','professionalMemberships', 'languagesSpoken'];
      
+
+
     console.log(userReview);
+    console.log(docInfo);
+
     return(
         <div className={classes.LeftSideSec}>
 
@@ -24,11 +28,11 @@ const LeftSideSec = () => {
 
             {
                 sectionList.map(
-                    (key)=> {
+                    (key, i)=> {
                         const convertedKey = key.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase());
                         return (
                             docInfo[key].length!==0 ? 
-                            <SectionCard heading={convertedKey} data={docInfo[key]}/> : null
+                            <SectionCard  key={i} heading={convertedKey} data={docInfo[key]}/> : null
                         );
                     }
                 )

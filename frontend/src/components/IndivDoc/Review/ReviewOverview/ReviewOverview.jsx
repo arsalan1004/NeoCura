@@ -10,6 +10,8 @@ const ReviewOverview = (props) => {
         reviewSec.scrollIntoView({behavior: 'smooth'});
     }
 
+    console.log(props.overview);
+
     return (
         <div className={classes.ReviewOverviewSec}>
             <div className={classes.ReviewOverview}>
@@ -19,7 +21,7 @@ const ReviewOverview = (props) => {
                         {
                             Object.entries(props.overview).map(
                                 ([key, value]) => (
-                                    <li>{value.toFixed(1)} <img src={star} /> <span className={classes.Key}>{key}</span></li>
+                                    <li>{value} <img src={star} /> <span className={classes.Key}>{key}</span></li>
                                 )
                                 )
                         }
@@ -28,7 +30,7 @@ const ReviewOverview = (props) => {
                 
                 <div className={classes.Satisfaction}>
                     <p>Satisfaction Rate of Patients</p>
-                    <div>{props.satisfaction*100}%</div>
+                    <div>{props.satisfaction}%</div>
                 </div>
 
             </div>

@@ -7,7 +7,10 @@ const IndivDocMainSec = () => {
     return(
         <div className={classes.IndivDocMainSec}>
             <LeftSideSec />
-            <RightSideSec />
+            <div className={classes.RightSideSec}>
+                <RightSideSec />
+            </div>
+            
         </div>
         
     );

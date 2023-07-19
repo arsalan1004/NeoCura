@@ -6,19 +6,7 @@ import Aux from "../../../../../hoc/Auxiliary/Auxiliary";
 
 
 const LocationSec = (props) => {
-   
-    // const timeTable = (
-    //     <table>
-    //         {Object.entries(props.timetable).map( 
-    //             ([day, time]) => (
-    //                 <tr key={day}>
-    //                     <td className={classes.Day}>{day}</td>
-    //                     <td className={classes.Time}>{time}</td>
-    //                 </tr>
-    //             )
-    //         )}
-    //     </table>
-    // );
+
 
     const currentDate = new Date();
     let currentDayIndex = currentDate.getDay();
@@ -66,20 +54,6 @@ const LocationSec = (props) => {
         </table>
     );
         
-//   const see=()=>{
-//     return(
-//     <>
-//     <Modal show={props.viewingTimetable} 
-//                    modalClosed = {props.hideTimetableHandler}
-//                 className={classes.Modal}  >
-
-//                   {timeTable}
-
-//             </Modal>
-//     </>
-//         );
-
-  //}
     
     return (
         <Aux>
@@ -91,7 +65,7 @@ const LocationSec = (props) => {
                 <h1>{props.name}</h1>
                 {table}  
                 <p className={classes.OpenTimeTable} onClick={() => {props.gen(props.name);}} key={props.name} >View Whole Timetable</p>
-                <Button text={btnText} className={classes.Button}  />   
+                <Button text={btnText} class1={classes.Button}  />   
                 
     
             </div>

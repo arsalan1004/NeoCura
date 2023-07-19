@@ -5,7 +5,7 @@ import NavigationItem from "../../NavigationItems/NavigationItem/NavigationItem"
 
 const LeftNav = (props) => {
 
-    let output =[];
+    let output = [];
 
     if(props.name === 'Doctor'){
         output = ['Search Doctor By Speciality', 'Search Doctor By Condition', 'Search Doctor By Treatment', 'Search Online Doctors'];

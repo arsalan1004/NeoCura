@@ -7,7 +7,7 @@ const IndivDoc = () => {
     return(
         <div className={classes.IndivDoc}>
             <DocCard />
-            {/* <IndivDocMainSec /> */}
+            <IndivDocMainSec />
         </div>
         
     );
