@@ -8,16 +8,19 @@ const getHosInfo = async(hosName, city)=>{
     const hosDetails = await getHospital(hosName);
 
     const hosBranch = await getBranches(hosName, city);
+    console.log(hosBranch);
 
-    hosSpecificInfo = await Promise.all(hosBranch.map(async(hosbranch)=>{
-        const info = await getInfo(hosbranch);
+    hosSpecificInfo = await Promise.all(hosBranch.map(async(br)=>{
+        console.log(br);
+        const info = await getInfo(br);
+        console.log(info);
         return {
             name: info.name,
             location: info.location,
             postalCode: info.postalCode,
             email: info.email,
-            fees: await getFees(hosBranch),
-            timetable: await getTimetable(hosBranch),
+            fees: await getFees(br),
+            timetable: await getTimetable(br),
         }
     }))
     
