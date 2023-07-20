@@ -48,62 +48,70 @@ const HospitalData =
 [
     {'Karachi': [
         "Aga Khan University Hospital",
-        "Liaquat National Hospital & Medical College",
-        "Indus Hospital",
-        "Ziauddin University Hospital",
         "South City Hospital",
-        "Dr. Ziauddin Hospital - Clifton",
+        "Indus Hospital",
+        "Liaquat National Hospital",
+        "Ziauddin Hospital",
+        "Parklane Hospital",
+        "Tabba Heart Institute",
+        "OMI Hospital",
         "Patel Hospital",
-        "Karachi Institute of Heart Diseases",
-        "National Institute of Cardiovascular Diseases (NICVD)",
-        "Dow University Hospital"
+        "Darul Sehat Hospital"
     ]
 
 }, 
 
     {'Lahore': [
-        "Shaukat Khanum Memorial Cancer Hospital & Research Centre",
-        "Jinnah Hospital",
-        "Allama Iqbal Medical College/Jinnah Hospital",
-        "Mayo Hospital",
+        "Shaukat Khanum Memorial Cancer Hospital",
         "Lahore General Hospital",
-        "Fatima Memorial Hospital",
-        "Services Hospital",
-        "Punjab Institute of Cardiology"
+        "Doctors Hospital & Medical Centre",
+        "Hameed Latif Hospital",
+        "Farooq Hospital",
+        "Surgimed Hospital",
+        "Omar Hospital & Cardiac Centre",
+        "National Hospital & Medical Centre",
+        "Aadil Hospital",
+        "Azra Naheed Medical College & Hospital"
     ]
 },
 
     {'Islamabad': [
         "Shifa International Hospital",
-        "Pakistan Institute of Medical Sciences (PIMS)",
-        "Federal Government Services Hospital",
-        "Maroof International Hospital",
-        "Quaid-e-Azam International Hospital",
+        "Aga Khan University Hospital (AKUH)",
         "Ali Medical Centre",
+        "Maroof International Hospital",
         "Kulsum International Hospital",
-        "Capital Hospital"
+        "Quaid-e-Azam International Hospital",
+        "Islamabad Specialist Clinic & Diagnostic Centre",
+        "Hearts International Hospital",
+        "Fauji Foundation Hospital",
+        "CDA Hospital"
     ]},
 
     {'Quetta': [
-        "Civil Hospital Quetta",
-        "Bolan Medical College/Bolan Hospital",
-        "Sandeman Provincial Hospital",
         "Fatima Jinnah General and Chest Hospital",
-        "Combined Military Hospital (CMH) Quetta",
-        "Al-Sheikh Children's and General Hospital",
-        "Fatima Dental Hospital",
-        "Children's Hospital Quetta"
+        "Akram Hospital",
+        "Balochistan Medical Complex",
+        "Alamdar Road Hospital",
+        "Al-Rahim Hospital",
+        "Quetta Institute of Medical Sciences (QIMS)",
+        "City International Hospital",
+        "Bolan Medical Complex (BMC)",
+        "Doctors Plaza Hospital",
+        "Hussaini Hospital"
     ]},
 
     {'Peshawar': [
-        "Lady Reading Hospital",
-        "Khyber Teaching Hospital",
-        "Hayatabad Medical Complex",
-        "Northwest General Hospital",
+        "Khyber Medical Centre (KMC)",
+        "Northwest General Hospital & Research Centre",
+        "Rehman Medical Institute (RMI)",
         "Prime Teaching Hospital",
-        "Rehman Medical Institute",
-        "Shaukat Khanum Memorial Cancer Hospital & Research Centre",
-        "Peshawar Institute of Medical Sciences"
+        "Lady Reading Hospital",
+        "North West Hospital",
+        "Peshawar Institute of Medical Sciences (PIMS)",
+        "Zanana Hospital",
+        "Shifa Medical Center",
+        "Lady Reading Hospital & Medical College"
     ]}
 ];
 

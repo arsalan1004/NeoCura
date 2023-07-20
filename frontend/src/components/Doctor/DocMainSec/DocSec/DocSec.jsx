@@ -91,22 +91,23 @@ const DocSec = ({ docInfo, locData }) => {
       </div>
 
       <div className={classes.ButtonSec}>
-        <Link to={docInfo.docId} >
+        <Link to={docInfo.docId}>
             <IconButton 
                   id="profile" 
                   passedClass = {classes.ProfileButton}>
-
                     View Profile
-
             </IconButton>
         </Link>
 
-        <IconButton
-            id="consultation"
-            passedClass={classes.Button2}
-          >
-            Book Appointment
-        </IconButton>
+        <Link to='/booking'>
+          <IconButton
+              id="consultation"
+              passedClass={classes.Button2}
+            >
+              Book Appointment
+          </IconButton>
+        </Link>
+     
       </div>
     </div>
   );

@@ -10,7 +10,6 @@
     width:100%;
     text-align: center;
     margin-top: 20px;
-    color:white;
 }
 
 .NavigationItems > li{
@@ -21,7 +20,13 @@
     font-weight:600;
     position: relative;
     padding-bottom: 10px;
+    color:white;
     font-family: 'Lumanosimo', cursive;
+}
+
+.NavigationItems a {
+  color:white;
+
 }
 
 .NavigationItems > li:hover {

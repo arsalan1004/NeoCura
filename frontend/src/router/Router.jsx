@@ -41,7 +41,7 @@ const Router = createBrowserRouter([
              loader: IndivDocLoader,
      },
      {
-      path: 'Hospital/:leftItem/:rightItem', 
+      path: ':toolbarName/:leftItem/:rightItem', 
             element: <Hospital />,
             loader:HospitalLoader
             

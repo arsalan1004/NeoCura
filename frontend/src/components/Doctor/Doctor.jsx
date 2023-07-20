@@ -38,7 +38,7 @@ const Doctor = () => {
     "Female Doctors",
     "Highest Satisfaction ",
     "Most Experienced",
-    "Platinum Doctors",
+    "Online Doctors",
     "Lowest Fees",
     "Clinic Doctors",
   ];
@@ -181,7 +181,16 @@ const filterData = (name, fside) => {
   return (
     <div className={classes.Doctor}>
 
-      <FilterSec filterNames={docFilterNames} handler={filterData} />
+      <div className={classes.Header}>
+         {
+          params.leftItem == 'Speciality' || params.leftItem == 'Online' ? 
+              <h1>Best {params.rightItem}s in {params.cityName} </h1> 
+          : <h1>Best Doctors for {params.rightItem} in {params.cityName} </h1> 
+         }
+          
+          <FilterSec filterNames={docFilterNames} handler={filterData} />
+      </div>
+      
   
       <DocMainSec docData={docDetail} locData={locDetail} />
   

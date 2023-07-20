@@ -2,11 +2,12 @@ import React from "react";
 import classes from './Hospital.module.css';
 import HospitalPage from "./HospitalPage/HospitalPage";
 import Context from "../../Context/Context";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 
 
 const Hospital = () => {
 
+    const params = useParams();
     const HospitalData = useLoaderData();
     console.log(HospitalData);
 
@@ -42,7 +43,7 @@ const Hospital = () => {
     return (
         <div className={classes.Hospital}>
             <Context.Provider value={{HospitalData}}>
-                <HospitalPage />
+                <HospitalPage toolbarName = {params.toolbarName} />
             </Context.Provider>
         </div>
     )
@@ -54,7 +55,7 @@ export default Hospital;
 export async function loader({params}) {
   
   
-    const response = await fetch("http://localhost:5000/Hospital" +  "/" + params.leftItem + "/" + params.rightItem);
+    const response = await fetch("http://localhost:5000/" + params.toolbarName +  "/" + params.leftItem + "/" + params.rightItem);
   
     console.log(response);
                                                                         

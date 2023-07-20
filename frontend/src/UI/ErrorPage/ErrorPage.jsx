@@ -14,9 +14,11 @@ const ErrorPage = () => {
             </p>
             <p>The Page you requested could not be found</p>
             <p>Don't Worry and Return Back Home </p>
-            <button className={classes.Button}>
-                <Link to='/'>Back Home </Link>
-            </button>
+            <Link to='/'>
+                <button className={classes.Button}>
+                        Back Home 
+                </button>
+            </Link>
         </div>
     );
 }
