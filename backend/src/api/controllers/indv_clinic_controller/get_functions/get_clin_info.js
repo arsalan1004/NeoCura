@@ -9,7 +9,6 @@ const getClinInfo = async (clinName, city) => {
 
   const clinDetails = await getClinic(clinId);
 
-  const Timetable = await getTimetable(clinId);
 
   const clinSpecificInfo = await Promise.all(
     clinId.map(async (id) => {

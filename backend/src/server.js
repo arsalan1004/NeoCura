@@ -17,7 +17,7 @@ const { clinRouter } = require("./api/routes/indvClinic_Route/clinicRoute.js");
 const { DocRouter } = require("./api/routes/Indv_Route/indvDocRoute.js");
 const { NavbarRouter } = require("./api/routes/NavBar_Route/navbarRoute.js");
 const { LoginRouter } = require("./api/routes/Login_Route/Login_Route.js");
-const { SpecRouter } = require("./api/routes/SpecList_Route/specListRoute.js");
+const { SpecRouter } = require("./api/routes/allList_Route/allListRoute.js");
 
 // Require ENV variables
 require("dotenv").config();
