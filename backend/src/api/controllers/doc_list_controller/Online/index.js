@@ -2,6 +2,9 @@ const { getOnlineDocIds } = require("./get_onlineDocIDs/get_Ids.js");
 const { getDoctors } = require("../../indv_doc_controller/index.js");
 
 const getOnlineDocs = async (Request, Response) => {
+  newlist = Request.params.speciality.split("-");
+  newlist.slice(1, -1);
+  const specName = newlist.join(" ");
   const onlineDocIds = await getOnlineDocIds(Request.params.city);
 
   const onlineDocs = await Promise.all(

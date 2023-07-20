@@ -13,7 +13,6 @@ const {
   getOnlineDocs,
 } = require("../../controllers/doc_list_controller/Online/index.js");
 
-
 // Get by Speciality
 Router.get("/Doctor/Speciality/:speciality/:city", getSpecDocs);
 
@@ -24,6 +23,6 @@ Router.get("/Doctor/Condition/:condition/:city", getCondDocs);
 Router.get("/Doctor/Treatment/:treatment/:city", getTreatDocs);
 
 // Get Online
-Router.get("/Doctor/Online/:city", getOnlineDocs);
+Router.get("/Doctor/Online/:speciality/:city", getOnlineDocs);
 
 module.exports = { Router };
