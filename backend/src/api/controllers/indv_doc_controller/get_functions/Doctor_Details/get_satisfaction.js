@@ -17,10 +17,8 @@ const getSatisfaction = async (docId) => {
       (error, result) => {
         if (!error) {
           if (result.rows[0] == undefined) {
-            console.log("in error");
             resolve("0");
           } else {
-            //console.log(result.rows[0]);
             resolve(result.rows[0].satisfaction_percentage);
           }
         } else {

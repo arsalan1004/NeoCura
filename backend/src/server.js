@@ -17,6 +17,7 @@ const { clinRouter } = require("./api/routes/indvClinic_Route/clinicRoute.js");
 const { DocRouter } = require("./api/routes/Indv_Route/indvDocRoute.js");
 const { NavbarRouter } = require("./api/routes/NavBar_Route/navbarRoute.js");
 const { LoginRouter } = require("./api/routes/Login_Route/Login_Route.js");
+const { SpecRouter } = require("./api/routes/SpecList_Route/specListRoute.js");
 
 // Require ENV variables
 require("dotenv").config();
@@ -33,8 +34,7 @@ app.use("/", NavbarRouter);
 app.use("/", DocRouter);
 app.use("/blogs", BlogRouter);
 app.use("/searchBarApi", SearchBarRouter);
-app.use("/", Router);
-
+app.use("/", SpecRouter);
 app.use("/signup", SignUpRouter);
 app.use("/", SearchBarRouter);
 app.use("/", hosRouter);

@@ -10,7 +10,6 @@ const getName = async (revId) => {
         if (error) {
           reject(error);
         } else {
-          console.log(result.rows, revId);
           resolve(result.rows[0].name);
         }
       }

@@ -5,6 +5,6 @@ const {
   getAllSpecs,
 } = require("../../controllers/specList_controllers/specList.js");
 
-SpecRouter.get("/CompleteList/Speciality", getAllSpecs);
+SpecRouter.get("/CompleteList/Doctor/Speciality", getAllSpecs);
 
 module.exports = { SpecRouter };

@@ -7,10 +7,8 @@ const getFees = async (branch, docId) => {
         ON f."availId" = da."availId" WHERE da."docId" = '${docId}' AND da."hosBranchId" = '${branch}'`,
       (error, result) => {
         if (result.rows[0] == undefined) {
-          console.log("in error");
           resolve("0");
         } else {
-          //console.log(result.rows[0]);
           resolve(result.rows[0].feeAmount);
         }
       }

@@ -15,7 +15,6 @@ const calcConsultTime = async (docId) => {
           reject(err);
         } else {
           if (result.rows[0] == undefined) {
-            console.log("in error");
             resolve("0");
           } else {
             resolve(result.rows[0].satisfaction);
