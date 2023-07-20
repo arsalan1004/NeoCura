@@ -1,4 +1,4 @@
-const { database } = require("../../../config/db_setup.js");
+const { database } = require("../../../../config/db_setup.js");
 
 const getSpecsData = async () => {
   return new Promise((resolve, reject) => {
@@ -6,7 +6,7 @@ const getSpecsData = async () => {
       `SELECT sp."specialityName" AS name, COUNT(ds."docId") AS noOfDr
     FROM public."DocSpeciality" ds
     JOIN public."Speciality" sp ON sp."spId" = ds."spId"
-    GROUP BY sp."specialityName"`,
+    GROUP BY sp."specialityName" ORDER BY hc."specialityName"`,
       (err, results) => {
         if (err) reject(err);
         resolve(results.rows);

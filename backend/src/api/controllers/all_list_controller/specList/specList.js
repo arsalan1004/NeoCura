@@ -1,9 +1,9 @@
 const { getSpecsData } = require("./getAllSpecs.js");
 
-const getAllSpecs = async (Request, Response) => {
+const getAllSpecs = async () => {
   const allSpecs = await getSpecsData();
 
-  Response.status(200).json(allSpecs);
+  return allSpecs;
 };
 
 module.exports = { getAllSpecs };
