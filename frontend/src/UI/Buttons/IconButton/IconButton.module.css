@@ -19,5 +19,6 @@
     cursor: pointer;
     color: white;
     background-color: #000066;
+    transform: scale(1.05);
 }
 

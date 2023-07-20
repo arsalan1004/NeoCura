@@ -19,7 +19,7 @@ import DoctorList, {loader as IndivDocLoader} from "../containers/DoctorList/Doc
 import Doctor, {loader as DocLoader} from '../components/Doctor/Doctor';
 import ErrorPage from '../UI/ErrorPage/ErrorPage';
 import Layout from '../hoc/Layout/Layout';
-import CompleteList from '../components/CompleteList/CompleteList';
+import CompleteList, {loader as CompleteListLoader} from '../components/CompleteList/CompleteList';
 
 
 const Router = createBrowserRouter([
@@ -41,13 +41,16 @@ const Router = createBrowserRouter([
              loader: IndivDocLoader,
      },
      {
-      path: 'Hospital/:leftItem/:rightItem', 
+      path: ':toolbarName/:leftItem/:rightItem', 
             element: <Hospital />,
             loader:HospitalLoader
             
      },
      {
-      path: 'CompleteList/:toolBarName/:leftItem', element: <CompleteList /> },
+      path: 'CompleteList/:toolBarName/:leftItem', 
+      element: <CompleteList />,
+      loader: CompleteListLoader
+    },
      {path:"/booking",element:<BookAppointment/>},
      {path:"/patientId/dashboard/*",element:<PatientDashboard />},
      {path:"/doctorId/dashboard/*",element:<DoctorDashboard />},

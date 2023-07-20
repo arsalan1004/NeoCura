@@ -92,10 +92,13 @@ p.FirstLine span{
     padding:20px;
 }
 
+.Button {
+    color: #2c9caf;
+
+}
 
 .Button>a{
     text-decoration: none;
-    color: #2c9caf;
     width:100%;
 
 }

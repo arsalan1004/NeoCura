@@ -15,6 +15,12 @@ const AllBlogs = () => {
   useEffect(()=>{
     FetchData()
   },[])
+  const scrollToCities = (selectionName) => {
+    const citiesSec = document.getElementById('blogsection');
+    citiesSec.scrollIntoView({behavior: 'smooth'});
+    setSelectedName(selectionName);
+}
+  
   console.log(blogsData);
   return (
     <>
@@ -32,9 +38,11 @@ const AllBlogs = () => {
         </main>
       ) : (
         <main className={classes.main}>
-          <HeroSection />
+          <HeroSection move={scrollToCities}/>
           <Slider data={blogsData} />
+          <div id="blogsection">
           <BlogsSection data={blogsData} />
+          </div>
         </main>
       )}
     </>

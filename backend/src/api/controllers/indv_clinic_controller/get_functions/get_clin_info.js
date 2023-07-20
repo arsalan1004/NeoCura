@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 const { getClinId } = require("./Hospital_Info/clin_Details/getId.js");
 const { getClinic } = require("./Hospital_Info/clin_Details/get_clinic.js");
 const { getTimetable } = require("./Hospital_Info/Timetable/getTimetable.js");
 const { getInfo } = require("./Hospital_Info/clin_Details/getClinInfo.js");
+=======
+const { getClinId } = require("./Hospital_Info/Hos_Details/getId.js");
+const { getClinic } = require("./Hospital_Info/Hos_Details/get_clinic.js");
+const { getTimetable } = require("./Hospital_Info/Timetable/getTimetable.js");
+const { getInfo } = require("./Hospital_Info/Hos_Details/getClinInfo.js");
+>>>>>>> 210093c5bf892f6b8e0838b9f19ee0fd3d7b822b
 const { getFees } = require("./Hospital_Info/Fees/get_fees.js");
 
 const getClinInfo = async (clinName, city) => {
@@ -9,6 +16,7 @@ const getClinInfo = async (clinName, city) => {
 
   const clinDetails = await getClinic(clinId);
 
+<<<<<<< HEAD
 
   const clinSpecificInfo = await Promise.all(
     clinId.map(async (id) => {
@@ -26,6 +34,24 @@ const getClinInfo = async (clinName, city) => {
     })
   );
 
+=======
+  const clinSpecificInfo = await Promise.all(
+    clinId.map(async (id) => {
+      const info = await getInfo(id);
+
+      return {
+        name: info.name,
+        location: info.location,
+        contactNumber: info.contactNumber,
+        email: info.email,
+        postalCode: info.postalCode,
+        fees: await getFees(id),
+        timetable: await getTimetable(id),
+      };
+    })
+  );
+
+>>>>>>> 210093c5bf892f6b8e0838b9f19ee0fd3d7b822b
   const combinedInfo = {
     clinicId: clinDetails[0].clinicId,
     name: clinDetails[0].name,
@@ -36,4 +62,8 @@ const getClinInfo = async (clinName, city) => {
   return combinedInfo;
 };
 
+<<<<<<< HEAD
 module.exports = { getClinInfo };
+=======
+module.exports = { getClinInfo };
+>>>>>>> 210093c5bf892f6b8e0838b9f19ee0fd3d7b822b

@@ -41,11 +41,6 @@ const BlogBox = ({ img, title, slug,linkTo, author, date, data,read,latest }) =>
                 setIsSaved(!isSaved);
               }}
             ></button>}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+          </div>        </div>      </div>    </div>);};
 
 export default BlogBox;

@@ -10,7 +10,7 @@ import BlogBox from '../../../shared/BlogBox/BlogBox';
 
 const BlogsSection = ({data}) => {
   return (
-    <section>
+    <section id="blogs">
     <Wrapper>
         <div className={classes.mainContainer}>
             <div className={classes.Heading}>
@@ -21,7 +21,7 @@ const BlogsSection = ({data}) => {
                 {data.map((e,i)=>{
                     return(
                         <div key={i}>
-                        <BlogBox key={i} linkTo={`/blogs/${e.title}`} title={e.title} date={e.publishData} author={e.blogger_name} read={e.readTime} img={e.img_url} slug={e.blogId} />
+            <BlogBox key={i} linkTo={`/blogs/${e.title}`} title={e.title} date={e.publishData} author={e.blogger_name} read={e.readTime} img={e.img_url} slug={e.blogId} />
                         </div>
                     )
                 })}
@@ -32,4 +32,4 @@ const BlogsSection = ({data}) => {
   )
 }
 
-export default BlogsSection
+export default BlogsSection;

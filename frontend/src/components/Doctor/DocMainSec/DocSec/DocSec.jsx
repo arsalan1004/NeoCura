@@ -91,14 +91,23 @@ const DocSec = ({ docInfo, locData }) => {
       </div>
 
       <div className={classes.ButtonSec}>
-        <IconButton id="profile"> View Profile </IconButton>
-        <IconButton
-          id="consultation"
-          passedClass={classes.Button2}
-          // iconAdd='../../../assets/images/Icons/appointment1.png'
-        >
-          Book Appointment
-        </IconButton>
+        <Link to={docInfo.docId}>
+            <IconButton 
+                  id="profile" 
+                  passedClass = {classes.ProfileButton}>
+                    View Profile
+            </IconButton>
+        </Link>
+
+        <Link to='/booking'>
+          <IconButton
+              id="consultation"
+              passedClass={classes.Button2}
+            >
+              Book Appointment
+          </IconButton>
+        </Link>
+     
       </div>
     </div>
   );

@@ -26,9 +26,9 @@ const RightNav = (props) => {
     const {itemIndex, rightItemIndex} = useContext(context);
     const [output, setOutput] = useState({});
 
-    console.log('Inside RightNav', itemIndex);
+    // console.log('Inside RightNav', itemIndex);
 
-    console.log('Inside RightNav', rightItemIndex);
+    // console.log('Inside RightNav', rightItemIndex);
 
     useEffect(() => {
         setIndex(itemIndex);
@@ -48,8 +48,8 @@ const RightNav = (props) => {
 
     }, [props.name, itemIndex, output, docImgArr, hosImgArr]);
 
-    console.log(docImgArr)
-    console.log("host img",hosImgArr[0])
+    // console.log(docImgArr)
+    // console.log("host img",hosImgArr[0])
     // console.log(output)
 
     return(

@@ -5,10 +5,10 @@ import HosMainSec from './HosMainSec/HosMainSec';
 import DetailInfoSec from '../../Doctor/DocMainSec/DetailInfoSec/DetailInfoSec';
 import { HosQ, HosA } from '../../../StateData/DetailInfoQA/DetailInfoQA';
 
-const HospitalPage = () => {
+const HospitalPage = (props) => {
     return (
             <div className={classes.HospitalPage}>
-                <HosCard />
+                <HosCard toolbarName = {props.toolbarName} />
                 <HosMainSec />
                 <DetailInfoSec Q={HosQ} A={HosA} />
 

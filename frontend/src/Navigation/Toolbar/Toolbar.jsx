@@ -41,7 +41,14 @@ const Toolbar = () => {
                  */}
                 <NavigationItems />
             </nav>
-                 <Link to={'/login'}><h2>Login</h2></Link>
+            <div className={classes.Login} >
+                <Link to={'/login'} >
+                    <button className={classes.Button}>
+                      Login Now
+                    </button>
+                </Link>
+                
+            </div>
         </header>
 
         );

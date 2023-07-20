@@ -23,8 +23,9 @@ const NavigationItem = props => {
 
     const itemNameList =  ( 
         props.toolbarName === 'Doctor' ? Doctor.map( (obj) => Object.keys(obj)[0] ) :
-        props.toolbarName === 'Hospital'? HospitalData.map( (obj) => Object.keys(obj)[0] ) : 
-        []
+        props.toolbarName === 'Hospital' || props.toolbarName === 'Clinic' || props.toolbarName === 'Laboratory' ?
+             HospitalData.map( (obj) => Object.keys(obj)[0] ) : 
+            []
         );
 
 

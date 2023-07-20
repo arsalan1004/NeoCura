@@ -5,6 +5,10 @@ import { Box, Button } from '@mui/material';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import InfoBox from './InfoBox';
 import { dates,weekdays,months } from '../../data/BookingAppoint/data';
+// import VideoCon from '../../assets/images/GeneralImages/'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const BookAppointment = () => {
   
@@ -108,7 +112,11 @@ const BookAppointment = () => {
     })
   },[selectedLocation,selectedTime,selectedDate])
   const Submit=()=>{
+    toast.success('Appointment Booked !', {
+      position: toast.POSITION.TOP_RIGHT
+  });
     console.log(modal)
+
   }
 
   return (
@@ -123,12 +131,14 @@ const BookAppointment = () => {
               <div className={classes.LocBoxContainer}>
                 {places.map((e, i) => (
                   <div className={classes.LocCard}>
-                  <p className={classes.Heading}>
-                      <img src={ImgIndex == 0 ? videoConIcon : ImgIndex == 1 ? hospitalIcon : clinicIcon } />
-                      {locData.name}
-                  </p>
+                  <div key={i} onClick={() => { setSelectedLocation(e) }} className={selectedLocation === e ? classes.SelectedLocBox : classes.LocBox}><p>{e}</p></div>
+
+                  {/* <p className={classes.Heading}> */}
+                      {/* <img src={ImgIndex == 0 ? videoConIcon : ImgIndex == 1 ? hospitalIcon : clinicIcon } /> */}
+                      {/* {e} */}
+                  {/* </p> */}
                   
-                  <div>
+                  {/* <div>
                       <div className={classes.Info}>
                           <span className={classes.CircleIcon}> </span>
                           {
@@ -140,20 +150,19 @@ const BookAppointment = () => {
                           )
                           }
                           <p>Rs. {locData.fees}</p>
-                      </div>
+                      </div> */}
           
                       
                       
-                      <div className={classes.Timing}>
+                      {/* <div className={classes.Timing}>
                        { 
                           !isAvailableNow ? (<p style={{fontSize: '12px', marginLeft: '18px'}}>{nextAvailableTime}</p>) : null
                        }
-                      </div>
+                      </div> */}
                       
-                  </div>
+                  {/* </div> */}
           
-                  </div>
-                  // <div key={i} onClick={() => { setSelectedLocation(e) }} className={selectedLocation === e ? classes.SelectedLocBox : classes.LocBox}><p>{e}</p></div>
+                  </div> 
                 ))}
               </div>
             </div>
@@ -187,6 +196,7 @@ const BookAppointment = () => {
             {/* Button */}
             <div className={classes.btn}>
               <Button startIcon={<CalendarMonthIcon />} onClick={Submit} color="success" sx={{ padding: "10px" }} size="large" variant="contained">Book Appointment</Button>
+            <ToastContainer />
             </div>
           </div>
         </div>

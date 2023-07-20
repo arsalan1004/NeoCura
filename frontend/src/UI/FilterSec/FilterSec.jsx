@@ -8,6 +8,7 @@ const FilterSec = ({filterNames, handler}) => {
             {
                 filterNames.map((filter, i) => (
                     <Filter 
+                        key={i}
                         index={i} 
                         name={filter}
                         handler={handler}

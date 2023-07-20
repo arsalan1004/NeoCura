@@ -5,13 +5,19 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LockIcon from '@mui/icons-material/Lock';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
+import WestIcon from "@mui/icons-material/West";
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Box, IconButton, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const LoginPage = () => {
+  const Navigate=useNavigate()
   const[email,setEmail]=useState("default")
   const[pass,setPass]=useState("default")
   const[passVisible,setPassVisible]=useState(false)
@@ -19,15 +25,35 @@ const LoginPage = () => {
     setPassVisible(!passVisible)
   }
   console.log(email,pass)
-  const [validateUrl, setValid] = useState({ url: 'https://url.com', tempUrl: '' })
 
- const isUrlValid = (url) => url.length < 2 || !url.includes('.') || !url.startsWith('http')
 
  const handleSubmit = () => {
-
- setValid({ url: validateUrl.tempUrl, tempUrl: validateUrl.url })
-    }
+  if(email&&pass){
+    axios.post("http://localhost:5000/login",{email:email,password:pass})
+    .then((response)=>{
+    console.log(response)
+    toast.success('Login Success !', {
+      position: toast.POSITION.TOP_RIGHT
+  })
+  setTimeout(()=>{
+    Navigate("/")
+  },1000)})
+    .catch((error)=>{toast.error('Login Failed !', {
+      position: toast.POSITION.TOP_RIGHT
+  })})
+  }
+  else{
+    toast.error('Enter Your Credential', {
+      position: toast.POSITION.TOP_RIGHT
+  })
+  }
+  }
   return (
+    <>
+      <div className={classes.bg}>
+        <Link to={"/"}>
+      <Button  variant="contained"  startIcon={<WestIcon/>} className={classes.backBtn}>Back</Button>
+        </Link>
     <div className={classes.main}>
       <div className={classes.Box}>
       <div className={classes.userIconBox}>
@@ -80,6 +106,8 @@ const LoginPage = () => {
               <Typography variant="p"><Link to="/resetPassword">Forgot Password ?</Link></Typography>
           </Box>
           <Button size='large' sx={{width:"100%",fontSize:"14px",marginTop:"7px",marginBottom:"16px"}} onClick={handleSubmit} variant="contained">Login</Button>
+          <ToastContainer />
+
           <Box sx={{fontSize:"14px"}}>
               <Typography variant="p">Don't Have an Account ?  <Link to="/signup"> Sign Up</Link></Typography>
           </Box>
@@ -87,7 +115,10 @@ const LoginPage = () => {
         </div>
       </div>
       </div>
+      </div>
+    </>
+
   )
 }
 
-export default LoginPage
+export default LoginPage;

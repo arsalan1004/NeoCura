@@ -5,27 +5,24 @@ import DocSec from "./DocSec/DocSec";
 import classes from "./DocMainSec.module.css";
 // import DetailInfoSec from "./DetailInfoSec/DetailInfoSec";
 
-const DocMainSec = ({ docData, locData, handler }) => {
-  console.log("recieved", docData);
-  console.log("recieved", locData);
+const DocMainSec = ({ docData, locData }) => {
+
   return (
     <div className={classes.DocMainSec}>
-      {/* <div>
-                <button onClick={()=>handler('male')}>Male Doctors</button>
-                <button onClick={()=>handler('female')}>Female Doctors</button>
-                <button onClick={()=>handler('satisfaction')}>Most Satisfied</button>
-                <button onClick={()=>handler('experience')}>Most Experienced</button>
-                <button onClick={()=>handler('platinum')}>Video Consultation</button>
-                <button onClick={()=>handler('fees')}>Lowest Fees</button>
-                <button onClick={()=>handler('clinic')}>Clinic Doctor</button>
-            </div> */}
+
+    {console.log(docData)}
+    {console.log(docData.length)}
       {docData &&
         docData.map((item, index) => {
           {
             console.log("In docmainSec: ", item);
             console.log("In docmain sec: ", locData[index]);
           }
-          return <DocSec key={index} docInfo={item} locData={locData[index]} />;
+
+          return (docData.length > 0 ? <DocSec key={index} docInfo={item} locData={locData[index]} /> 
+          
+          : <h3>No Doctors Available for this Search Result.</h3>
+          );
         })}
     </div>
   );

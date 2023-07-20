@@ -2,9 +2,9 @@ import React, {useContext} from "react";
 import classes from './HosCard.module.css';
 import context from "../../../../Context/Context";
 import hosImg from '../../../../assets/images/docImgs/hospital.png';
-import bg from '../../../../assets/images/docImgs/hospitalBg.jpg';
+import clinicImg from '../../../../assets/Icons/clinicMainImage.png';
 
-const HosCard = () => {
+const HosCard = (props) => {
     
     const {HospitalData} = useContext(context);
     const br = HospitalData.branches[0];
@@ -14,7 +14,7 @@ const HosCard = () => {
         <div className={classes.HosCard}>
         <div className={classes.Image}>
           <img
-            src={hosImg}
+            src={ props.toolbarName == 'Hospital' ? hosImg : clinicImg }
             alt="Hospital's Image"
           />
         </div>
