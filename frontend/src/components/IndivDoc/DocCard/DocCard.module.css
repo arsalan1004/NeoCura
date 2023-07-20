@@ -11,6 +11,7 @@
     padding-bottom:2%;
     box-shadow: 2px 2px 4px rgb(123, 176, 184);
     margin-bottom: 5%;
+    padding-top:2%;
 }
 
 .DocCard::before{

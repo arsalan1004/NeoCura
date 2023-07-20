@@ -22,7 +22,7 @@ export default function LocationBar() {
       id="country-select-demo"
       className={classes.LocBar}
       options={data}
-      sx={{backgroundColor: "rgba(243, 243, 243, 0.802)"}}
+      // sx={{backgroundColor: "rgba(243, 243, 243, 0.802)"}}
       // freeSolo
       disableClearable
       autoHighlight
@@ -52,7 +52,7 @@ export default function LocationBar() {
             ...params.InputProps,
             startAdornment: (
               <InputAdornment position="start">
-                <LocationOnIcon sx={{ color: "rgba(0,77,255,1)", marginRight: 1 }} />
+                <LocationOnIcon sx={{ color: "#042343ff", marginRight: 1 }} />
               </InputAdornment>
             ),
           }}

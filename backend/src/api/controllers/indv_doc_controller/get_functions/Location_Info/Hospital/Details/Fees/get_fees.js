@@ -6,10 +6,10 @@ const getFees = async (branch, docId) => {
       `SELECT f."feeAmount" FROM public."ConsultationFees" f JOIN public."DocsAvailability" da
         ON f."availId" = da."availId" WHERE da."docId" = '${docId}' AND da."hosBranchId" = '${branch}'`,
       (error, result) => {
-        if (!error) {
-          resolve(result.rows[0].feeAmount);
+        if (result.rows[0] == undefined) {
+          resolve("0");
         } else {
-          reject(error);
+          resolve(result.rows[0].feeAmount);
         }
       }
     );

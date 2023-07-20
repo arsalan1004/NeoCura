@@ -517,22 +517,21 @@ const locData = [
 ];
 
 
-const detailInfoQA = [
-    {
-        'Who is a Dermatologist?': 
-       "A dermatologist is a doctor who specializes in the treatment of conditions that affect the skin, hair, and nails. Dermatologists are trained to diagnose and treat over 3000 conditions like acne, eczema, psoriasis, etc., and can also perform certain cosmetic procedures."
-    },
+const docDetailInfoQ = [
+  'Who is a Dermatologist?',
+  'What is Dermatology?',
+  'When should you see a Dermatologist?'
+];
 
-    {
-        "What is Dermatology?" :
-        "Dermatology is the field of medicine dealing with the diagnosis, research, study, management, and treatment of conditions of the skin, hair, and nails."
-    },
+const docDetailInfoA = [
+  "A dermatologist is a doctor who specializes in the treatment of conditions that affect the skin, hair, and nails. Dermatologists are trained to diagnose and treat over 3000 conditions like acne, eczema, psoriasis, etc., and can also perform certain cosmetic procedures."
+,        "Dermatology is the field of medicine dealing with the diagnosis, research, study, management, and treatment of conditions of the skin, hair, and nails."
+,         "If you have stubborn acne, scars, stretch marks, excess cellulite, dark discolorations, hyperpigmentation, itches, rashes, or abnormally blushing skin, booking an appointment with the best dermatologist in Islamabad is a good idea. Moreover, if you’re facing one of the following symptoms of the skin, nails, or hair you should visit a dermatologist. If you are experiencing one or more of these symptoms, you should consult an expert dermatologist rather than ignoring the problem or attempting to treat it yourself. Moreover, if you are looking for cosmetic treatments to improve the texture, look, and tone of your skin, hair, and nails the best skin doctor in Islamabad can help you. Dermatologists can perform cosmetic procedures for skin whitening, skin tightening, hair removal, etc. to enhance your look and personality. People who are conscious of their appearance often opt for such treatments."
 
-    {
-        "When should you see a Dermatologist?": 
-        "If you have stubborn acne, scars, stretch marks, excess cellulite, dark discolorations, hyperpigmentation, itches, rashes, or abnormally blushing skin, booking an appointment with the best dermatologist in Islamabad is a good idea. Moreover, if you’re facing one of the following symptoms of the skin, nails, or hair you should visit a dermatologist. If you are experiencing one or more of these symptoms, you should consult an expert dermatologist rather than ignoring the problem or attempting to treat it yourself. Moreover, if you are looking for cosmetic treatments to improve the texture, look, and tone of your skin, hair, and nails the best skin doctor in Islamabad can help you. Dermatologists can perform cosmetic procedures for skin whitening, skin tightening, hair removal, etc. to enhance your look and personality. People who are conscious of their appearance often opt for such treatments."
-    }
-]
+
+];
+
+
 
 const FAQData = [
     {
@@ -553,4 +552,4 @@ const FAQData = [
     },
 ];
 
-export {docData, locData, detailInfoQA, FAQData};
+export {docData, locData, docDetailInfoQ, docDetailInfoA, FAQData};

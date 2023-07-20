@@ -2,9 +2,9 @@ const express = require("express");
 const SpecRouter = express.Router();
 
 const {
-  getAllSpecs,
-} = require("../../controllers/specList_controllers/specList.js");
+  displayAllList,
+} = require("../../controllers/all_list_controller/index.js");
 
-SpecRouter.get("/CompleteList/Speciality", getAllSpecs);
+SpecRouter.get("/CompleteList/Doctor/:identifier", displayAllList);
 
 module.exports = { SpecRouter };

@@ -7,21 +7,14 @@ import BlogsSection from "./BlogsSection/BlogsSections";
 import axios from "axios";
 const AllBlogs = () => {
   const [blogsData, setBlogsData] = useState([]);
-  const [loader, setloader] = useState(true);
-  const FetchData = async () => {
-    await axios
-      .get("http://localhost:5173/blogs")
-      .then((res) => {
-        console.log(setBlogsData(res.data));
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    setloader(false);
-  };
-  useEffect(() => {
-    FetchData();
-  }, []);
+  const [loader,setloader]=useState(true)
+  const FetchData=async()=>{
+      await axios.get('http://localhost:5000/blogs').then((res)=>{console.log(setBlogsData(res.data))}).catch((err)=>{console.log(err)})
+      setloader(false)
+  }
+  useEffect(()=>{
+    FetchData()
+  },[])
   console.log(blogsData);
   return (
     <>

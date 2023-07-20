@@ -14,39 +14,40 @@ import VideoConsultation from '../components/VideoConsultaion/VideoConsultation'
 import PatientDashboard from '../components/Dashboards/Patient/Patient';
 import DoctorDashboard from '../components/Dashboards/Doctor/Doctor';
 import {createBrowserRouter} from 'react-router-dom'; 
-import Hospital from '../components/Hospital/Hospital';
-import DoctorList, {loader as indivDocLoader} from "../containers/DoctorList/DoctorList";
+import Hospital, {loader as HospitalLoader} from '../components/Hospital/Hospital';
+import DoctorList, {loader as IndivDocLoader} from "../containers/DoctorList/DoctorList";
 import Doctor, {loader as DocLoader} from '../components/Doctor/Doctor';
 import ErrorPage from '../UI/ErrorPage/ErrorPage';
 import Layout from '../hoc/Layout/Layout';
 import CompleteList from '../components/CompleteList/CompleteList';
 
+
 const Router = createBrowserRouter([
   {
-    path: "/",
     path: "/",
     element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
      {index: true , element: <Home />} ,
+  
      {
       path: 'Doctor/:leftItem/:rightItem/:cityName', 
              element: <Doctor />, 
              loader: DocLoader,
-             children: [
-              {
-                path: ':docId',
-                element: <DoctorList />,
-                loader: indivDocLoader
-
-              }
-             ]
+     },
+     {
+      path: 'Doctor/:leftItem/:rightItem/:cityName/:docId', 
+             element: <DoctorList />, 
+             loader: IndivDocLoader,
      },
      {
       path: 'Hospital/:leftItem/:rightItem', 
-            element: <Hospital />
+            element: <Hospital />,
+            loader:HospitalLoader
+            
      },
-     {path: 'CompleteList/:toolBarName/:leftItem', element: <CompleteList /> },
+     {
+      path: 'CompleteList/:toolBarName/:leftItem', element: <CompleteList /> },
      {path:"/booking",element:<BookAppointment/>},
      {path:"/patientId/dashboard/*",element:<PatientDashboard />},
      {path:"/doctorId/dashboard/*",element:<DoctorDashboard />},

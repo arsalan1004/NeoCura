@@ -3,8 +3,8 @@ import context from "../../../Context/Context";
 import ReviewPost from "./ReviewPost/ReviewPost";
 import classes from './Review.module.css';
 import ImageButton from "../../../UI/Buttons/ImageButton/ImageButton";
-import downArrow from '../../../assets/Icons/down-arrow2.gif';
-import upArrow from '../../../assets/Icons/up-arrow.gif';
+import downArrow from '../../../assets/Icons/downArrow.gif';
+import upArrow from '../../../assets/Icons/upArrow.gif';
 
 const Review = (props) => {
     const {userReview} = useContext(context);
@@ -25,12 +25,13 @@ const Review = (props) => {
             {
                 userReview.reviews.slice(0,reviewNumber).map((ele) => <ReviewPost name={ele.name} timePassed={ele.timePassed} review={ele.review}  />
                 )
-            }
+            }   
 
-            {
+            { props.noOfReviews > 3 ?
               reviewNumber < userReview.reviews.length ? 
                 <ImageButton  image={downArrow} alt='Load More Reviews' clicked={loadMoreReviews} />
                 : <ImageButton  image={upArrow} alt='Hide Reviews' clicked={hideReviews} />
+                : null
             } 
 
         </div>

@@ -2,9 +2,11 @@ const e = require("express");
 const { database } = require("../../../../../config/db_setup.js");
 
 const getCondId = async (cond) => {
+  let newlist = cond.split("-");
+  let con = newlist.join(" ");
   return new Promise((resolve, reject) => {
     database.query(
-      `SELECT "conId" FROM public."HealthCondition" WHERE "conditionName" = '${cond}'`,
+      `SELECT "conId" FROM public."HealthCondition" WHERE "conditionName" = '${con}'`,
       (err, result) => {
         if (err) {
           reject(err);

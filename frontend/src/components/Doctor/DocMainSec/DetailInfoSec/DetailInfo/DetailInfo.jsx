@@ -2,9 +2,8 @@ import React from "react";
 import classes from './DetailInfo.module.css';
 
 
-const DetailInfo = ({detailInfo, index}) => {
+const DetailInfo = ({question, answer, index}) => {
     
-    const [[question, answer]] = Object.entries(detailInfo);
     // console.log(question);
     // console.log(answer);
     // console.log(Object.entries(detailInfo));

@@ -26,6 +26,7 @@ const getDoctors = async (id) => {
 
     // Get Doctor Satisfaction
     const docSatisfaction = await getSatisfaction(id);
+    console.log(docSatisfaction);
 
     // Get Doctor Education
 

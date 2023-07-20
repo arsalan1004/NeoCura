@@ -4,17 +4,17 @@ const {
 } = require("../../../../helpers/List_Converter/to_list.js");
 
 const getDocIds = async (spec) => {
+  let newlist = spec.split("-");
+  let sp = newlist.join(" ");
   return new Promise((resolve, reject) => {
     database.query(
       `SELECT ds."docId" FROM public."DocSpeciality" ds JOIN public."Speciality" s
-      ON ds."spId" = s."spId" WHERE s."specialityName" = '${spec}'`,
+      ON ds."spId" = s."spId" WHERE s."specialityName" = '${sp}'`,
       (error, result) => {
         if (!error) {
-          
           resolve(list_convert(result.rows));
-
         } else {
-          console.log('in error');
+          console.log("in error");
           reject(error);
         }
       }

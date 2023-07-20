@@ -67,7 +67,7 @@ const DocSec = ({ docInfo, locData }) => {
               <p>
                 {docInfo.satisfiedPatients +
                   "% " +
-                  `(${docInfo.noOfReviews})`}
+                  '( 5 )'}
               </p>
             </div>
           </div>
