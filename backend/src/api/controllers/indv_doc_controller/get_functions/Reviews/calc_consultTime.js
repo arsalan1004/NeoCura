@@ -9,7 +9,6 @@ const calcConsultTime = async (docId) => {
         public."Doctor" d
         INNER JOIN public."DoctorReviews" dr ON d."docId" = dr."docId"
         WHERE d."docId" = '${docId}'
-<<<<<<< HEAD
         GROUP BY d."docId"`,
       (err, result) => {
         if (err) {
@@ -24,19 +23,6 @@ const calcConsultTime = async (docId) => {
       }
     );
   });
-=======
-        GROUP BY d."docId"`, (err, result)=>{
-            if(err) {reject(err)}
-            else{
-                if (result.rows[0] == undefined) {
-                    resolve("0");
-                  } else {
-                    resolve(result.rows[0].satisfaction);
-                  }
-            }
-        })
-    })
->>>>>>> 210093c5bf892f6b8e0838b9f19ee0fd3d7b822b
 };
 
 module.exports = { calcConsultTime };
