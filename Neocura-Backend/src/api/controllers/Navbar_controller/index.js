@@ -3,7 +3,6 @@ const { getClinics } = require("./get_functions/Clinic/index.js");
 const { getDoctor } = require("./get_functions/Doctor/index.js");
 
 const getNavData = async (Request, Response) => {
-  console.log("In nav data");
   const hospital = await getHospitals();
   const clinic = await getClinics();
   const doctor = await getDoctor();

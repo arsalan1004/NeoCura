@@ -2,7 +2,6 @@ const { database } = require("../../../config/db_setup.js");
 
 const getPatientByIdIdController = async (req, response) => {
   const request = req.params;
-  console.log(request);
   try {
     database.query(
       `SELECT "patientId","email","img","phoneNumber","name" FROM public."Patient" WHERE "patientId"=${request.id};`,
