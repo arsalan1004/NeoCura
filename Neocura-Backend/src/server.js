@@ -29,6 +29,7 @@ const {
 const {
   getPatientByIdRouter,
 } = require("./api/routes/getPatientById_Router/OnlineBooking.js");
+const { reviewRouter } = require("./api/routes/DocReviews/docReviewRoute.js");
 
 //Body parser midleware
 app.use(express.json());
@@ -92,6 +93,7 @@ app.use("/", SpecRouter);
 app.use("/getPatientById", getPatientByIdRouter);
 app.use("/getDoctorById", getDoctorByIdRouter);
 app.use("/onlineBooking", OnlineBooking);
+app.use("/", reviewRouter);
 
 // Setting Up Server
 const port = process.env.port;
