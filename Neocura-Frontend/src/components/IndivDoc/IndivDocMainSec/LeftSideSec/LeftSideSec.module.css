@@ -1,22 +1,26 @@
-.LeftSideSec{
-    width: 55%;
-    margin-right: 8%;
-    /* background-color: aliceblue; */
-    margin-left: 4%;
-    color: #2c2c31;
+.LeftSideSec {
+  width: 55%;
+  margin-right: 8%;
+  margin-left: 4%;
+  color: #2c2c31;
+
+  /* If hiding RightSideSec, use this */
+  /* width: 90%; */
+  /* margin: 0 auto; */
+  /* background-color: aliceblue; */
 }
 
-.ReviewOverview{
-    display: flex;
-    margin-top: 7%;
+.ReviewOverview {
+  display: flex;
+  margin-top: 7%;
 }
 
-.ReviewOverview>h1{
-    margin: 0;
-    padding-left: 2%; ;
+.ReviewOverview > h1 {
+  margin: 0;
+  padding-left: 2%;
 }
 
-.ReviewOverview>img{
-    height:24px;
-    width: 24px;
+.ReviewOverview > img {
+  height: 24px;
+  width: 24px;
 }

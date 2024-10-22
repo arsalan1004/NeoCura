@@ -3,6 +3,8 @@
 } */
 
 .IndivDoc {
-    background-color: rgb(236, 248, 248);
-    margin-top:4%;
+  background-color: rgb(236, 248, 248);
+  margin-top: 4%;
+  /* for ReviewForm: absolute */
+  position: relative;
 }

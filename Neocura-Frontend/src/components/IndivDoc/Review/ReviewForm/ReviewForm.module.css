@@ -1,0 +1,138 @@
+.reviewFormModalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.reviewFormModal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 500px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+
+  animation-name: animate-modal;
+  animation-duration: 0.5s;
+  background-color: white;
+}
+
+@keyframes animate-modal {
+  from {
+    top: -20%;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    top: 50%;
+  }
+}
+
+.closeButtonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.closeButtonContainer button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0 0 0;
+}
+
+.descriptionContainer label {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.descriptionContainer textarea {
+  height: 100px;
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  resize: none;
+  outline: none;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.consultationContainer {
+  display: flex;
+  align-items: center;
+  margin: 15px 0 0 0;
+}
+
+.consultationContainer label {
+  font-size: 16px;
+}
+.consultationContainer input {
+  margin: 0 0 5px 50px;
+  width: 190px;
+  outline: none;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  font-family: "Anziano", Helvetica, sans-serif;
+  padding: 10px;
+}
+
+.waittimeContainer {
+  margin-top: 15px;
+}
+
+.waittimeContainer label {
+  font-size: 16px;
+}
+.waittimeContainer input {
+  margin: 0 0 5px 70px;
+  width: 100px;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  font-family: "Anziano", Helvetica, sans-serif;
+  padding: 10px;
+  outline: none;
+}
+
+.checkboxContainer {
+  align-items: center;
+  margin-top: 20px;
+}
+.checkboxSubContainer {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkboxContainer label {
+  font-size: 16px;
+}
+.checkboxContainer input {
+  width: 20px;
+  height: 20px;
+}
+
+.button {
+  align-self: flex-end;
+}
