@@ -2,7 +2,6 @@ const { database } = require("../../../config/db_setup.js");
 
 const UpdateRoomIdController = async (req, response) => {
   const request = req.body;
-  console.log(request);
   try {
     database.query(
       `UPDATE public."BookingRecords" SET "RoomId"=${request.roomId} WHERE "onlineConsultId"=${request.id};`,
@@ -25,7 +24,6 @@ const UpdateRoomIdController = async (req, response) => {
 
 const GetRoomIdController = async (req, response) => {
   const request = req.params;
-  console.log(request);
   try {
     database.query(
       `SELECT "RoomId" FROM public."BookingRecords" WHERE "onlineConsultId"=${request.id};`,

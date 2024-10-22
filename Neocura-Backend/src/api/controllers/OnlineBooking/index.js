@@ -2,7 +2,6 @@ const { database } = require("../../../config/db_setup.js");
 
 const OnlineBookingController = async (req, response) => {
   const request = req.body;
-  console.log(request);
   try {
     database.query(
       `INSERT INTO public."BookingRecords" ("platDocId", "patId", "Date", "Time", "Status") VALUES (${request.docId}, ${request.patId}, '${request.date}', '${request.time}', '${request.status}') RETURNING *;`,
