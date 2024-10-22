@@ -2,7 +2,6 @@ const { database } = require("../../../config/db_setup.js");
 
 const DeleteBooking = async (req, response) => {
   const request = req.params;
-  console.log(request);
   try {
     database.query(
       `DELETE FROM public."BookingRecords" WHERE "onlineConsultId"=${request.id};`,

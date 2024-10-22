@@ -9,7 +9,6 @@ const getSpecsData = async () => {
     GROUP BY sp."specialityName" ORDER BY sp."specialityName"`,
       (err, results) => {
         if (err) reject(err);
-        console.log(results.rows);
         resolve(results.rows);
       }
     );

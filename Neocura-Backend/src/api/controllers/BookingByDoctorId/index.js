@@ -2,7 +2,6 @@ const { database } = require("../../../config/db_setup.js");
 
 const BookingByDoctorIdController = async (req, response) => {
   const request = req.params;
-  console.log(request);
   try {
     database.query(
       `SELECT * FROM public."BookingRecords" WHERE "platDocId"=${request.id} AND "Status" = 'pending';`,
@@ -25,7 +24,6 @@ const BookingByDoctorIdController = async (req, response) => {
 
 const BookingByPatientIdController = async (req, response) => {
   const request = req.params;
-  console.log(request);
   try {
     database.query(
       `SELECT * FROM public."BookingRecords" WHERE "patId"=${request.id} AND "Status" = 'pending';`,
