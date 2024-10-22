@@ -4,18 +4,28 @@ import Wrapper from "../shared/Wrapper/Wrapper";
 import { Box, Button } from "@mui/material";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import InfoBox from "./InfoBox";
-import { dates, weekdays, months } from "../../data/BookingAppoint/data";
+import {
+  weekdays,
+  months,
+  dates as datesConstant,
+} from "../../data/BookingAppoint/data";
 // import VideoCon from '../../assets/images/GeneralImages/'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useLocation, useParams } from "react-router-dom";
+import {
+  useLocation,
+  useNavigate,
+  useNavigation,
+  useParams,
+} from "react-router-dom";
 import axios from "axios";
 
 const BookAppointment = (props) => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const Data = location.state && location.state;
-  console.log("state", location);
+  console.log("state", Data);
   const ComingData = {
     name: `Dr. ${Data?.docInfo?.name}`,
     img: Data?.docInfo?.docImg,
@@ -63,6 +73,7 @@ const BookAppointment = (props) => {
   const [selectedMonth, setSelectedMonth] = useState(
     months[new Date().getMonth()]
   );
+  const [dates, setDates] = useState(datesConstant);
 
   const places = ComingData.workingDetails.map((e, i) => e.name);
 
@@ -88,6 +99,41 @@ const BookAppointment = (props) => {
       ":" +
       new Date().getSeconds(),
   });
+
+  const getDaysInMonth = (month, year) => {
+    return new Date(year, month, 0).getDate();
+  };
+
+  const generateDates = () => {
+    const today = new Date();
+    const currentDay = today.getDate();
+    const currentMonth = today.getMonth() + 1;
+    const currentYear = today.getFullYear();
+
+    const daysInMonth = getDaysInMonth(currentMonth, currentYear);
+    const dates = [];
+
+    // Generate dates from the today onward
+    for (let day = currentDay; day <= daysInMonth; day++) {
+      dates.push({
+        day: new Date(currentYear, currentMonth - 1, day).toLocaleString(
+          "en-US",
+          { weekday: "long" }
+        ),
+        date: day,
+        month: new Date(currentYear, currentMonth - 1, day).toLocaleString(
+          "en-US",
+          { month: "long" }
+        ),
+      });
+    }
+
+    return dates;
+  };
+
+  useEffect(() => {
+    setDates(generateDates());
+  }, []);
 
   useEffect(() => {
     const selectedDay =
@@ -184,6 +230,7 @@ const BookAppointment = (props) => {
         });
       });
     console.log(modal);
+    navigate("/");
   };
 
   return (
@@ -251,63 +298,76 @@ const BookAppointment = (props) => {
             </div>
 
             {/* DATE Portion */}
-            <div className={classes.selectLoc}>
-              <h3>Date</h3>
-              <div className={classes.ScrollDateBox}>
-                {dates.map((e, i) => (
-                  <div
-                    key={i}
-                    onClick={() => {
-                      setSelectedDate(e.date);
-                      setSelectedMonth(e.month);
-                    }}
-                    className={
-                      selectedDate === e.date
-                        ? classes.SelectedDateBox
-                        : classes.DateBox
-                    }
-                  >
-                    <p>{e.day}</p>
-                    <div style={{ display: "flex", gap: "4px" }}>
-                      <p>{e.date}</p>
-                      <p>{e.month}</p>
-                    </div>
-                  </div>
-                ))}
+            <div className={classes.selectLocWrapper}>
+              <h3 className={classes.selectLocCardTitle}>Date</h3>
+              <div className={classes.selectLoc}>
+                <div className={classes.ScrollDateBoxWrapperLeft}></div>
+                <div className={classes.ScrollDateBoxWrapperRight}></div>
+                <div className={classes.ScrollDateBox}>
+                  {dates.length > 0 &&
+                    dates.map((e, i) => (
+                      <div
+                        key={i}
+                        onClick={() => {
+                          setSelectedDate(e.date);
+                          setSelectedMonth(e.month);
+                        }}
+                        className={
+                          selectedDate === e.date
+                            ? classes.SelectedDateBox
+                            : classes.DateBox
+                        }
+                      >
+                        <p>{e.day}</p>
+                        <div style={{ display: "flex", gap: "4px" }}>
+                          <p>{e.date}</p>
+                          <p>{e.month}</p>
+                        </div>
+                      </div>
+                    ))}
+                </div>
               </div>
             </div>
 
             {/* Timings Portion */}
-            <div className={classes.selectLoc}>
-              <h3>Time</h3>
-              <div className={classes.TimeBoxContainer}>
-                {times.map((e, i) => (
-                  <div
-                    key={i}
-                    onClick={() => {
-                      setSelectedTime(e);
-                    }}
-                    className={
-                      selectedTime === e
-                        ? classes.SelectedTimeBox
-                        : classes.TimeBox
-                    }
-                  >
-                    <p>{e}</p>
-                  </div>
-                ))}
+            <div className={classes.selectLocWrapper}>
+              <h3 className={classes.selectLocCardTitle}>Time</h3>
+              <div className={classes.selectLoc}>
+                <div className={classes.TimeBoxContainer}>
+                  {times.map((e, i) => (
+                    <div
+                      key={i}
+                      onClick={() => {
+                        setSelectedTime(e);
+                      }}
+                      className={
+                        selectedTime === e
+                          ? classes.SelectedTimeBox
+                          : classes.TimeBox
+                      }
+                    >
+                      <p>{e}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-
             {/* Button */}
             <div className={classes.btn}>
               <Button
                 startIcon={<CalendarMonthIcon />}
                 onClick={Submit}
-                color="success"
-                sx={{ padding: "10px" }}
+                color={"primary"}
+                sx={{
+                  padding: "10px",
+                  ":hover": {
+                    backgroundColor: "#1976d2",
+                    color: "white",
+                  },
+                  fontWeight: 700,
+                }}
                 size="large"
-                variant="contained"
+                variant={"outlined"}
               >
                 Book Appointment
               </Button>

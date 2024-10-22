@@ -27,10 +27,19 @@ const InfoBox = ({ img, name, spec, loc, phone, fees }) => {
       </div>
       <div className={classes.info}>
         <h6>{spec}</h6>
-        <div className={classes.IconBox}>
-          <LocationOnIcon sx={{ color: "#325f8b" }} />
-          <p>{loc}</p>
-        </div>
+
+        {loc !== undefined ? (
+          <div className={classes.IconBox}>
+            <LocationOnIcon sx={{ color: "#325f8b" }} />
+            <p>{loc}</p>
+          </div>
+        ) : (
+          <div className={classes.IconBox}>
+            <PhoneIcon sx={{ color: "#325f8b" }} />
+            <p>Online Meeting Room</p>
+          </div>
+        )}
+
         <h4>Fee: Rs {fees}</h4>
         <Button
           sx={{ width: "300px", backgroundColor: "#325f8b" }}

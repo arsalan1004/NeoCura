@@ -1,0 +1,45 @@
+.container {
+  height: 100vh;
+  padding-top: 100px;
+  width: 100%;
+  background: #2c2c31;
+  color: white;
+  text-align: center;
+}
+
+.header {
+  margin-top: 10px;
+  margin-bottom: 49px;
+}
+
+.videoContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.buttonContainer {
+  display: "flex";
+  justify-content: "center";
+  width: "100%";
+}
+
+.endCallButton {
+  background-color: red;
+  color: white;
+  margin-top: 30px;
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+  border: 1px solid red;
+}
+
+.endCallButton:hover {
+  background-color: white;
+  color: red;
+}

@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ReactPlayer from "react-player";
 import { Button } from "antd";
 import { Phone } from "@mui/icons-material";
+import styles from "./RoomMeeting.module.css";
 
 const RoomMeeting = () => {
   const Navigate = useNavigate();
@@ -124,49 +125,25 @@ const RoomMeeting = () => {
     }
   };
   return (
-    <div
-      className="bg-blue-800"
-      style={{
-        height: "100vh",
-        paddingTop: "100px",
-        width: "100%",
-        background: "#2c2c31",
-        color: "white",
-        textAlign: "center",
-      }}
-    >
+    <div className={styles["container"]}>
       <h1>Room Meeting-{params.id}</h1>
-      <h2 style={{ marginTop: "10px", marginBottom: "49px" }}>
-        You are in meeting with {remoteName}
-      </h2>
+      {/* <h2 className={styles["header"]}>You are in meeting with {remoteName}</h2> */}
       {/* <Button onClick={() => sendStreams}>Send My Video</Button> */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "10px",
-          marginTop: "40px",
-        }}
-      >
-        <ReactPlayer url={myStream} playing muted />
+      <div className={styles["videoContainer"]}>
+        <ReactPlayer url={myStream} playing muted volume={5} />
         {showRemote && <ReactPlayer url={myStream} playing muted />}
       </div>
       <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
-        <Button
-          style={{
-            backgroundColor: "red",
-            color: "white",
-            marginTop: "30px",
-            padding: "20px",
-            display: "flex",
-            gap: "10px",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          onClick={HandleCancel}
-        >
+        <Button className={styles["endCallButton"]} onClick={HandleCancel}>
           <Phone />
-          End Call
+          <p
+            style={{
+              fontWeight: 700,
+              fontSize: "17px",
+            }}
+          >
+            End Call
+          </p>
         </Button>
       </div>
       <ToastContainer />
