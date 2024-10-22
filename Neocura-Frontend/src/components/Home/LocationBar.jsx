@@ -7,7 +7,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 
 export default function LocationBar() {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState({ label: "Karachi" });
   console.log(city);
   const data = [
     { label: "Karachi" },
@@ -19,14 +19,18 @@ export default function LocationBar() {
 
   return (
     <Autocomplete
-      id="country-select-demo"
+      id="city-select"
       className={classes.LocBar}
       options={data}
-      // sx={{backgroundColor: "rgba(243, 243, 243, 0.802)"}}
-      // freeSolo
-      disableClearable
       autoHighlight
+      disableClearable
       getOptionLabel={(option) => option.label}
+      isOptionEqualToValue={(option, value) => option.label === value.label} // Custom equality check
+      value={city} // Ensure selected city is controlled
+      onChange={(event, newValue) => {
+        setCity(newValue); // Set the entire object as the selected value
+        localStorage.setItem("city", newValue?.label || "");
+      }}
       renderOption={(props, option) => (
         <Box
           component="li"
@@ -45,21 +49,15 @@ export default function LocationBar() {
       )}
       renderInput={(params) => (
         <TextField
-          onChange={(e) => {
-            console.log(e.target.value);
-          }}
-          onSelect={(e) => {
-            localStorage.setItem("city", e.target.value);
-          }}
-          className={classes.searchField}
           {...params}
+          className={classes.searchField}
+          placeholder="Enter City"
           sx={{
             "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
               {
                 borderColor: "transparent",
               },
           }}
-          placeholder="Enter City"
           InputProps={{
             ...params.InputProps,
             startAdornment: (

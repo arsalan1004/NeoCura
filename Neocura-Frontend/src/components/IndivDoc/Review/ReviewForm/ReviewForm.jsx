@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import classes from "./ReviewForm.module.css";
 import Close from "@mui/icons-material/Close";
 import { Button } from "@mui/material";
-
+import axios from "axios";
 const ReviewForm = (props) => {
   const [description, setDescription] = useState("");
   const [consultationTime, setConsultationTime] = useState(0); // date time
@@ -36,7 +36,23 @@ const ReviewForm = (props) => {
     console.log("datetime", new Date(value));
   };
 
-  const onSubmitHandler = (e) => {
+  const formatDate = (date) => {
+    // Extract parts of the date
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0"); // months are 0-based
+    const day = String(date.getDate()).padStart(2, "0");
+
+    // Extract hours and convert to 12-hour format
+    let hours = date.getHours();
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    const ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12 || 12; // Convert 24-hour format to 12-hour format
+
+    // Construct the final formatted string
+    return `${year}-${month}-${day} ${hours}:${minutes} ${ampm}`;
+  };
+
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
     if (description === "" || consultationTime === 0 || waitTime === 0) {
       alert("Please fill all the fields Correctly");
@@ -44,20 +60,30 @@ const ReviewForm = (props) => {
     }
 
     const reviewData = {
-      description: description,
-      consultationTime: new Date(consultationTime),
-      waitTime: waitTime,
+      desc: description,
+      consultTime: formatDate(new Date(consultationTime)),
+      waitTime: String(waitTime),
       satisfaction: satisfaction,
-      diagnosis: diagnosis,
-      staffBehavior: staffBehavior,
-      doctorId: Number(props.docInfo.docId),
+      diagnosis: String(diagnosis),
+      staffBehaviour: String(staffBehavior),
+      docId: Number(props.docInfo.docId),
       patientId: Number(JSON.parse(localStorage.getItem("userData")).patientId),
     };
+
+    console.log();
 
     console.table(reviewData);
     props.updateReviewFormOpenState(); // close the form
 
-    // send data to backend
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/addDocReview",
+        reviewData
+      );
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
