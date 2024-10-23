@@ -9,6 +9,8 @@ import Button from "../../../../UI/Buttons/SimpleButton/Button";
  */
 
 const ReviewOverview = (props) => {
+  const userType = localStorage.getItem("userType");
+
   const scrollToReview = () => {
     const reviewSec = document.getElementById("review-section");
     reviewSec.scrollIntoView({ behavior: "smooth" });
@@ -38,7 +40,12 @@ const ReviewOverview = (props) => {
       </div>
 
       <div className={classes.buttonContainer}>
-        <Button text="Write Review" clicked={props.updateReviewFormOpenState} />
+        {userType !== "doctor" && (
+          <Button
+            text="Write Review"
+            clicked={props.updateReviewFormOpenState}
+          />
+        )}
         <Button text="View Patient Reviews" clicked={scrollToReview} />
       </div>
     </div>

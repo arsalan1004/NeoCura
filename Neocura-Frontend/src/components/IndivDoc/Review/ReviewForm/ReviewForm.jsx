@@ -12,7 +12,7 @@ const ReviewForm = (props) => {
   const [satisfaction, setSatisfaction] = useState(false);
   const [diagnosis, setDiagnosis] = useState(false);
   const [staffBehavior, setStaffBehavior] = useState(false);
-
+  const userIsLoggedIn = Boolean(localStorage.getItem("userId"));
   /**
    * desc
    * satisfaction

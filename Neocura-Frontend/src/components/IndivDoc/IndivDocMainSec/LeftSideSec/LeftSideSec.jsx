@@ -6,10 +6,11 @@ import Review from "../../Review/Review";
 import ReviewOverview from "../../Review/ReviewOverview/ReviewOverview";
 import starAnimated from "../../../../assets/Icons/animatedStar2.gif";
 import ReviewForm from "../../Review/ReviewForm/ReviewForm";
-
+import { ToastContainer, toast } from "react-toastify";
 const LeftSideSec = () => {
   const { docInfo, userReview } = useContext(context);
   const [isReviewFormOpen, setIsReviewFormOpen] = useState(false);
+  const userIsLoggedIn = Boolean(localStorage.getItem("userId"));
 
   const sectionList = [
     "services",
@@ -21,7 +22,17 @@ const LeftSideSec = () => {
   ];
 
   const updateReviewFormOpenState = () => {
+    if (!userIsLoggedIn) {
+      toast.error("You are not loggedIn!", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      console.log("toast trigger");
+      return;
+    }
     setIsReviewFormOpen((isOpen) => !isOpen);
+    toast.success("Review Submitted successfully", {
+      position: toast.POSITION.TOP_RIGHT,
+    });
   };
 
   console.log(userReview);
@@ -62,6 +73,7 @@ const LeftSideSec = () => {
       })}
 
       <Review name={docInfo.name} noOfReviews={5} />
+      <ToastContainer />
     </div>
   );
 };

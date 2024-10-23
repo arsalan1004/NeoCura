@@ -36,8 +36,8 @@ const BookAppointment = (props) => {
       ),
     phone: "0334779229",
     workingDetails: [
-      ...Data?.locData?.hospital,
-      ...Data?.locData?.onlineConsultation,
+      ...(Data?.locData?.hospital ?? []),
+      ...(Data?.locData?.onlineConsultation ?? []),
     ],
     //   {
     //     name: "Dow Medical Center",
@@ -65,6 +65,7 @@ const BookAppointment = (props) => {
       { day: "Sunday", openingTime: "9:40 AM", closingTime: "11:00 AM" },
     ],
   };
+  console.log("WorkingDetails @68", ComingData.workingDetails);
   const [selectedLocation, setSelectedLocation] = useState(
     ComingData.workingDetails[0].name
   );
@@ -75,11 +76,20 @@ const BookAppointment = (props) => {
   );
   const [dates, setDates] = useState(datesConstant);
 
-  const places = ComingData.workingDetails.map((e, i) => e.name);
+  const places = ComingData.workingDetails.map((e, i) => {
+    console.log("In places map", e.name);
+    if (e.name == null) {
+      return "Online Video Consultation";
+    }
+    return e.name;
+  });
+  console.log("Places @68", places);
 
   const address = ComingData.workingDetails.filter(
     (e) => e.name === selectedLocation
   );
+
+  console.log("Address @68", address);
 
   const [times, setTimes] = useState([]);
 
@@ -230,7 +240,9 @@ const BookAppointment = (props) => {
         });
       });
     console.log(modal);
-    navigate("/");
+    setTimeout(() => {
+      navigate("/");
+    }, 3000);
   };
 
   return (

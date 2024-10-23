@@ -18,12 +18,12 @@ const InfoBox = ({ img, name, spec, loc, phone, fees }) => {
       />
       <div className={classes.infoBg}>
         <h1>{name}</h1>
-        <Button
+        {/* <Button
           sx={{ color: "white", marginLeft: "10px" }}
           startIcon={<ReviewsIcon />}
         >
           See Reviews
-        </Button>
+        </Button> */}
       </div>
       <div className={classes.info}>
         <h6>{spec}</h6>

@@ -57,7 +57,7 @@
 }
 .infoBg h1 {
   color: white;
-  border-right: 2px solid gray;
+  /* border-right: 2px solid gray; */
   padding: 10px;
   font-size: 35px;
   font-weight: 700;

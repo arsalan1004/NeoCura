@@ -7,7 +7,7 @@ import Modal from "../../../../UI/Modal/Modal";
 
 const RightSideSec = () => {
   const { locations } = useContext(context);
-  console.log('LOCATIONS: ', locations);
+  console.log("LOCATIONS: ", locations);
   const locKeys = Object.keys(locations);
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
@@ -18,8 +18,7 @@ const RightSideSec = () => {
     setViewingTimetable(false);
     setShowModal(false);
 
-    console.log('handler called');
-
+    console.log("handler called");
   };
 
   const gen = (name) => {
@@ -29,15 +28,17 @@ const RightSideSec = () => {
 
   useEffect(() => {
     if (viewingTimetable && selectedLocation) {
-      locKeys.slice(1,4).forEach((key) => {
+      locKeys.slice(1, 4).forEach((key) => {
         locations[key].forEach((loc) => {
           if (loc.name === selectedLocation) {
-            const tableRows = Object.entries(loc.timetable).map(([day, time]) => (
-              <tr key={day}>
-                <td className={classes.Day}>{day}</td>
-                <td className={classes.Time}>{time}</td>
-              </tr>
-            ));
+            const tableRows = Object.entries(loc.timetable).map(
+              ([day, time]) => (
+                <tr key={day}>
+                  <td className={classes.Day}>{day}</td>
+                  <td className={classes.Time}>{time}</td>
+                </tr>
+              )
+            );
 
             const timeTable = (
               <table>
@@ -57,7 +58,11 @@ const RightSideSec = () => {
 
   const showModalWithContent = (tt) => {
     setModalContent(
-      <Modal show={viewingTimetable} modalClosed={hideTimetableHandler} className={classes.Modal}>
+      <Modal
+        show={viewingTimetable}
+        modalClosed={hideTimetableHandler}
+        className={classes.Modal}
+      >
         <p>{tt}</p>
       </Modal>
     );
@@ -70,17 +75,18 @@ const RightSideSec = () => {
 
       <div className={classes.RightSideWrapper}>
         <div className={classes.RightSideSec}>
-          {locKeys.slice(1,4).map((key) => {
+          {locKeys.slice(1, 4).map((key) => {
+            if (locations[key] == null) return <></>;
             return locations[key].map((loc) => {
               return (
-                  <LocationSec
-                    key={loc.name}
-                    name={loc.name}
-                    location={loc.location}
-                    fees={loc.fees}
-                    timetable={loc.timetable}
-                    gen={gen}
-                  />
+                <LocationSec
+                  key={loc.name}
+                  name={loc.name}
+                  location={loc.location}
+                  fees={loc.fees}
+                  timetable={loc.timetable}
+                  gen={gen}
+                />
               );
             });
           })}

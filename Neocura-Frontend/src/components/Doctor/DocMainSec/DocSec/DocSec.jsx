@@ -9,8 +9,7 @@ import doc33 from "../../../../assets/images/docImgs/doc33.png";
 import { Link } from "react-router-dom";
 
 const DocSec = ({ docInfo, locData }) => {
-  console.log(docInfo);
-  console.log(locData);
+  const userType = localStorage.getItem("userType");
 
   return (
     <div className={classes.DocSec}>
@@ -89,17 +88,18 @@ const DocSec = ({ docInfo, locData }) => {
             View Profile
           </IconButton>
         </Link>
-
-        <Link
-          to={{
-            pathname: `/${docInfo.name}/booking`,
-          }}
-          state={{ docInfo, locData, docId: docInfo.docId }}
-        >
-          <IconButton id="consultation" passedClass={classes.Button2}>
-            Book Appointment
-          </IconButton>
-        </Link>
+        {userType !== "doctor" && (
+          <Link
+            to={{
+              pathname: `/${docInfo.name}/booking`,
+            }}
+            state={{ docInfo, locData, docId: docInfo.docId }}
+          >
+            <IconButton id="consultation" passedClass={classes.Button2}>
+              Book Appointment
+            </IconButton>
+          </Link>
+        )}
       </div>
     </div>
   );
