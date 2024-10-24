@@ -78,15 +78,13 @@ const Toolbar = () => {
 
   function changeColor() {
     if (window.scrollY <= 100 && getCurrentRoute()) {
-      document.getElementById("header").style.backgroundColor =
-        "rgba(0, 0, 0, 0.759)";
+      document.getElementById("header").style.backgroundColor = "#094975";
     } else if (window.scrollY <= 100) {
-      document.getElementById("header").style.backgroundColor = "#042343ff";
+      document.getElementById("header").style.backgroundColor = "#094975";
     } else if (window.scrollY >= 100) {
-      document.getElementById("header").style.backgroundColor = "#042343ff";
+      document.getElementById("header").style.backgroundColor = "#094975";
     } else {
-      document.getElementById("header").style.backgroundColor =
-        "rgba(0, 0, 0, 0.759)";
+      document.getElementById("header").style.backgroundColor = "#094975";
     }
   }
   window.addEventListener("scroll", changeColor);

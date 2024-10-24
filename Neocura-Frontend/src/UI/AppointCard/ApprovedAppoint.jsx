@@ -8,7 +8,7 @@ import doc33 from "../../assets/images/docImgs/doc33.png";
 import { Link, useNavigate } from "react-router-dom";
 import pat1 from "../../assets/images/pat1.avif";
 import pat2 from "../../assets/images/pat2.avif";
-import pat3 from "../../assets/images/pat3.avif";
+import pat3 from "../../assets/images/pat3.png";
 import axios from "axios";
 import { VideoCall } from "@mui/icons-material";
 import { socket } from "../../hoc/socket";

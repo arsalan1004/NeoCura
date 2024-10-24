@@ -8,7 +8,7 @@ import doc33 from "../../assets/images/docImgs/doc33.png";
 import { Link } from "react-router-dom";
 import pat1 from "../../assets/images/pat1.avif";
 import pat2 from "../../assets/images/pat2.avif";
-import pat3 from "../../assets/images/pat3.avif";
+import pat3 from "../../assets/images/pat3.png";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

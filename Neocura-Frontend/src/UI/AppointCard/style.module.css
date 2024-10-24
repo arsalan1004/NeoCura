@@ -183,3 +183,19 @@
   color: green !important;
   background-color: white !important;
 }
+
+.IconButton2 > button {
+  width: 200px;
+  height: 70%;
+  font-size: 14px;
+  border: 2px solid #000066;
+  border-radius: 8px;
+  padding: 7px 10px;
+  margin-bottom: 8%;
+  color: rgb(255, 255, 255);
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}

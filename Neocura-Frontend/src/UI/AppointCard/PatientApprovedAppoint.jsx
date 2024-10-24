@@ -10,7 +10,7 @@ import doc33 from "../../assets/images/docImgs/doc33.png";
 import { Link, useNavigate } from "react-router-dom";
 import pat1 from "../../assets/images/pat1.avif";
 import pat2 from "../../assets/images/pat2.avif";
-import pat3 from "../../assets/images/pat3.avif";
+import pat3 from "../../assets/images/pat3.png";
 import axios from "axios";
 import MapsUgcIcon from "@mui/icons-material/MapsUgc";
 import { socket } from "../../hoc/socket";
@@ -106,7 +106,7 @@ const PatientApprovedAppoint = ({ data }) => {
           className={
             roomId
               ? [classes.ProfileButton3, style.IconButton].join(" ")
-              : style.IconButton2
+              : classes.IconButton2
           }
         >
           <button onClick={() => handleJoinRoom()} disabled={!roomId} id="none">

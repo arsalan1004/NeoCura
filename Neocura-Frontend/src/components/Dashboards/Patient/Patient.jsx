@@ -21,7 +21,7 @@ import Requests from "./Screens/Requests";
 
 import pat1 from "../../../assets/images/pat1.avif";
 import pat2 from "../../../assets/images/pat2.avif";
-import pat3 from "../../../assets/images/pat3.avif";
+import pat3 from "../../../assets/images/pat3.png";
 const Patient = () => {
   const [selected, setSelected] = useState(0);
   const Navigate = useNavigate();
