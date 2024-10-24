@@ -16,14 +16,14 @@ A healthcare initiative platform where patients can find suitable doctors for bo
 
 Before proceeding with the installation, ensure you have the following installed:
 
-- **Node.js** (Version 20)  
-  [Download Node.js](https://nodejs.org/en/download/prebuilt-installer)  
+- **Node.js** (Version 20)
+  <a href="https://nodejs.org/en/download/prebuilt-installer" target="_blank">Download Node.js</a>  
   Verify installation by typing the following command in your terminal:
   ```bash
   node -v
   ```
-- **PostgreSQL** (Version 16.4)  
-  [Download PostgreSQL](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+- **PostgreSQL** (Version 16.4)
+  <a href="https://www.enterprisedb.com/downloads/postgres-postgresql-downloads" target="_blank">Download PostgreSQL</a>  
 
 ---
 
