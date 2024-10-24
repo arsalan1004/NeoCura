@@ -4,7 +4,7 @@ const { userModel } = require("../../models/UserModel/userModel");
 
 const AuthMiddleware = async (req, res) => {
   try {
-    const jwtSecret = process.env.JWT_SECRET;
+    const jwtSecret = "secret";
     const { username, password } = req.body;
     const foundUser = await userModel
       .findOne({ username: username })
